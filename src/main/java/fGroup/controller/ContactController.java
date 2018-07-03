@@ -20,5 +20,9 @@ public class ContactController {
 	public String faq(@ModelAttribute("contactForm") ContactForm form, Model model) {
 		return "42 faq";
 	}
+	
+	
+
+
 
 }

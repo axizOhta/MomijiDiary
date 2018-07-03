@@ -26,7 +26,7 @@
          	<ul>
          		<li class="a_select"><a href="17select.html">検索</a></li>
          		<li><a href="05mypage.html">基本ページ</a></li>
-         		<li><a href="30 contact.html ">お問い合わせ</a></li>
+         		<li><a href="30contact">お問い合わせ</a></li>
          	</ul>
         </div>
         </div>
@@ -38,7 +38,7 @@
 
 <div class="a_">
 <div class="text-center">
-<form:form action="contactConfirm" method="post" modelAttribute="contactForm">
+<form:form action="31contactConfirm" method="post" modelAttribute="contactForm">
 <fieldset>
 <div>
 <label class="h2">連絡用メールアドレス</label><br>
