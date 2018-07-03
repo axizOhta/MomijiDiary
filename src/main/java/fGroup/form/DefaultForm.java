@@ -1,5 +1,5 @@
 package fGroup.form;
 
-public class Defaultform {
+public class DefaultForm {
 
 }
