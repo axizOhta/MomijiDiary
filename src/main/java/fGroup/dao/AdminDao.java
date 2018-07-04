@@ -21,7 +21,7 @@ public class AdminDao {
 		List<Admin> list = jdbcTemplate.query
 				("SELECT admin_id, password FROM admin "
 						+ "WHERE admin_id = ? AND password = ?",
-						new BeanPropertyRowMapper<Admin>(Admin.class), pass);
+						new BeanPropertyRowMapper<Admin>(Admin.class), id, pass);
 
 		if(list.size()==0) {
 			return null;

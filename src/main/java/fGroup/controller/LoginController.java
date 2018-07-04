@@ -72,7 +72,7 @@ public class LoginController {
 		Integer id = admin.getAdmin_id();
 		String pass = admin.getPassword();
 
-		if(id==null && pass ==null || pass.equals("")) {
+		if(id==null && pass ==null) {
 			model.addAttribute("errmsg", "ログインIDとパスワードを入力してください。");
 			return "35login_manager";
 		} else if ( id == null ) {

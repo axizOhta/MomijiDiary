@@ -78,7 +78,7 @@
 <br>
 <br>
 <br>
-<form action ="29logout">
+<form action ="logout">
 <input type="submit" value="ログアウト" class="btn btn-warning btn-lg btn-block">
 </form>
 

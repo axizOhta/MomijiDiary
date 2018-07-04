@@ -40,13 +40,12 @@
 				<p class="error">${fn:escapeXml(errmsg)}</p>
 			</c:if>
 	    <div class = "k_padding">
-	      <label>ログインID</label><input type="text" name="id">
+	      <label>ログインID</label><form:input type="text" name="id" path="admin_id"/>
 	    </div>
 	    <div class = "k_padding">
-	      <label>パスワード</label><input type="password" name="pass">
+	      <label>パスワード</label><form:input type="password" name="pass" path="password" />
 	    </div>
 	  </fieldset>
-
 	 <div class="a_btn">
   <input type="submit" name="button" value="ログイン">
  </div>
