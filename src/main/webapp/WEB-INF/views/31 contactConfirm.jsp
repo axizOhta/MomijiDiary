@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>よくある質問</title>
+<title>お問い合わせ確認画面</title>
 <script src="js/jquery.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link href="css/f.css" rel="stylesheet">
@@ -34,36 +35,30 @@
 	</div>
 </header>
 <div class="o_">
-<div class="a_info">
-	<p>よくあるご質問</p>
-</div>
 <div class = "o_wrapper">
 <div class="a_">
-<div class="text-center">
-<div class="a_QandA">
-	<div class="a_Q">
-		<p>【質問】</p><p>この日記を使いたいのですがどうしたらいいですか？</p>
-	</div>
-	<div class="a_A">
-		<p>【回答】</p><p>新規登録から会員登録をしていただけると日記の投稿が可能になります。</p>
-	</div>
+<p class="h2">こちらでよろしいですか</p>
+<fieldset>
+<div class="a_cc">
+<p class="h2">連絡用メールアドレス</p>
+<p class="h3">${fn:escapeXml(contact.email_address)}</p>
 </div>
-<div class="a_QandA">
-	<div class="a_Q">
-		<p>【質問】</p><p>この日記を使いたいのですがどうしたらいいですか？</p>
-	</div>
-	<div class="a_A">
-		<p>【回答】</p><p>新規登録から会員登録をしていただけると日記の投稿が可能になります。</p>
-	</div>
+<div class="a_cc">
+<p class="h2">件名</p>
+<p class="h3">${fn:escapeXml(contact.contact_title)}</p>
+</div>
+<div class="a_cc">
+<p class="h2">本文(お問い合わせ内容)</p>
+<p class="h3">${fn:escapeXml(contact.contact_message)}</p>
+</div>
+</fieldset>
+<br>
+<div id="a_btn">
+<input type="submit"  class="btn btn-primary btn-lg btn-block" value="送信" onclick="location.href='32contactResult'; return false;">
 </div>
 <br>
-<br>
-<p class="h3">このページで解決しない場合はお問い合わせへ</p>
-<br>
-<br>
-<form:form action="30contact">
-<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="お問い合わせへ">
-</form:form>
+<div id="a_btn">
+<input type="submit" class="btn btn-primary btn-lg btn-block" value="戻る" onclick="location.href='30contact'; return false;">
 </div>
 </div>
 </div>

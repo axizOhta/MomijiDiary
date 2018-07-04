@@ -5,36 +5,36 @@ import javax.validation.constraints.NotBlank;
 public class ContactForm {
 
 	@NotBlank
-	private String mail;
+	private String email_address;
 
 	@NotBlank
-	private String subject;
+	private String contact_title;
 
 	@NotBlank
-	private String content;
+	private String contact_message;
 
-	public String getMail() {
-		 return mail;
+	public String getEmail_address() {
+		 return email_address;
 	}
 
-	public void setMail(String _mail) {
-		this.mail=_mail;
+	public void setEmail_address(String _email_address) {
+		this.email_address=_email_address;
 	}
 
-	public String getSubject() {
-		return subject;
+	public String getContact_title() {
+		return contact_title;
 	}
 
-	public void setSubject(String _subject) {
-		this.subject=_subject;
+	public void setContact_title(String _contact_title) {
+		this.contact_title=_contact_title;
 	}
 
-	public String getContent() {
-		return content;
+	public String getContact_message() {
+		return contact_message;
 	}
 
-	public void setContent(String _content) {
-		this.content=_content;
+	public void setContact_message(String _contact_message) {
+		this.contact_message=_contact_message;
 	}
 
 }
