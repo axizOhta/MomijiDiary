@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +41,9 @@
 
 			<div class="a_">
 				<div class="text-center">
+				<c:if test="${not empty errmsg}">
+  					<p class="error">${fn:escapeXml(errmsg)}</p>
+					</c:if>
 					<form:form action="55contactConfirmUnlogin" method="post"
 						modelAttribute="form">
 						<fieldset>
@@ -47,7 +52,7 @@
 								<form:input class="form-control input-lg" path="email_address" />
 							</div>
 							<div>
-								<label class="h3">件名</label><br>
+								<label class="h3">件名　*非会員は名前もご記入ください。</label><br>
 								<form:input class="form-control input-lg" path="contact_title" />
 							</div>
 							<div class="form-group">

@@ -51,12 +51,28 @@ public class ContactController {
 		contact.setContact_title(form.getContact_title());
 		contact.setContact_message(form.getContact_message());
 
-		System.out.println(contact);
-
 		HttpSession session = request.getSession();
 		session.setAttribute("contact", contact);
 
 		return "31 contactConfirm";
+	}
+
+	@RequestMapping(value = "/55contactConfirmUnlogin", method = RequestMethod.POST)
+	public String contactconfirmUnlogin(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
+
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("errmsg","入力されていない項目があります。");
+			return "54 contactUnlogin";
+		}
+		Contact contact = new Contact();
+		contact.setEmail_address(form.getEmail_address());
+		contact.setContact_title(form.getContact_title());
+		contact.setContact_message(form.getContact_message());
+
+		HttpSession session = request.getSession();
+		session.setAttribute("contact", contact);
+
+		return "55 contactConfirmUnlogin";
 	}
 
 }
