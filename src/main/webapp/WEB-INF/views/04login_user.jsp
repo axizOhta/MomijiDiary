@@ -29,9 +29,9 @@
          </div>
          <div class="a_menu">
          	<ul>
-         		<li class="a_select"><a href="53 selectUnlogin.html">検索</a></li>
-         		<li><a href="47 Top.html ">トップページ</a></li>
-         		<li><a href="54 contactUnlogin.html ">お問い合わせ</a></li>
+         		<li class="a_select"><a href="53 selectUnlogin">検索</a></li>
+         		<li><a href="47Top">トップページ</a></li>
+         		<li><a href="54contactUnlogin">お問い合わせ</a></li>
          	</ul>
         </div>
         </div>
@@ -60,13 +60,13 @@
 <br>
 <br>
 <div class="a_btn">
-  <input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="ログインする" onclick="location.href='05mypage.html'; return false;">
+  <input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="ログインする">
  </div>
  </form:form>
   <br>
 <br>
 <div class="a_btn">
-<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="前のページに戻る" onclick="location.href='47 Top.html'; return false;">
+<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="前のページに戻る" onclick="location.href='47Top'; return false;">
 </div>
 </div>
 </div>

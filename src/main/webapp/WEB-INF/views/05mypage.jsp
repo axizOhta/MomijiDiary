@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<c:if test="${empty user}">
+  <c:redirect url="/index"/>
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,32 +45,32 @@
 
 <div class = "o_wrapper">
 </header>
-<p class ="h2">ようこそF野太郎さん</p>
+<p class ="h2">ようこそ${fn:escapeXml(user.admin_name)}さん</p>
 <br>
 <br>
 <div class="a_">
-<form action ="44myArt.html">
+<form action ="44myArt">
 	<input type="submit" value= "自分の記事" class="btn btn-success btn-lg btn-block">
 </form>
 
 <br>
 <br>
 
-<form action ="45myPro.html">
+<form action ="45myPro">
 	<input type="submit" value= "自己紹介" class="btn btn-info btn-lg btn-block">
 </form>
 
 <br>
 <br>
 
-<form action ="19 userinfoUpdate.html">
+<form action ="19userinfoUpdate">
 <input type="submit" value="登録情報の更新" class="btn btn-primary btn-lg btn-block">
 </form>
 
 <br>
 <br>
 
-<form action ="33contactHis.html">
+<form action ="33contactHis">
 <input type="submit" value="お問い合わせ履歴" class="btn btn-primary btn-lg btn-block">
 </form>
 
@@ -73,13 +78,13 @@
 <br>
 <br>
 <br>
-<form action ="29 logout.html">
+<form action ="29logout">
 <input type="submit" value="ログアウト" class="btn btn-warning btn-lg btn-block">
 </form>
 
 <br>
 <br>
-<form action ="48 unsubscribepass.html">
+<form action ="48unsubscribepass">
 <input type="submit" value="退会" class="btn btn-danger btn-lg btn-block">
 </form>
 </div>
