@@ -40,7 +40,7 @@
 <div class="a_info">
 	<p>削除が完了しました</p>
 	<p>削除した記事<br>
-	『記事タイトル①』</p>
+	『${ title }』</p>
 </div>
 <div class="a_">
 	<div class="a_return">

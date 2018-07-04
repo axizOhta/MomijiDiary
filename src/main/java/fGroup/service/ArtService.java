@@ -34,4 +34,8 @@ public class ArtService {
 		artDao.update(article_id, article_title, article_main);
 	}
 
+	public void delete(Integer article_id) {
+		artDao.delete(article_id);
+	}
+
 }

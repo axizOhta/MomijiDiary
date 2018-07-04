@@ -171,5 +171,22 @@ public class ArtController {
 		return "12editOK";
 	}
 
+	@RequestMapping(value="/13deleteCon", method=RequestMethod.POST)
+	public String deleteCon (@ModelAttribute("form") Post post, Model model) {
+
+		model.addAttribute("delete", post);
+		return "13deleteCon";
+	}
+
+	@RequestMapping(value="/14deleteOK", method=RequestMethod.POST)
+	public String deleteOK (@ModelAttribute("form") Post post, Model model) {
+
+		artS.delete(post.getArticle_id());
+		model.addAttribute("title", post.getArticle_title());
+
+		return "14deleteOK";
+	}
+
+
 
 }

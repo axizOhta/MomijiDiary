@@ -19,6 +19,7 @@ public class ArtDao {
 	String SELECT_LAST_ARTID = "SELECT MAX(article_id) FROM article";
 	String INSERT_POST_ART = "INSERT INTO article (user_id, name, article_title, article_main, contribute_date) VALUES (?, ?, ?, ?, ?)";
 	String UPDATE_EDIT_ART = "UPDATE article SET article_title = ?, article_main = ? WHERE article_id = ?";
+	String DELETE_ART = "DELETE FROM article WHERE article_id = ?";
 
 	public List<Article> selectArt(Integer art_id) {
 		return jT.query(SELECT_WHERE_ArtId, new BeanPropertyRowMapper<Article>(Article.class), art_id);
@@ -36,6 +37,10 @@ public class ArtDao {
 
 	public void update(Integer article_id, String article_title, String article_main) {
 		jT.update(UPDATE_EDIT_ART, article_title, article_main , article_id);
+	}
+
+	public void delete(Integer article_id) {
+		jT.update(DELETE_ART, article_id);
 	}
 
 }

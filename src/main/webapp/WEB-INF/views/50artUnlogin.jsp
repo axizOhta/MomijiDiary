@@ -43,7 +43,7 @@
 	<p class = "h2">${ art.name }さんの日記</p>
 </div>
 <div class="a_">
-<form action ="22 profile">
+<form action ="22profile">
 <input type="submit" value="自己紹介" class="btn btn-primary btn-lg btn-block">
 </form>
 <br>
@@ -66,9 +66,9 @@
 </div>
 <br>
 <br>
-	<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="トップページに戻る" onclick="location.href='47 Top.html'; return false;">
+	<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="トップページに戻る" onclick="location.href='47Top'; return false;">
 	<br>
-	<input type="submit" class="btn btn-info btn-lg  btn-block" name="button" value="新規登録" onclick="location.href='25 userinsert.html'; return false;">
+	<input type="submit" class="btn btn-info btn-lg  btn-block" name="button" value="新規登録" onclick="location.href='25userinsert'; return false;">
 </div>
 
 </div>
