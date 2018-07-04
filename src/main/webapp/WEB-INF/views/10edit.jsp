@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>投稿画面</title>
+<title>編集画面</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
@@ -20,7 +20,6 @@
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
 </head>
 <body>
 	<header>
@@ -32,9 +31,9 @@
 					</div>
 					<div class="a_menu">
 						<ul>
-							<li class="a_select"><a href="17select">検索</a></li>
-							<li><a href="05mypage">基本ページ</a></li>
-							<li><a href="30contact">お問い合わせ</a></li>
+							<li class="a_select"><a href="17select.html">検索</a></li>
+							<li><a href="05mypage.html">基本ページ</a></li>
+							<li><a href="30 contact.html ">お問い合わせ</a></li>
 						</ul>
 					</div>
 				</div>
@@ -42,22 +41,24 @@
 		</div>
 	</header>
 	<div class="o_">
-		<form:form action="07postCon" modelAttribute="form">
+		<form:form action="11editCon" modelAttribute="form">
 			<div class="a_form">
 				<div class="a_info">
-					<p>記事の投稿</p>
+					<p>記事の編集</p>
 				</div>
-				<p><span class="a_denger">${msg}</span></p>
+				<p>
+					<span class="a_denger">${msg}</span>
+				</p>
 				<div>
 					<label for="title" class="a_midashi">記事の題名</label><br>
 					<form:input class="form-control input-lg" id="title" name="title"
-						path="article_title" placeholder="記事の題名" />
+						path="article_title"/>
 				</div>
 				<br>
 				<div>
 					<label for="content" class="a_midashi">本文</label>
 					<form:textarea class="form-control  input-lg" rows="8" id="comment"
-						path="article_main" placeholder="本文" />
+						path="article_main" />
 				</div>
 
 
@@ -120,6 +121,8 @@
 				</div>
 			</div>
 			<div class="a_">
+			<form:hidden path="article_id" />
+			<form:hidden path="contribute_date" />
 				<input class="btn btn-warning btn-lg btn-block" type="submit"
 					value="表示の確認">
 				<div class="a_return">
@@ -127,10 +130,10 @@
 						name="button" value="基本ページに戻る"
 						onclick="location.href='05mypage.html'; return false;">
 				</div>
-
 			</div>
 		</form:form>
 	</div>
+
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"

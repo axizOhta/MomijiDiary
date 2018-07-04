@@ -65,30 +65,13 @@
 </div>
 </div>
 <br>
-<c:if test="${user.user_id == art.user_id}">
-<form:form action ="10edit" modelAttribute="form">
-<form:hidden path="article_id" />
-<form:hidden path="article_title" />
-<form:hidden path="article_main" />
-<form:hidden path="contribute_date" />
-<input type="submit" value="編集" class="btn btn-success btn-lg btn-block">
-</form:form>
 <br>
-<form:form action ="13deleteCon" modelAttribute="form">
-<form:hidden path="article_id" />
-<form:hidden path="article_title" />
-<form:hidden path="article_main" />
-<form:hidden path="contribute_date" />
-<input type="submit" value="削除" class="btn btn-danger btn-lg btn-block">
-</form:form>
-</c:if>
-<br>
-<br>
-	<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="基本ページに戻る" onclick="location.href='05mypage.html'; return false;">
+	<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="トップページに戻る" onclick="location.href='47 Top.html'; return false;">
+	<br>
+	<input type="submit" class="btn btn-info btn-lg  btn-block" name="button" value="新規登録" onclick="location.href='25 userinsert.html'; return false;">
 </div>
 
 </div>
 </div>
-
 </body>
 </html>

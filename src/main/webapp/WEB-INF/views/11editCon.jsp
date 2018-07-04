@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>記事投稿画面</title>
+<title>編集確認画面</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
@@ -42,15 +42,47 @@
 	</header>
 	<div class="o_">
 		<div class="a_info">
-			<p>投稿が完了しました</p>
-			<a href="15art?art_id=${ art_id }">投稿した記事を確認する</a><br>
+			<p>編集内容の確認</p>
+			<p>
+				<span class="a_denger">※まだ編集は完了していません！</span>
+			</p>
 		</div>
+		<div class="o_wrapper">
+			<div class="a_">
+				<div class="a_article">
+					<div class="a_line">
+						<p class="h2">${ edit.article_title }</p>
+					</div>
+					<div class="a_line">
+						<p class="h4">${ edit.contribute_date }</p>
+					</div>
+					<div>
+						<p class="a_kiji">${ edit.article_main }</p>
+					</div>
+					<div class="o_pattern1">
+						<img src="image/maguro.jpg" alt="">
+					</div>
+				</div>
+				<div class="a_form">
+					<div class="a_btn">
+						<form:form action="12editOK" modelAttribute="form">
+							<form:hidden path="article_title" />
+							<form:hidden path="article_id" />
+							<form:hidden path="article_main" />
+							<form:hidden path="contribute_date" />
 
-		<div class="a_">
-			<div class="a_return">
-				<input type="submit" class="btn btn-info btn-lg btn-block"
-					name="button" value="基本ページに戻る"
-					onclick="location.href='05mypage'; return false;">
+							<input class="btn btn-warning btn-lg btn-block" type="submit"
+								value="編集完了"> <br> <input type="submit"
+								class="btn btn-success btn-lg btn-block" name="return"
+								value="編集に戻る">
+							<div class="a_return">
+								<input type="submit" class="btn btn-info btn-lg btn-block"
+									name="button" value="基本ページに戻る"
+									onclick="location.href='05mypage'; return false;">
+							</div>
+						</form:form>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -21,4 +21,17 @@ public class ArtService {
 		}
 		return list.get(0);
 	}
+
+	public Integer lastId() {
+		return artDao.lastId();
+	}
+
+	public void insert(String title, String date, String content, Integer user_id, String name) {
+		artDao.insert(title, date, content, user_id, name);
+	}
+
+	public void update(Integer article_id, String article_title, String article_main) {
+		artDao.update(article_id, article_title, article_main);
+	}
+
 }

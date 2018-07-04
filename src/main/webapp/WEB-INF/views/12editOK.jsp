@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>記事投稿画面</title>
+<title>編集完了画面</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
@@ -42,10 +42,9 @@
 	</header>
 	<div class="o_">
 		<div class="a_info">
-			<p>投稿が完了しました</p>
-			<a href="15art?art_id=${ art_id }">投稿した記事を確認する</a><br>
+			<p>編集が完了しました</p>
+			<a href="15art?art_id=${ art_id }">編集した記事を確認する</a><br>
 		</div>
-
 		<div class="a_">
 			<div class="a_return">
 				<input type="submit" class="btn btn-info btn-lg btn-block"

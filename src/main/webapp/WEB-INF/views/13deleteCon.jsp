@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>記事</title>
+<title>削除確認</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -27,9 +27,9 @@
          </div>
          <div class="a_menu">
          	<ul>
-         		<li class="a_select"><a href="17select">検索</a></li>
-         		<li><a href="05mypage">基本ページ</a></li>
-         		<li><a href="30contact">お問い合わせ</a></li>
+         		<li class="a_select"><a href="17select.html">検索</a></li>
+         		<li><a href="05mypage.html">基本ページ</a></li>
+         		<li><a href="30 contact.html ">お問い合わせ</a></li>
          	</ul>
         </div>
         </div>
@@ -38,57 +38,41 @@
 </header>
 <div class="o_">
 
-<div class = "o_wrapper">
-<div>
-	<p class = "h2">${ art.name }さんの日記</p>
+<div class="a_info">
+	<p>削除記事の確認</p>
 </div>
+<div class = "o_wrapper">
 <div class="a_">
-<form action ="22 profile">
-<input type="submit" value="自己紹介" class="btn btn-primary btn-lg btn-block">
-</form>
-<br>
-<br>
-<div>
 <div class ="a_article">
 	<div class="a_line">
-		<p class = "h2">${ art.article_title }</p>
+		<p class = "h2">マグロ釣った！</p>
 	</div>
 	<div class="a_line">
-		<p class ="h4">${ art.contribute_date }</p>
+		<p class ="h4">7月2日20時15分</p>
 	</div>
 	<div>
-		<p class ="a_kiji">${ art.article_main }</p>
+		<p class ="a_kiji">今日はマグロを釣った！<br>大漁だ！</p>
 	</div>
 	<div class="o_pattern1">
 	  <img src="image/maguro.jpg"  alt="">
 	</div>
 </div>
-</div>
-<br>
-<c:if test="${user.user_id == art.user_id}">
-<form:form action ="10edit" modelAttribute="form">
-<form:hidden path="article_id" />
-<form:hidden path="article_title" />
-<form:hidden path="article_main" />
-<form:hidden path="contribute_date" />
-<input type="submit" value="編集" class="btn btn-success btn-lg btn-block">
-</form:form>
-<br>
-<form:form action ="13deleteCon" modelAttribute="form">
-<form:hidden path="article_id" />
-<form:hidden path="article_title" />
-<form:hidden path="article_main" />
-<form:hidden path="contribute_date" />
-<input type="submit" value="削除" class="btn btn-danger btn-lg btn-block">
-</form:form>
-</c:if>
-<br>
-<br>
-	<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="基本ページに戻る" onclick="location.href='05mypage.html'; return false;">
-</div>
+<div class ="a_form">
+<div class="a_btn">
+<p><span class="a_denger">※この記事を削除しますか？</span></p>
 
+<form action="14deleteOK.html" method="post">
+	<input  class="btn btn-danger btn-lg btn-block" type="submit" value="削除完了">
+	<br>
+	<input type="submit" class="btn btn-success btn-lg btn-block" name="button" value="編集・削除記事一覧に戻る" onclick="location.href='09all_edit_delete.html'; return false;">
+	<div class="a_return">
+	<input type="submit" class="btn btn-info btn-lg btn-block" name="button" value="基本ページに戻る" onclick="location.href='05mypage.html'; return false;">
+	</div>
+</form>
 </div>
 </div>
-
+</div>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>
