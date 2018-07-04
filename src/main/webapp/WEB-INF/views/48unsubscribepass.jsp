@@ -25,7 +25,7 @@
          	<ul>
          		<li class="a_select"><a href="17select">検索</a></li>
          		<li><a href="05mypage">基本ページ</a></li>
-         		<li><a href="30 contact">お問い合わせ</a></li>
+         		<li><a href="30contact">お問い合わせ</a></li>
          	</ul>
         </div>
         </div>
@@ -33,39 +33,39 @@
 	</div>
 </header>
 <div class="o_">
-<div class = "o_wrapper">
-<div class="a_">
-<div class="text-center">
-<p class="h2">退会</p>
-<br>
-<br>
-<p class="h3">パスワードを入力してください</p>
-<br>
-<br>
-<div>
-<label class="h2">パスワード</label>
-<br>
-<br>
-<input type="password" class="form-control input-lg" name="newpassword" value="downtown">
+	<div class = "o_wrapper">
+		<div class="a_">
+			<div class="text-center">
+				<p class="h2">退会</p>
+				<br>
+				<br>
+				<p class="h3">パスワードを入力してください</p>
+				<br>
+				<br>
+					<div>
+						<label class="h2">パスワード</label>
+						<br>
+						<br>
+						<input type="password" class="form-control input-lg" name="newpassword" value="downtown">
+					</div>
+					<br>
+					<br>
+					<div>
+						<label class="h2">パスワード(再入力)</label>
+					<br>
+					<br>
+						<input type="password" class="form-control input-lg" name="repassword" value="downtown">
+				</div>
+				<br>
+				<br>
+					<div class="a_btn">
+						<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="確認">
+						<br>
+						<br>
+						<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="戻る">
+				</div>
+		</div>
+	</div>
 </div>
-<br>
-<br>
-<div>
-<label class="h2">パスワード(再入力)</label>
-<br>
-<br>
-<input type="password" class="form-control input-lg" name="repassword" value="downtown">
-</div>
-<br>
-<br>
-<div class="a_btn">
-<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="確認">
-  <br>
-<br>
-<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="戻る">
-  </div>
-  </div>
-  </div>
-  </div>
 </body>
 </html>

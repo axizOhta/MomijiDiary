@@ -45,7 +45,7 @@
 <br>
 <br>
 <br>
-<input type="submit" class="btn btn-warning btn-lg btn-block" name="button" value="退会" onclick="location.href='46 unsubscribeResult.html'; return false;">
+<input type="submit" class="btn btn-warning btn-lg btn-block" name="button" value="退会">
   </div>
   </div>
   </div>
