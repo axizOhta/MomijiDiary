@@ -57,30 +57,30 @@ public class LoginController {
 
 }
 
+
 // 管理者ログイン	//----------------------------------------------------------------------------------
 		@Autowired
 		AdminDao adminDao;
 
 		@RequestMapping("/Mlogin")//GET
-		public String index(@ModelAttribute("form") Admin admin, Model model){
+		public String indexM(@ModelAttribute("form") Admin admin, Model model){
 			return "35login_manager";
 		}
 
-		@RequestMapping(value="/Mlogin", method=RequestMethod.POST)
-		public String get(@ModelAttribute("form") Admin admin, Model model) {
+		@RequestMapping(value="/Mlogin", method = RequestMethod.POST)
+		public String getM(@ModelAttribute("form") Admin admin, Model model) {
 		Integer id = admin.getAdmin_id();
 		String pass = admin.getPassword();
 
-		if(id==null && pass ==null || id.equals("") && pass.equals("")) {
+		if(id==null && pass ==null || pass.equals("")) {
 			model.addAttribute("errmsg", "ログインIDとパスワードを入力してください。");
-			System.out.println("a");
-			return "04login_user";
-		} else if ( id == null || id.equals("")) {
+			return "35login_manager";
+		} else if ( id == null ) {
 			model.addAttribute("errmsg", "ログインIDを入力してください。");
-			return "04login_user";
+			return "35login_manager";
 		} else if (pass == null || pass.equals("")) {
 			model.addAttribute("errmsg", "パスワードを入力してください。");
-			return "04login_user";
+			return "35login_manager";
 		}
 
 		Admin ad = adminDao.findByIdAndPassword(id,pass);

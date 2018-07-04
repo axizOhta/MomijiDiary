@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -34,7 +37,7 @@
 <div class = "o_wrapper">
 <div class="a_">
 <div class="a_btn">
-<form action="34 contactsuper">
+<form action="34contactsuper">
 	<input type="submit" value="問い合わせ確認" class="a_btn_manager">
 </form>
 </div>
@@ -46,9 +49,9 @@
 </div>
 <br><br>
 <div id="a_btn">
-<form action="35login_manager">
+<form:form action="Mlogout" modelAttribute="form">
 	<input type="submit" value="ログアウト" class="a_btn_manager">
-</form>
+</form:form>
 </div>
 </div>
 </div>
