@@ -13,6 +13,7 @@ import fGroup.dao.AdminDao;
 import fGroup.dao.UsersDao;
 import fGroup.dto.Admin;
 import fGroup.dto.Users;
+import fGroup.form.AdminForm;
 
 @Controller
 public class LoginController {
@@ -35,14 +36,15 @@ public class LoginController {
 	String pass = users.getPassword();
 
 	if(id==null && pass ==null || id.equals("") && pass.equals("")) {
-		model.addAttribute("errmsg", "ログインIDとパスワードを入力してください。");
+		model.addAttribute("errmsg", "ID と パスワード を<br>入力してください。");
 
 		return "04login_user";
 	} else if ( id == null || id.equals("")) {
-		model.addAttribute("errmsg", "ログインIDを入力してください。");
+		model.addAttribute("errmsg", "IDを入力してください。");
 		return "04login_user";
 	} else if (pass == null || pass.equals("")) {
-		model.addAttribute("errmsg", "パスワードを入力してください。");
+		model.addAttribute("errmsg", "パスワードを入力してください。"
+				+ "<br><br>パスワードは 4文字以上 10文字以下 の 半角英数字 です。");
 		return "04login_user";
 	}
 
@@ -51,11 +53,17 @@ public class LoginController {
 		session.setAttribute("user", us);
 			return "05mypage";
 		} else {//id、passの一致するアカウントが無い
-			model.addAttribute("errmsg", "ログインIDまたはパスワードが違います。");
+			model.addAttribute("errmsg", "IDまたはパスワードが<br>間違っています。"
+					+ "<br><br>パスワードは4文字以上10文字以下の半角英数字です。");
 			return "04login_user";
 		}
 
 }
+
+		@RequestMapping("/top")
+		public String Top(Model model){
+		return "47Top";
+		}
 
 
 // 管理者ログイン	//----------------------------------------------------------------------------------
@@ -68,27 +76,38 @@ public class LoginController {
 		}
 
 		@RequestMapping(value="/Mlogin", method = RequestMethod.POST)
-		public String getM(@ModelAttribute("form") Admin admin, Model model) {
-		Integer id = admin.getAdmin_id();
+		public String getM(@ModelAttribute("form") AdminForm admin, Model model) {
+
+
+		String id = admin.getAdmin_id();
 		String pass = admin.getPassword();
 
-		if(id==null && pass ==null) {
-			model.addAttribute("errmsg", "ログインIDとパスワードを入力してください。");
+		System.out.println(id);
+		if(id==null && pass ==null || id.equals("") && pass.equals("")) {
+			model.addAttribute("errmsg", "IDとパスワード を入力してください。");
 			return "35login_manager";
-		} else if ( id == null ) {
-			model.addAttribute("errmsg", "ログインIDを入力してください。");
+		} else if ( id == null ||  id.equals("")) {
+			model.addAttribute("errmsg", "IDを入力してください。");
 			return "35login_manager";
 		} else if (pass == null || pass.equals("")) {
 			model.addAttribute("errmsg", "パスワードを入力してください。");
 			return "35login_manager";
 		}
 
-		Admin ad = adminDao.findByIdAndPassword(id,pass);
+		try {
+			Integer.parseInt(admin.getAdmin_id());
+		} catch (NumberFormatException nfex) {
+			model.addAttribute("errmsg", "IDまたはパスワードが違います。");
+			return "35login_manager";
+		}
+		Integer adminId=Integer.parseInt(id);
+
+		Admin ad = adminDao.findByIdAndPassword(adminId,pass);
 			if (ad != null) {//ログイン
 				session.setAttribute("user", ad);
 				return "43managerMenu";
 			} else {//id、passの一致するアカウントが無い
-				model.addAttribute("errmsg", "ログインIDまたはパスワードが違います。");
+				model.addAttribute("errmsg", "IDまたはパスワードが違います。");
 				return "35login_manager";
 			}
 		}
