@@ -36,7 +36,7 @@ public class LoginController {
 
 	if(id==null && pass ==null || id.equals("") && pass.equals("")) {
 		model.addAttribute("errmsg", "ログインIDとパスワードを入力してください。");
-		System.out.println("a");
+
 		return "04login_user";
 	} else if ( id == null || id.equals("")) {
 		model.addAttribute("errmsg", "ログインIDを入力してください。");

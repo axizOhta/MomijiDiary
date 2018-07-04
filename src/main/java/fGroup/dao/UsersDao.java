@@ -22,7 +22,7 @@ public class UsersDao {
 				("SELECT user_id, login_id, name, email_address, password, entry_date, last_update_date, unsubscribe_flug"
 						+ " FROM users "
 						+ "WHERE login_id = ? AND password = ?",
-						new BeanPropertyRowMapper<Users>(Users.class), pass);
+						new BeanPropertyRowMapper<Users>(Users.class), id,pass);
 
 		if(list.size()==0) {
 			return null;

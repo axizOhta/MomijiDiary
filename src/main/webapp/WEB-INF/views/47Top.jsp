@@ -27,7 +27,7 @@
          <div class="a_menu">
          	<ul>
          		<li class="a_select"><a href="53selectUnlogin">検索</a></li>
-         		<li><a href="47Top">トップページ</a></li>
+         		<li><a href="top">トップページ</a></li>
          		<li><a href="54contactUnlogin">お問い合わせ</a></li>
          	</ul>
         </div>

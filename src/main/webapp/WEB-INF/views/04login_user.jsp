@@ -30,7 +30,7 @@
          <div class="a_menu">
          	<ul>
          		<li class="a_select"><a href="53 selectUnlogin">検索</a></li>
-         		<li><a href="47Top">トップページ</a></li>
+         		<li><a href="top">トップページ</a></li>
          		<li><a href="54contactUnlogin">お問い合わせ</a></li>
          	</ul>
         </div>
@@ -49,11 +49,11 @@
 		</c:if>
     <div>
       <label class="h2">IDを入力してください</label><br>
-      <input type="text" class="form-control input-lg" id="id">
+      <form:input type="text" class="form-control input-lg" id="id" path="login_id"></form:input>
     </div>
     <div>
       <label class="h2">パスワードを入力してください</label><br>
-      <input type="password" class="form-control input-lg" id="pass">
+      <form:input type="password" class="form-control input-lg" id="pass" path="password"/>
     </div>
   </fieldset>
   <br>
@@ -65,9 +65,11 @@
  </form:form>
   <br>
 <br>
+<form action ="top">
 <div class="a_btn">
-<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="前のページに戻る" onclick="location.href='47Top'; return false;">
+<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="前のページに戻る">
 </div>
+</form>
 </div>
 </div>
 </div>

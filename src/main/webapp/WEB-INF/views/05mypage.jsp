@@ -45,7 +45,7 @@
 
 <div class = "o_wrapper">
 </header>
-<p class ="h2">ようこそ${fn:escapeXml(user.admin_name)}さん</p>
+<p class ="h2">ようこそ${fn:escapeXml(user.name)}さん</p>
 <br>
 <br>
 <div class="a_">
