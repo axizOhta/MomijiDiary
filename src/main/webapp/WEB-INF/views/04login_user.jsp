@@ -44,6 +44,9 @@
 <div class="text-center">
 	<form:form action="login" modelAttribute="form">
   <fieldset>
+  		<c:if test="${not empty errmsg}">
+  		<p class="error">${fn:escapeXml(errmsg)}</p>
+		</c:if>
     <div>
       <label class="h2">IDを入力してください</label><br>
       <input type="text" class="form-control input-lg" id="id">
