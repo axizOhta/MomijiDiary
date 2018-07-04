@@ -1,18 +1,23 @@
 package fGroup.form;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class ContactForm {
 
 	private Integer contact_id;
 
-	@NotBlank
+	@NotBlank(message="入力されていない項目があります。")
+	@Email(message="Eメール形式で入力してください。")
 	private String email_address;
 
-	@NotBlank
+	@NotBlank(message="入力されていない項目があります。")
+	@Size(max = 30,message="件名の文字数が多すぎます。30文字以内で入力してください。")
 	private String contact_title;
 
-	@NotBlank
+	@NotBlank(message="入力されていない項目があります。")
+	@Size(max = 1000,message="本文の文字数が多すぎます。1000文字以内で入力してください。")
 	private String contact_message;
 
 	public Integer getContact_id() {

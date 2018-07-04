@@ -48,7 +48,6 @@ public class ContactController {
 	public String contactconfirm(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
 
 		if (bindingResult.hasErrors()) {
-			model.addAttribute("errmsg","入力されていない項目があります。");
 			return "30 contact";
 		}
 		Contact contact = new Contact();
@@ -66,7 +65,6 @@ public class ContactController {
 	public String contactconfirmUnlogin(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
 
 		if (bindingResult.hasErrors()) {
-			model.addAttribute("errmsg","入力されていない項目があります。");
 			return "54 contactUnlogin";
 		}
 		Contact contact = new Contact();
@@ -122,6 +120,24 @@ public class ContactController {
 
 		return "32 contactResult";
 	}
+
+	@RequestMapping(value = "/56contactResultUnlogin")
+	public String contactresultunlogin(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult,HttpServletRequest request, HttpServletResponse response,
+			Model model) {
+
+		HttpSession session = request.getSession();
+		Contact contact = (Contact)session.getAttribute("contact");
+
+		int id= contactService.coninsert(contact);
+
+		form.setContact_id(id);
+
+		session.removeAttribute("contact");
+		model.addAttribute("contactId",id);
+
+		return "56 contactResultUnlogin";
+	}
+
 
 
 }

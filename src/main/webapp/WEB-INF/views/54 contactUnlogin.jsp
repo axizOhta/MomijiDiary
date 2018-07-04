@@ -41,9 +41,6 @@
 
 			<div class="a_">
 				<div class="text-center">
-				<c:if test="${not empty errmsg}">
-  					<p class="error">${fn:escapeXml(errmsg)}</p>
-					</c:if>
 					<form:form action="55contactConfirmUnlogin" method="post"
 						modelAttribute="form">
 						<fieldset>
