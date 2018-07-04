@@ -4,6 +4,8 @@ import javax.validation.constraints.NotBlank;
 
 public class ContactForm {
 
+	private Integer contact_id;
+
 	@NotBlank
 	private String email_address;
 
@@ -12,6 +14,14 @@ public class ContactForm {
 
 	@NotBlank
 	private String contact_message;
+
+	public Integer getContact_id() {
+		return contact_id;
+	}
+
+	public void setContact_id(Integer contact_id) {
+		this.contact_id = contact_id;
+	}
 
 	public String getEmail_address() {
 		 return email_address;

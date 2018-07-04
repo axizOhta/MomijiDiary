@@ -58,7 +58,7 @@
 </div>
 <br>
 <div id="a_btn">
-<input type="submit" class="btn btn-primary btn-lg btn-block" value="戻る" onclick="location.href='54contactUnlogin'; return false;">
+<input type="submit" class="btn btn-primary btn-lg btn-block" value="戻る" onclick="location.href='54contactUnloginBack'; return false;">
 </div>
 </div>
 </div>

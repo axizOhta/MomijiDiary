@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,9 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import fGroup.dto.Contact;
 import fGroup.form.ContactForm;
+import fGroup.service.ContactService;
 
 @Controller
 public class ContactController {
+
+	@Autowired
+	private ContactService contactService;
 
 	@RequestMapping("/30contact")
 	public String contact(@ModelAttribute("form") ContactForm form, Model model) {
@@ -74,5 +79,49 @@ public class ContactController {
 
 		return "55 contactConfirmUnlogin";
 	}
+
+	@RequestMapping(value = "/30contactBack")
+	public String contactback(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
+
+		HttpSession session = request.getSession();
+		Contact contact = (Contact)session.getAttribute("contact");
+
+		form.setEmail_address(contact.getEmail_address());
+		form.setContact_title(contact.getContact_title());
+		form.setContact_message(contact.getContact_message());
+
+		return "30 contact";
+	}
+
+	@RequestMapping(value = "/54contactUnloginBack")
+	public String contactunloginback(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
+
+		HttpSession session = request.getSession();
+		Contact contact = (Contact)session.getAttribute("contact");
+
+		form.setEmail_address(contact.getEmail_address());
+		form.setContact_title(contact.getContact_title());
+		form.setContact_message(contact.getContact_message());
+
+		return "54 contactUnlogin";
+	}
+
+	@RequestMapping(value = "/32contactResult")
+	public String contactresult(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult,HttpServletRequest request, HttpServletResponse response,
+			Model model) {
+
+		HttpSession session = request.getSession();
+		Contact contact = (Contact)session.getAttribute("contact");
+
+		int id= contactService.coninsert(contact);
+
+		form.setContact_id(id);
+
+		session.removeAttribute("contact");
+		model.addAttribute("contactId",id);
+
+		return "32 contactResult";
+	}
+
 
 }
