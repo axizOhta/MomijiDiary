@@ -37,7 +37,6 @@ public class LoginController {
 
 	if(id==null && pass ==null || id.equals("") && pass.equals("")) {
 		model.addAttribute("errmsg", "ID と パスワード を<br>入力してください。");
-
 		return "04login_user";
 	} else if ( id == null || id.equals("")) {
 		model.addAttribute("errmsg", "IDを入力してください。");
@@ -77,7 +76,6 @@ public class LoginController {
 
 		@RequestMapping(value="/Mlogin", method = RequestMethod.POST)
 		public String getM(@ModelAttribute("form") AdminForm admin, Model model) {
-
 
 		String id = admin.getAdmin_id();
 		String pass = admin.getPassword();

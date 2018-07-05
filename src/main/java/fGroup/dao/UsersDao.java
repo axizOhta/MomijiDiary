@@ -1,6 +1,5 @@
 package fGroup.dao;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +21,28 @@ public class UsersDao {
 				("SELECT user_id, login_id, name, email_address, password, entry_date, last_update_date, unsubscribe_flug"
 						+ " FROM users "
 						+ "WHERE login_id = ? AND password = ?",
-						new BeanPropertyRowMapper<Users>(Users.class), id,pass);
-
+						new BeanPropertyRowMapper<Users>(Users.class), id, pass);
 		if(list.size()==0) {
 			return null;
 		}
-
 		return (Users) list.get(0);
-
 	}
+
+	public Users findByPass(String newpassword) {
+		List<Users> list = jdbcTemplate.query
+				("SELECT user_id, login_id, name, email_address, password, entry_date, last_update_date, unsubscribe_flug"
+						+ " FROM users "
+						+ "WHERE password = ?",
+						new BeanPropertyRowMapper<Users>(Users.class), newpassword);
+		if(list.size()==0) {
+			return null;
+		}
+		return (Users) list.get(0);
+	}
+
+	public void Unsub(Integer user_id) {
+		String sql = "UPDATE users SET unsubscribe_flug = false WHERE user_id=?";
+		jdbcTemplate.update(sql, user_id);
+	}
+
 }

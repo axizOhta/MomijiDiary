@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,37 +21,41 @@
 <div id="header-fixed">
      <div id="a_header-bk">
 		 <div class="a_center">
-		 <div class="a_form_conf">
-            <img src="image/image002.png"  alt="" class="a_momiji"><a>もみじ日記</a>
-         </div>
-         <div class="a_menu">
-         	<ul>
+			<div class="a_form_conf">
+				<img src="image/image002.png"  alt="" class="a_momiji"><a>もみじ日記</a>
+         	</div>
+         	<div class="a_menu">
+         		<ul>
          		<li class="a_select"><a href="17select.html">検索</a></li>
          		<li><a href="05mypage">基本ページ</a></li>
          		<li><a href="30 contact">お問い合わせ</a></li>
-         	</ul>
-        </div>
+         		</ul>
+        	</div>
         </div>
 	</div>
-	</div>
+</div>
 </header>
 <div class="o_">
-<div class="a_">
-<div class="text-center">
-<p class="h2">本当に退会しますか？</p>
-<p class="h2">一度退会してしまうと情報は元に戻りません</p>
-<br>
-<br>
-<div class="a_btn">
-<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="戻る">
-  <br>
-<br>
-<br>
-<br>
-<input type="submit" class="btn btn-warning btn-lg btn-block" name="button" value="退会">
-  </div>
-  </div>
-  </div>
-  </div>
+	<div class="a_">
+		<div class="text-center">
+			<p class="h2">本当に退会しますか？</p>
+			<p class="h2">一度退会してしまうと情報は元に戻りません</p>
+			<br>
+			<br>
+			<div class="a_btn">
+				<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="戻る">
+			</div>
+  				<br>
+				<br>
+				<br>
+				<br>
+			<form:form action="unsubResult" modelAttribute="form">
+			<div class="a_btn">
+				<input type="submit" class="btn btn-warning btn-lg btn-block" name="button" value="退会">
+			</div>
+			</form:form>
+		</div>
+	</div>
+</div>
 </body>
 </html>
