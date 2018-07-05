@@ -2,8 +2,10 @@ package fGroup.dao;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -39,5 +41,13 @@ public class ContactDao {
 
 
 		return keyHolder.getKey().intValue();
+	}
+
+	public List<Contact> contactall() {
+		String contactall ="SELECT * FROM contact ORDER BY contact_id";
+
+		List<Contact> resultList = jdbcTemplate.query(contactall,new BeanPropertyRowMapper<Contact>(Contact.class));
+
+		return resultList;
 	}
 }

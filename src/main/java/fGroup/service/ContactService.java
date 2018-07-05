@@ -1,5 +1,7 @@
 package fGroup.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,5 +18,9 @@ public class ContactService {
 
 	public int coninsert(Contact contact) {
 		return contactDao.coninsert(contact);
+	}
+
+	public List<Contact> contactall(Contact contact){
+		return contactDao.contactall();
 	}
 }
