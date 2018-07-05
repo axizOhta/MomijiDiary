@@ -153,4 +153,17 @@ public class ContactController {
 		return "34 contactsuper";
 	}
 
+	@RequestMapping("/33contactHis")
+	public String contacthis(@ModelAttribute("form") ContactForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
+
+		HttpSession session = request.getSession();
+		Contact contact = new Contact();
+
+		List<Contact> contactList = contactService.contactall(contact);
+
+		model.addAttribute("contactlist",contactList);
+
+		return "33contactHis";
+	}
+
 }
