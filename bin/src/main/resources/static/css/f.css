@@ -1,0 +1,371 @@
+@charset "UTF-8";
+
+
+/* aoyama */
+
+.a_ {
+	margin: auto;
+	max-width: 300px;
+}
+
+.a_btn {
+	margin-top: 10px;
+	max-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 18px;
+}
+
+.a_btn h3 {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.a_return {
+	margin-top: 50px;
+}
+
+.a_form {
+	margin: auto;
+	max-width: 500px;
+	text-align: center;
+}
+
+.a_midashi {
+	font-size: 20px;
+
+}
+
+#a_photo {
+	margin: 10px 0px;
+}
+
+.a_photos {
+	height: 95%;
+	width: 95%;
+	margin: 5px;
+	padding: 10px;
+	border: 2px solid black;
+	text-align: center;
+	font-size: 15px;
+	
+}
+
+.a_user_photo {
+	max-width: 250px;
+	max-height: 100px;
+}
+
+.a_photos label{
+	border: 1px solid black;
+
+}
+
+.o_pattern1 img {
+	max-height: 200px;
+	max-width: 80%;
+}
+
+.a_info {
+	margin: 5px;
+	text-align: center;
+	font-size: 25px;
+}
+
+.a_denger {
+	color: red;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.a_pro_photo {
+	max-height: 300px;
+	max-width: 300px;
+	margin: auto;
+}
+
+.a_sukima {
+	margin-top: 5px;
+
+}
+
+.a_momiji {
+	max-height:30px;
+	margin-right: 10px;
+}
+
+html, body{
+    margin: 0;         /* 余白の削除 */
+    padding: 0;        /* 余白の削除 */
+   width: 100%;
+    height: 100%;
+}
+
+header { 
+	width: auto; /* リキッドデザインにするため*/
+	top: 0px;
+	left: 0px; 
+	height: 80px;
+	padding:0 0 0;
+	height:97px;               
+	width:100%; 
+	background-color: #f0831e;
+	margin: 0; 
+	color: white;
+	position: fixed;
+	z-index: 100;
+}
+
+.a_menu ul {
+	margin; 0;
+	padding: 0;
+	max-width: 800px; /*　横幅の最小値 */
+}
+
+.a_menu li {
+	list-style-type: none;
+	float: left;
+	margin-left: 0;
+}
+
+.a_menu li a {
+	display: block;
+	width: 120px;
+	line-height: 50px;
+	border: solid 1px black;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	font-size: 18px;
+	background-color: white;
+	position; relative;
+    z-index: 100;
+}
+
+
+.a_form_conf {
+	max-width: 95%;
+	height:auto;
+	clear:both;
+	font-size: 25px;
+	text-align: center;
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: -5px;
+}
+
+.a_center {
+	width: 360px;
+	margin: auto;
+}
+
+
+
+a#manager {
+	display: block;
+	width: 360px;
+	line-height: 50px;
+	border: 1px solid black;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	font-size: 18px;
+	background-color: white;
+}
+
+.a_manager {
+	max-width: 95%;
+	margin:auto;
+}
+
+.a_manager table {
+	margin:auto;
+}
+
+.a_btn_manager{
+	color: black;
+	padding: 5px;
+	font-size: 20px;
+}
+
+.a_content {
+	padding : 5px;
+	max-width: 500px;
+	text-align: left;
+}
+
+.a_manager th td {
+	padding: 5px;
+}
+
+.a_article {
+	padding: 1px;
+	border: 2px solid orange;
+	margin: 5px;
+}
+
+.a_kiji {
+	font-size: 20px;
+	padding: 15px;
+	text-align: left;
+}
+
+.a_line {
+	border-bottom: dotted 2px #f0831e;
+}
+
+.a_table th {
+	font-size: 25px;
+}
+
+.a_contact {
+	font-size: 20px;
+	text-align: left;
+	padding: 15px;
+}
+
+.a_date {
+	font-size: 20px;
+	padding: 5px;
+}
+
+.a_Q {
+	border: 2px solid #f0831e;
+	padding: 5px;
+	margin: 5px;
+	font-size: 20px;
+	text-aling: left;
+}
+
+.a_A {
+	border: 2px solid #6db27f;
+	padding: 5px;
+	margin: 5px;
+	font-size: 20px;
+	text-aling: left;
+}
+
+.a_cc {
+	border: 1px solid #f0831e;
+	padding: 5px;
+	margin: 5px;
+}
+
+.a_QandA {
+	margin-top: 20px;
+}
+
+
+/* ここまで */
+
+/* otsu */
+div#header-fixed
+{
+    position: fixed;            
+    top: 0px;                   
+    left: 0px;                 
+    width: 100%;               
+    height: 0;
+    z-index: 100;         
+}
+div#header-bk { 
+	padding:0 0 0;   
+	height:100px;              
+	width:100%; 
+}
+.o_{
+	margin-top: 150px;
+}
+.o_wrapper {
+	text-align: center;
+	
+}
+.o_form_conf {
+    text-align: center;
+}
+.o_form_conf form {
+    display: inline-block;
+    margin: 0 10px;
+}
+.o_article {
+	background-color: rgba( 255, 255, 255, 0.5 );
+	width: 300px;
+	border: solid 2px #ff3333;
+	border-radius: 20px;
+	padding: 20px;
+	box-shadow: 3px 3px 3px #c0c0c0;
+	margin-right: auto;
+	margin-left: auto;
+}
+.o_pattern1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+ 
+.o_pattern1 img {
+	max-height: 200px;
+	max-width: 80%;
+}
+
+.o_td{
+border: 2px #2b2b2b solid;
+padding: 10px;
+}
+/* ここまで */
+
+/* k.ohta */
+.k_center{
+	text-align: center;
+}
+
+.k_center ul{
+	display: inline-block;
+}
+
+.k_center ul li{
+	text-align: center;
+}
+
+.k_table{
+	max-width:90%;
+	min-width:50%;
+	margin: auto;
+}
+
+.k_table th td {
+	padding: 10px;
+}
+
+.k_title{
+	font-size: 30px;
+	text-align:center;
+}
+
+.k_bold{
+	font-weight:bold;
+	font-size: 20px;
+	padding: 8px;
+}
+
+.k_between{
+	line-height: 30px;
+	padding: 10px;
+}
+
+.k_padding{
+	padding: 10px;
+}
+.k_padding_short{
+	padding: 5px;
+}
+
+.k_required{
+	color: red;
+}
+/* ここまで */
