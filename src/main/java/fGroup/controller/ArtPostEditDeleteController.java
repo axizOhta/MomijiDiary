@@ -2,6 +2,7 @@ package fGroup.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import fGroup.dto.Article;
 import fGroup.dto.Users;
 import fGroup.form.Post;
 import fGroup.service.ArtService;
@@ -86,10 +89,39 @@ public class ArtPostEditDeleteController {
 		return "08postOK";
 	}
 
+	//編集
+	@RequestMapping(value="/09all_edit_delete", method=RequestMethod.POST)
+	public String allEditDelete (@ModelAttribute("form") Post post, Model model) {
+
+		Users user = (Users) session.getAttribute("user");
+    	List <Article> list = artS.getAllArt(user.getUser_id());
+    	model.addAttribute("list", list);
+		return "09all_edit_delete";
+	}
+	@RequestMapping("/09all_edit_delete")
+	public String allEditDeleteGET (@ModelAttribute("form") Post post, Model model) {
+
+		Users user = (Users) session.getAttribute("user");
+    	List <Article> list = artS.getAllArt(user.getUser_id());
+    	model.addAttribute("list", list);
+		return "09all_edit_delete";
+	}
 
 	//編集
 	@RequestMapping(value="/10edit", method=RequestMethod.POST)
-	public String edit (@ModelAttribute("form") Post post, Model model) {
+	public String edit (@ModelAttribute("form") Post post,
+			@RequestParam(name = "art_id", required = false) Integer art_id,
+			@RequestParam(name = "title", required = false) String title,
+			@RequestParam(name = "main", required = false) String main,
+			@RequestParam(name = "date", required = false) String date,Model model) {
+
+		if(art_id != null) {
+			post.setArticle_id(art_id);
+			post.setArticle_title(title);
+			post.setArticle_main(main);
+			post.setContribute_date(date);
+		}
+
 		return "10edit";
 	}
 
@@ -138,7 +170,18 @@ public class ArtPostEditDeleteController {
 
 	//削除
 	@RequestMapping(value="/13deleteCon", method=RequestMethod.POST)
-	public String deleteCon (@ModelAttribute("form") Post post, Model model) {
+	public String deleteCon (@ModelAttribute("form") Post post,
+			@RequestParam(name = "art_id", required = false) Integer art_id,
+			@RequestParam(name = "title", required = false) String title,
+			@RequestParam(name = "main", required = false) String main,
+			@RequestParam(name = "date", required = false) String date,Model model) {
+
+		if(art_id != null) {
+			post.setArticle_id(art_id);
+			post.setArticle_title(title);
+			post.setArticle_main(main);
+			post.setContribute_date(date);
+		}
 
 		model.addAttribute("delete", post);
 		return "13deleteCon";

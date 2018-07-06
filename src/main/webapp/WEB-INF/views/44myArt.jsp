@@ -47,6 +47,7 @@
 	</div>
 	<div class="a_btn">
 	<form method="post" action="16all_postArt">
+	<input type="hidden" name="user_id" value="${ user.user_id }">
 	<input type="submit" value= "投稿した記事を見る" class="btn btn-primary btn-lg btn-block">
 	</form>
 	</div>

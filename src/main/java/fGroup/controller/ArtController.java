@@ -48,7 +48,7 @@ public class ArtController {
 		Article art = artS.selectArt(art_id);
 
 		//退会情報の確認
-		if(art ==null || artS.existUser(art.getUser_id())) {
+		if(art ==null || !artS.existUser(art.getUser_id())) {
 			model.addAttribute("noArt", "指定された記事は存在しません");
 			return "15art";
 		}
@@ -74,8 +74,9 @@ public class ArtController {
 	}
 
     @RequestMapping(value="/16all_postArt", method = RequestMethod.POST)
-    public String index(@ModelAttribute("form") Post post, Model model) {
-    	Integer user_id = 10001;
+    public String index(@ModelAttribute("form") Post post,
+    		@RequestParam("user_id") Integer user_id, Model model) {
+
     	List <Article> list = artS.getAllArt(user_id);
     	model.addAttribute("list", list);
 

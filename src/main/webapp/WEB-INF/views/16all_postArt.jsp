@@ -96,7 +96,7 @@ $(function() {
 </div>
 <br>
 <br>
-<input type="submit" class="btn btn-info  btn-lg btn-sucsses" name="button" value="基本ページに戻る" onclick="location.href='05mypage'; return false;">
+<input type="submit" class="btn btn-info  btn-lg btn-block" name="button" value="基本ページに戻る" onclick="location.href='05mypage'; return false;">
 
 </div>
 </div>
