@@ -43,20 +43,20 @@
 <div class="a_">
 <div class="text-center">
 	<form:form action="login" modelAttribute="form">
-  <fieldset>
+	<fieldset>
   		<c:if test="${not empty errmsg}">
   		<p class="a_denger">${errmsg}</p>
 		</c:if>
-    <div>
-      <label class="h2">IDを入力してください</label><br>
-      <form:input type="text" class="form-control input-lg" id="id" path="login_id"></form:input>
-    </div>
-    <div>
-      <label class="h2">パスワードを入力してください</label><br>
-      <form:input type="password" class="form-control input-lg" id="pass" path="password"/>
-    </div>
-  </fieldset>
-  <br>
+    	<div>
+			<label class="h2">IDを入力してください</label><br>
+			<form:input type="text" class="form-control input-lg" id="id" path="login_id"></form:input>
+    	</div>
+    	<div>
+      		<label class="h2">パスワードを入力してください</label><br>
+      		<form:input type="password" class="form-control input-lg" id="pass" path="password"/>
+    	</div>
+  	</fieldset>
+ 	 <br>
 <br>
 <br>
 <div class="a_btn">
