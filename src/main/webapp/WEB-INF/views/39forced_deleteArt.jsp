@@ -44,8 +44,8 @@
 		<table border = "1" class = "k_table">
 		<c:forEach items="${userlist}" var="users">
 			<tr>
-				<td class = "k_padding"><a href="15art?art_id = " target="newtab">${fn:escapeXml(users. article_title)}</a></td>
-				<td><input type="checkbox" name="delete" value="art_id_1"></td>
+				<td class = "k_padding"><a href="15art?art_id = " target="newtab">${fn:escapeXml(users.article_title)}</a></td>
+				<td><input type="checkbox" name="delete" value="${users.article_id}"></td>
 			</tr>
 		</c:forEach>
 		</table>
@@ -53,9 +53,7 @@
 		<br>
 <form:form action="40forced_deleteArtCon" modelAttribute="form">
 <input type = "hidden" name = "user_id" value = "${user_id}"/>
-<input type = "hidden" name = "name" value = "${user_name}"/>
-<input type = "hidden" name = "article_id" value = "${article_id}"/>
-<input type = "hidden" name = "article_title" value = "${article_title}"/>
+<input type = "hidden" name = "name" value = "${name}"/>
 	<input type="submit" value="削除確認"><br>
 	<br>
 	</form:form>

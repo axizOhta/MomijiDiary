@@ -1,5 +1,6 @@
 package fGroup.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -60,6 +61,7 @@ public class KanriController {
 			@RequestParam(value ="name" ,required = false) String user_name,Model model) {//ここまで強制退会と同じ
 		List<Article> resultList =userUpService.findByName(user_id);
 		model.addAttribute("name", user_name);
+		model.addAttribute("user_id", user_id);
 		model.addAttribute("userlist", resultList);
 
 		return "39forced_deleteArt";
@@ -70,12 +72,20 @@ public class KanriController {
 			@RequestParam("user_id") Integer user_id ,
 			@RequestParam(value ="name" ,required = false) String user_name,
 			@RequestParam(value ="article_id",required = false) Integer article_id ,
-			@RequestParam(value ="article_title",required = false) String article_title ,Model model) {
-		//System.out.println(user_name);
+			@RequestParam(value ="article_title",required = false) String article_title ,
+			@RequestParam(value ="delete" ,required = false) Integer[] delete, Model model) {
+
 		model.addAttribute("user_id",user_id);
 		model.addAttribute("article_title",article_title);
 		model.addAttribute("article_id",article_id);
 		model.addAttribute("name",user_name);
+
+		List<Article> list = new ArrayList<Article>();
+
+		for(Integer art_id : delete) {
+
+		}
+		model.addAttribute("list", list);
 
 		return "40forced_deleteArtCon";
 	}
@@ -84,7 +94,7 @@ public class KanriController {
 			@RequestParam("user_id") Integer user_id ,
 			@RequestParam(value ="name" ,required = false) String user_name,
 			@RequestParam("article_id") Integer article_id ,
-			@RequestParam(value ="art_name" ,required = false) String art_name,Model model) {
+			Model model) {
 
 		userUpService.artDelete(article_id);
 		model.addAttribute("article_id",form);

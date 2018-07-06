@@ -38,9 +38,11 @@
 <p class = "k_required">以下の記事を削除します</p>
 <p>対象ユーザ：${name}さん</p>
 	<table class="k_table">
+	<c:forEach items="${userlist}" var="users">
 		<tr>
 		<td class = "k_padding">${users.article_title}</td>
 		</tr>
+	</c:forEach>
 	</table>
 
 	<br>
