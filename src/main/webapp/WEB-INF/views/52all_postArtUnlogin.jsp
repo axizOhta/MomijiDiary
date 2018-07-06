@@ -14,7 +14,36 @@
 <link href="css/f.css" rel="stylesheet">
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+$(function() {
+  var page = 0;
+  function draw() {
+    $('#page').html(page + 1);
+    $('tr').hide();
+    $('tr:first,tr:gt(' + page * 3 + '):lt(3)').show();
+  }
+  $('#prev').click(function() {
+    if (page > 0) {
+      page--;
+      draw();
+    }
+  });
+  $('#next').click(function() {
+	  var size = tbl1.rows.length;
+    if (page < (size - 1) / 3 - 1) {
+      page++;
+      draw();
+    }
+  });
+  draw();
+});
+</script>
+<style>
 
+#prev, #next {
+  cursor: pointer;
+}
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>

@@ -69,7 +69,7 @@ $(function() {
 <div class="a_">
 <div class = "o_wrapper">
 <div>
-	<p class = "h2">F野太郎さんの日記</p>
+	<p class = "h2">${name}さんの日記</p>
 </div>
 <form action ="22profile">
 <input type="submit" value="自己紹介" class="btn btn-primary btn-lg btn-block">

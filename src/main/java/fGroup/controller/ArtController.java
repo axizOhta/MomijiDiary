@@ -34,7 +34,7 @@ public class ArtController {
 		//テスト用　後で消す
 		Users user = new Users();
 		user.setUser_id(10001);
-		user.setName("F野次郎");
+		user.setName("OK");
 		session.setAttribute("user", user);
 
 		return "44myArt";
@@ -74,11 +74,25 @@ public class ArtController {
 	}
 
     @RequestMapping(value="/16all_postArt", method = RequestMethod.POST)
-    public String index(@ModelAttribute("form") Post post,
-    		@RequestParam("user_id") Integer user_id, Model model) {
+    public String postArtLogin(@ModelAttribute("form") Post post,
+    		@RequestParam("user_id") Integer user_id,
+    		@RequestParam("user_name") String user_name, Model model) {
 
     	List <Article> list = artS.getAllArt(user_id);
     	model.addAttribute("list", list);
+    	model.addAttribute("name", user_name);
+
+        return "16all_postArt";
+    }
+
+    @RequestMapping(value="/52all_postArtUnlogin", method = RequestMethod.POST)
+    public String postArtUnlogin(@ModelAttribute("form") Post post,
+    		@RequestParam("user_id") Integer user_id,
+    		@RequestParam("user_name") String user_name, Model model) {
+
+    	List <Article> list = artS.getAllArt(user_id);
+    	model.addAttribute("list", list);
+    	model.addAttribute("name", user_name);
 
         return "16all_postArt";
     }
