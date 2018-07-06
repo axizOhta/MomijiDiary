@@ -25,7 +25,7 @@ public class LoginController {
 	HttpSession session;
 
 //ユーザーログイン
-	@RequestMapping("/login")//GET
+	@RequestMapping("/04login_user")//GET
 	public String index(@ModelAttribute("form") Users users, Model model){
 		return "04login_user";
 	}
@@ -37,12 +37,11 @@ public class LoginController {
 
 	if(id==null && pass ==null || id.equals("") && pass.equals("")) {
 		model.addAttribute("errmsg", "ID と パスワード を<br>入力してください。");
-
 		return "04login_user";
-	} else if ( id == null || id.equals("")) {
+	} else if ( id == null || id.equals("")) {//id未入力
 		model.addAttribute("errmsg", "IDを入力してください。");
 		return "04login_user";
-	} else if (pass == null || pass.equals("")) {
+	} else if (pass == null || pass.equals("")) {//パスワード未入力
 		model.addAttribute("errmsg", "パスワードを入力してください。"
 				+ "<br><br>パスワードは 4文字以上 10文字以下 の 半角英数字 です。");
 		return "04login_user";
@@ -50,19 +49,23 @@ public class LoginController {
 
 	Users us = usersDao.findByIdAndPassword(id,pass);
 		if (us != null) {
-		session.setAttribute("user", us);
+		session.setAttribute("user", us);//ログイン
 			return "05mypage";
 		} else {//id、passの一致するアカウントが無い
 			model.addAttribute("errmsg", "IDまたはパスワードが<br>間違っています。"
-					+ "<br><br>パスワードは4文字以上10文字以下の半角英数字です。");
+					+ "<br><br>パスワードは4文字以上<br>10文字以下の半角英数字です。");
 			return "04login_user";
 		}
 
 }
 
-		@RequestMapping("/top")
+		@RequestMapping("/47Top")
 		public String Top(Model model){
 		return "47Top";
+		}
+		@RequestMapping("/05mypage")
+		public String mypage(Model model){
+		return "05mypage";
 		}
 
 
@@ -70,14 +73,13 @@ public class LoginController {
 		@Autowired
 		AdminDao adminDao;
 
-		@RequestMapping("/Mlogin")//GET
-		public String indexM(@ModelAttribute("form") Admin admin, Model model){
+		@RequestMapping("/35login_manager")//GET
+		public String topM(@ModelAttribute("form") Admin admin, Model model){
 			return "35login_manager";
 		}
 
 		@RequestMapping(value="/Mlogin", method = RequestMethod.POST)
 		public String getM(@ModelAttribute("form") AdminForm admin, Model model) {
-
 
 		String id = admin.getAdmin_id();
 		String pass = admin.getPassword();
@@ -86,10 +88,10 @@ public class LoginController {
 		if(id==null && pass ==null || id.equals("") && pass.equals("")) {
 			model.addAttribute("errmsg", "IDとパスワード を入力してください。");
 			return "35login_manager";
-		} else if ( id == null ||  id.equals("")) {
+		} else if ( id == null ||  id.equals("")) {//id未入力
 			model.addAttribute("errmsg", "IDを入力してください。");
 			return "35login_manager";
-		} else if (pass == null || pass.equals("")) {
+		} else if (pass == null || pass.equals("")) {//パスワード未入力
 			model.addAttribute("errmsg", "パスワードを入力してください。");
 			return "35login_manager";
 		}
@@ -97,7 +99,7 @@ public class LoginController {
 		try {
 			Integer.parseInt(admin.getAdmin_id());
 		} catch (NumberFormatException nfex) {
-			model.addAttribute("errmsg", "IDまたはパスワードが違います。");
+			model.addAttribute("errmsg", "IDが間違っています。");
 			return "35login_manager";
 		}
 		Integer adminId=Integer.parseInt(id);
@@ -111,6 +113,9 @@ public class LoginController {
 				return "35login_manager";
 			}
 		}
-
+		@RequestMapping("/43managerMenu")
+		public String menu(Model model){
+		return "43managerMenu";
+		}
 }
 
