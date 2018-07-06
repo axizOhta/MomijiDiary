@@ -38,7 +38,7 @@
 <div class="a_">
 <div class="o_">
 <div class = "o_wrapper">
-<form action ="login">
+<form action ="04login_user">
 	<input type="submit" value= "ログイン" class="btn  btn-danger btn-lg btn-block">
 </form>
 <br>

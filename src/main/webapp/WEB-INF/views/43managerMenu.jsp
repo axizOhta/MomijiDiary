@@ -49,9 +49,9 @@
 </div>
 <br><br>
 <div id="a_btn">
-<form:form action="Mlogout" modelAttribute="form">
+<form action="Mlogout" method="POST">
 	<input type="submit" value="ログアウト" class="a_btn_manager">
-</form:form>
+</form>
 </div>
 </div>
 </div>

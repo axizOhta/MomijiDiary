@@ -27,19 +27,18 @@
 			<div class="a_form_conf">
             	<img src="image/image002.png"  alt="" class="a_momiji"><a>もみじ日記</a>
          	</div>
-         <div class="a_menu">
-         	<ul>
-         		<li class="a_select"><a href="17select">検索</a></li>
-         		<li><a href="05mypage">基本ページ</a></li>
-         		<li><a href="30contact">お問い合わせ</a></li>
-         	</ul>
+         	<div class="a_menu">
+         		<ul>
+         			<li class="a_select"><a href="17select">検索</a></li>
+         			<li><a href="05mypage">基本ページ</a></li>
+         			<li><a href="30contact">お問い合わせ</a></li>
+         		</ul>
+        	</div>
         </div>
-       </div>
 	</div>
 </div>
 </header>
 <div class="o_">
-
 <div class = "o_wrapper">
 </header>
 <p class ="h2">ようこそ${fn:escapeXml(user.name)}さん</p>
@@ -75,8 +74,8 @@
 <br>
 <br>
 <br>
-<form action ="logout">
-<input type="submit" value="ログアウト" class="btn btn-warning btn-lg btn-block">
+<form action="logout" method="POST">
+	<input type="submit" value="ログアウト" class="btn btn-warning btn-lg btn-block">
 </form>
 
 <br>

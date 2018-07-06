@@ -44,6 +44,9 @@
 				<br>
 				<p class="h3">パスワードを入力してください</p>
 				<br>
+				<c:if test="${not empty errmsg}">
+				<p class="a_denger">${errmsg}</p>
+				</c:if>
 				<br>
 				<form:form action="unsub" modelAttribute="form">
 					<div>

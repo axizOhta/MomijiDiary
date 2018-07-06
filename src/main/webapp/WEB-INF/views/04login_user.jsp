@@ -65,9 +65,9 @@
  </form:form>
   <br>
 <br>
-<form action ="top">
+<form action ="47Top">
 <div class="a_btn">
-<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="前のページに戻る">
+<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="前のページに戻る" onclick="location.href='47Top'; return false;">
 </div>
 </form>
 </div>
