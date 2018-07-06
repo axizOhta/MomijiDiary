@@ -65,6 +65,9 @@
 <div>
 <label class="h2">メールアドレス</label>
 <br>
+<c:if test="${not empty alryerr}">
+  <p class="error">${fn:escapeXml(alryerr)}</p>
+</c:if>
 <form:input class="form-control input-lg" path="email_address"/>
 <form:errors path="email_address" cssStyle="color: red"/>
 </div>

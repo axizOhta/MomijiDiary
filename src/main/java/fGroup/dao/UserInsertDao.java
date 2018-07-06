@@ -34,6 +34,19 @@ public class UserInsertDao {
 		return resultList.isEmpty() ? null : resultList.get(0);
 	}
 
+	public Users findEmail_address(String email_address) {
+
+		String emil = "SELECT * FROM users WHERE email_address = :email_address";
+
+		MapSqlParameterSource param = new MapSqlParameterSource();
+
+		param.addValue("email_address", email_address);
+
+		List<Users> resultList = jdbcTemplate.query(emil, param, new BeanPropertyRowMapper<Users>(Users.class));
+
+		return resultList.isEmpty() ? null : resultList.get(0);
+	}
+
 	public int register(Users users) {
 
 		String ins = "INSERT INTO users (login_id,name,email_address,password,entry_date,last_update_date,unsubscribe_flug) VALUES (:login_id,:name,:email_address,:password,:entry_date,:last_update_date,:unsubscribe_flug)";

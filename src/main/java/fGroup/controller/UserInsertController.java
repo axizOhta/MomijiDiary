@@ -36,6 +36,7 @@ public class UserInsertController {
 
 		String logi = form.getLogin_id();
 		String nam = form.getName();
+		String mail = form.getEmail_address();
 
 		if(logi.equals(nam)) {
 			model.addAttribute("sameerr","名前と同じログインIDは登録できません。別のログインIDを入力してください。");
@@ -56,18 +57,51 @@ public class UserInsertController {
 
 		Users u = userinsertservice.findLoginId(form.getLogin_id());
 
+		if(u!=null) {
+			if(logi.equals(u.getLogin_id())) {
+
+				model.addAttribute("alrderr","そのログインIDは既に登録されています。別のログインIDを入力してください。");
+				return "25 userinsert";
+
+			}
+		}
+
+		Users em = userinsertservice.findEmail_address(form.getEmail_address());
+
+		if(em!=null) {
+
+			if(mail.equals(em.getEmail_address())) {
+
+				model.addAttribute("alryerr","そのEメールアドレスは既に登録されています。別のEメールを入力してください。");
+				return "25 userinsert";
+
+			}
+		}
+
+
+
+		//String alrdid = u.getLogin_id();
+		//String alrdmail= u.getEmail_address();
+
 		Users users = new Users();
 		users.setLogin_id(logi);
 		users.setName(nam);
-		users.setEmail_address(form.getEmail_address());
+		users.setEmail_address(mail);
 		users.setPassword(pass);
 
-		if(users.equals(u)) {
+		//if(logi.equals(alrdid)) {
 
-			model.addAttribute("alrderr","そのログインIDは既に登録されています。別のログインIDを入力してください。");
-			return "25 userinsert";
+			//model.addAttribute("alrderr","そのログインIDは既に登録されています。別のログインIDを入力してください。");
+			//return "25 userinsert";
 
-		}
+		//}
+
+		//if(mail.equals(alrdmail)) {
+
+			//model.addAttribute("alryerr","そのEメールアドレスは既に登録されています。別のEメールを入力してください。");
+			//return "25 userinsert";
+
+		//}
 
 		HttpSession session = request.getSession();
 		session.setAttribute("userinsert", users);
@@ -81,10 +115,6 @@ public class UserInsertController {
 		HttpSession session = request.getSession();
 
 		Users users = (Users) session.getAttribute("userinsert");
-
-		if(users==null) {
-			System.out.println("i");
-		}
 
 		if(!users.getPassword().equals(form.getRepassword())) {
 

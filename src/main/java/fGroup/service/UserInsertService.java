@@ -19,6 +19,11 @@ public class UserInsertService {
 		return userinsertDao.findLoginId(login_id);
 	}
 
+	public Users findEmail_address(String email_address) {
+
+		return userinsertDao.findEmail_address(email_address);
+	}
+
 	public int insert (Users users) {
 		return userinsertDao.register(users);
 	}
