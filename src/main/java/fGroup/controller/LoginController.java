@@ -25,7 +25,7 @@ public class LoginController {
 	HttpSession session;
 
 //ユーザーログイン
-	@RequestMapping("/login")//GET
+	@RequestMapping("/04login_user")//GET
 	public String index(@ModelAttribute("form") Users users, Model model){
 		return "04login_user";
 	}
@@ -73,8 +73,8 @@ public class LoginController {
 		@Autowired
 		AdminDao adminDao;
 
-		@RequestMapping("/Mlogin")//GET
-		public String indexM(@ModelAttribute("form") Admin admin, Model model){
+		@RequestMapping("/35login_manager")//GET
+		public String topM(@ModelAttribute("form") Admin admin, Model model){
 			return "35login_manager";
 		}
 
@@ -99,7 +99,7 @@ public class LoginController {
 		try {
 			Integer.parseInt(admin.getAdmin_id());
 		} catch (NumberFormatException nfex) {
-			model.addAttribute("errmsg", "IDまたはパスワードが違います。");
+			model.addAttribute("errmsg", "IDまたはパスワードが間違っています。");
 			return "35login_manager";
 		}
 		Integer adminId=Integer.parseInt(id);
@@ -113,6 +113,9 @@ public class LoginController {
 				return "35login_manager";
 			}
 		}
-
+		@RequestMapping("/43managerMenu")
+		public String menu(Model model){
+		return "43managerMenu";
+		}
 }
 

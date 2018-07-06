@@ -34,19 +34,16 @@ public class UnsubscribeController {
 		String repassword = users.getRepassword();
 
 		if(newpassword == null && repassword ==null || newpassword.equals("") && repassword.equals("")) {
-			model.addAttribute("errmsg", "パスワードを入力してください。"
-					+ "<br><br>パスワードは 4文字以上 10文字以下 の 半角英数字 です。");
+			model.addAttribute("errmsg", "パスワードを入力してください。<br><br>パスワードは４文字以上 １０文字以下 の 半角英数字 です。");
 			return "48unsubscribepass";
 		} else if (newpassword == null || newpassword.equals("")) {
-			model.addAttribute("errmsg", "パスワードを入力してください。"
-					+ "<br><br>パスワードは 4文字以上 10文字以下 の 半角英数字 です。");
+			model.addAttribute("errmsg", "パスワードを２回入力してください。");
 			return "48unsubscribepass";
 		} else if (repassword == null || repassword.equals("")) {
-			model.addAttribute("errmsg", "パスワードを入力してください。"
-					+ "<br><br>パスワードは 4文字以上 10文字以下 の 半角英数字 です。");
+			model.addAttribute("errmsg", "パスワードを２回入力してください。");
 			return "48unsubscribepass";
 		} else if ( ! (newpassword.equals(repassword)) ) {
-			model.addAttribute("errmsg", "パスワードが間違っています。");
+			model.addAttribute("errmsg", "パスワードが間違っています。<br><br>同じパスワードを<br>２回入力してください。");
 			return "48unsubscribepass";
 		}
 
@@ -55,8 +52,7 @@ public class UnsubscribeController {
 				session.setAttribute("user", pass);
 				return "28unsubscribe";
 			} else {//passの一致するアカウントが無い
-				model.addAttribute("errmsg", "パスワードが<br>間違っています。"
-					+ "<br><br>パスワードは4文字以上10文字以下の半角英数字です。");
+				model.addAttribute("errmsg", "パスワードが間違っています。<br><br>パスワードは４文字以上１０文字以下の半角英数字です。");
 				return "48unsubscribepass";
 			}
 		}
@@ -65,7 +61,6 @@ public class UnsubscribeController {
 	public String unsub1(Model model){
 	return "28unsubscribe";
 	}
-
 
 //退会確認画面:46unsubscribeResult
 	@RequestMapping("/unsubResult")//GET
