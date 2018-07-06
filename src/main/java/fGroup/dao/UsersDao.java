@@ -20,7 +20,7 @@ public class UsersDao {
 		List<Users> list = jdbcTemplate.query
 				("SELECT user_id, login_id, name, email_address, password, entry_date, last_update_date, unsubscribe_flug"
 						+ " FROM users "
-						+ "WHERE login_id = ? AND password = ?",
+						+ "WHERE login_id = ? AND password = ? AND unsubscribe_flug = false" ,
 						new BeanPropertyRowMapper<Users>(Users.class), id, pass);
 		if(list.size()==0) {
 			return null;
@@ -41,7 +41,7 @@ public class UsersDao {
 	}
 
 	public void Unsub(Integer user_id) {
-		String sql = "UPDATE users SET unsubscribe_flug = false WHERE user_id=?";
+		String sql = "UPDATE users SET unsubscribe_flug = true WHERE user_id=?";
 		jdbcTemplate.update(sql, user_id);
 	}
 

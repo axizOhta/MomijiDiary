@@ -81,7 +81,7 @@
 
 <br>
 <br>
-<form action ="unsubpass">
+<form action ="48unsubscribepass">
 <input type="submit" value="退会" class="btn btn-danger btn-lg btn-block">
 </form>
 </div>

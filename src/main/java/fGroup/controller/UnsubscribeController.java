@@ -23,7 +23,7 @@ public class UnsubscribeController {
 	HttpSession session;
 
 //退会パスワード入力画面:48unsubscribepass
-	@RequestMapping("/unsubpass")//GET
+	@RequestMapping("/48unsubscribepass")//GET
 	public String unsubpass(@ModelAttribute("form") UnsubscribeForm users, Model model) {
 		return "48unsubscribepass";
 	}
@@ -60,6 +60,11 @@ public class UnsubscribeController {
 				return "48unsubscribepass";
 			}
 		}
+
+	@RequestMapping("/28unsubscribe")
+	public String unsub1(Model model){
+	return "28unsubscribe";
+	}
 
 
 

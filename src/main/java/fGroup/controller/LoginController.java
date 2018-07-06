@@ -59,9 +59,13 @@ public class LoginController {
 
 }
 
-		@RequestMapping("/top")
+		@RequestMapping("/47Top")
 		public String Top(Model model){
 		return "47Top";
+		}
+		@RequestMapping("/05mypage")
+		public String mypage(Model model){
+		return "05mypage";
 		}
 
 
