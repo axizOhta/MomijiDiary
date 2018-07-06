@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import fGroup.dto.Article;
+import fGroup.dto.Users;
 
 @Repository
 public class ArtDao {
@@ -20,6 +21,8 @@ public class ArtDao {
 	String INSERT_POST_ART = "INSERT INTO article (user_id, name, article_title, article_main, contribute_date) VALUES (?, ?, ?, ?, ?)";
 	String UPDATE_EDIT_ART = "UPDATE article SET article_title = ?, article_main = ? WHERE article_id = ?";
 	String DELETE_ART = "DELETE FROM article WHERE article_id = ?";
+	String SELECT_BY_UserId = "SELECT article_id, user_id, name, article_title, article_main, image_1, image_2, image_3, image_4, contribute_date FROM article WHERE user_id = ? ORDER BY art_id DESC";
+	String SELECT_USER_EXIST ="SELECT user_id FROM users WHERE user_id = ? AND unsubscribe_flug = false";
 
 	public List<Article> selectArt(Integer art_id) {
 		return jT.query(SELECT_WHERE_ArtId, new BeanPropertyRowMapper<Article>(Article.class), art_id);
@@ -41,6 +44,21 @@ public class ArtDao {
 
 	public void delete(Integer article_id) {
 		jT.update(DELETE_ART, article_id);
+	}
+
+	public List<Article> findByUserId(Integer user_id){
+
+		return jT.query(SELECT_BY_UserId, new BeanPropertyRowMapper<Article>(Article.class), user_id);
+	}
+
+	public boolean existUser(Integer user_id) {
+		 List<Users> list = jT.query(SELECT_USER_EXIST, new BeanPropertyRowMapper<Users>(Users.class), user_id);
+
+		 if (list.size() == 0) {
+			 return false;
+		 }
+
+		return true;
 	}
 
 }
