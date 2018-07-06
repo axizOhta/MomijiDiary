@@ -38,4 +38,14 @@ public class ArtService {
 		artDao.delete(article_id);
 	}
 
+	public List<Article> getAllArt(Integer user_id) {
+
+        return artDao.findByUserId(user_id);
+    }
+
+	public boolean existUser(Integer user_id) {
+		return artDao.existUser(user_id);
+	}
+
+
 }

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>記事</title>
+<title>自分の記事</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
@@ -41,51 +41,44 @@
 		</div>
 	</header>
 	<div class="o_">
-
 		<div class="o_wrapper">
-			<c:choose>
-				<c:when test="${!empty noArt}">
-					<p class="a_denger">${noArt}</p>
-				</c:when>
-				<c:otherwise>
-					<div>
-						<p class="h2">${ art.name }さんの日記</p>
-					</div>
-					<div class="a_">
-						<form action="22profile">
-							<input type="submit" value="自己紹介"
-								class="btn btn-primary btn-lg btn-block">
-						</form>
-						<br> <br>
-						<div>
-							<div class="a_article">
-								<div class="a_line">
-									<p class="h2">${ art.article_title }</p>
-								</div>
-								<div class="a_line">
-									<p class="h4">${ art.contribute_date }</p>
-								</div>
-								<div>
-									<p class="a_kiji">${ art.article_main }</p>
-								</div>
-								<div class="o_pattern1">
-									<img src="image/maguro.jpg" alt="">
-								</div>
-							</div>
-						</div>
-					</div>
-				</c:otherwise>
-			</c:choose>
-			<div class="a_">
-				<br> <br> <input type="submit"
-					class="btn btn-btn-primary btn-lg btn-block" name="button"
-					value="トップページに戻る" onclick="location.href='47Top'; return false;">
-				<br> <input type="submit"
-					class="btn btn-info btn-lg  btn-block" name="button" value="新規登録"
-					onclick="location.href='25userinsert'; return false;">
-			</div>
 
+			<div class="a_">
+				<div class="a_btn">
+					<form method="post" action="06post">
+						<input type="submit" value="新しく記事を書く"
+							class="btn btn-warning btn-lg btn-block">
+					</form>
+				</div>
+				<div class="a_btn">
+					<form method="post" action="16all_postArt">
+						<input type="hidden" name="user_id" value="${ user.user_id }">
+						<input type="hidden" name="user_name" value="${ user.name }">
+						<input type="submit" value="投稿した記事を見る"
+							class="btn btn-primary btn-lg btn-block">
+					</form>
+				</div>
+
+				<div class="a_btn">
+					<form method="post" action="09all_edit_delete">
+						<input type="submit" value="記事の編集・削除"
+							class="btn btn-danger btn-lg btn-block">
+					</form>
+				</div>
+				<div class="a_return">
+					<div class="a_btn">
+						<input type="submit" class="btn btn-info btn-lg btn-block"
+							name="button" value="基本ページに戻る"
+							onclick="location.href='05mypage.html'; return false;">
+					</div>
+					<div></div>
+				</div>
+			</div>
 		</div>
 	</div>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
 </body>
 </html>
