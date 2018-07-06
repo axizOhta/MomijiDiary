@@ -83,29 +83,11 @@ public class UserInsertController {
 		}
 
 
-
-		//String alrdid = u.getLogin_id();
-		//String alrdmail= u.getEmail_address();
-
 		Users users = new Users();
 		users.setLogin_id(logi);
 		users.setName(nam);
 		users.setEmail_address(mail);
 		users.setPassword(pass);
-
-		//if(logi.equals(alrdid)) {
-
-			//model.addAttribute("alrderr","そのログインIDは既に登録されています。別のログインIDを入力してください。");
-			//return "25 userinsert";
-
-		//}
-
-		//if(mail.equals(alrdmail)) {
-
-			//model.addAttribute("alryerr","そのEメールアドレスは既に登録されています。別のEメールを入力してください。");
-			//return "25 userinsert";
-
-		//}
 
 		HttpSession session = request.getSession();
 		session.setAttribute("userinsert", users);
