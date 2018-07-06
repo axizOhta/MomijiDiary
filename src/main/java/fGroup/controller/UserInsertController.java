@@ -9,8 +9,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import fGroup.dto.Users;
 import fGroup.form.UserInsertForm;
@@ -26,8 +28,8 @@ public class UserInsertController {
 		return "25 userinsert";
 	}
 
-	@RequestMapping("/26userinsertConfirm")
-	public String userinsertconfirm(@ModelAttribute("form") UserInsertForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value="/26userinsertConfirm", method = RequestMethod.POST)
+	public String userinsertconfirm(@Validated@ModelAttribute("form") UserInsertForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
 
 		String logi = form.getLogin_id();
 		String nam = form.getName();

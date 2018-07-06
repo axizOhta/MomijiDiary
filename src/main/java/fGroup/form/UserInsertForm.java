@@ -24,6 +24,8 @@ public class UserInsertForm {
 	@Size(min =4, max =10, message="パスワードは4文字以上10文字以下の半角英数字で入力してください。")
 	private String password;
 
+	private String repassword;
+
 	private String entry_date;
 
 	private String last_update_date;
@@ -67,6 +69,14 @@ public class UserInsertForm {
 
 	public void setPassword(String _password) {
 		this.password=_password;
+	}
+
+	public String getRepassword() {
+		return repassword;
+	}
+
+	public void setRepassword(String _repassword) {
+		this.repassword=_repassword;
 	}
 
 	public String getEntry_date() {
