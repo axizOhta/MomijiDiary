@@ -119,6 +119,8 @@ public class UserInsertController {
 
 		form.setUser_id(id);
 
+		session.setAttribute("user", users);
+
 		return "27 userinsertResult";
 
 

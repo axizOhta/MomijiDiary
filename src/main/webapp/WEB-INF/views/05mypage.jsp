@@ -8,11 +8,11 @@
 <head>
 <meta charset="UTF-8">
 <title>マイページ</title>
+<script src="js/jquery.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="css/f.css" rel="stylesheet">
-<script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -40,7 +40,6 @@
 </header>
 <div class="o_">
 <div class = "o_wrapper">
-</header>
 <p class ="h2">ようこそ${fn:escapeXml(user.name)}さん</p>
 <br>
 <br>
