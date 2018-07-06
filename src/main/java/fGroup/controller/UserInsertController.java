@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,7 @@ import fGroup.service.UserInsertService;
 @Controller
 public class UserInsertController {
 
+	@Autowired
 	private UserInsertService userinsertservice;
 
 	@RequestMapping("/25userinsert")
@@ -51,7 +54,7 @@ public class UserInsertController {
 		}
 
 
-		//Users u = userinsertservice.findLoginId(form.getLogin_id());
+		Users u = userinsertservice.findLoginId(form.getLogin_id());
 
 		Users users = new Users();
 		users.setLogin_id(logi);
@@ -59,12 +62,12 @@ public class UserInsertController {
 		users.setEmail_address(form.getEmail_address());
 		users.setPassword(pass);
 
-		//if(users.equals(u)) {
+		if(users.equals(u)) {
 
-			//model.addAttribute("alrderr","そのログインIDは既に登録されています。別のログインIDを入力してください。");
-			//return "25 userinsert";
+			model.addAttribute("alrderr","そのログインIDは既に登録されています。別のログインIDを入力してください。");
+			return "25 userinsert";
 
-		//}
+		}
 
 		HttpSession session = request.getSession();
 		session.setAttribute("userinsert", users);
@@ -72,10 +75,37 @@ public class UserInsertController {
 		return "26 userinsertConfirm";
 	}
 
-	//@RequestMapping("/27userinsertResult")
-	//public String userinsertresult(@ModelAttribute("form") UserInsertForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping("/27userinsertResult")
+	public String userinsertresult(@ModelAttribute("form") UserInsertForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
+
+		HttpSession session = request.getSession();
+
+		Users users = (Users) session.getAttribute("userinsert");
+
+		if(users==null) {
+			System.out.println("i");
+		}
+
+		if(!users.getPassword().equals(form.getRepassword())) {
+
+			model.addAttribute("errmsg", "前画面で入力したパスワードと一致しません。");
+
+			form.setRepassword("");
+
+			return "26 userinsertConfirm";
+		}
 
 
-	//}
+
+		int id = userinsertservice.insert(users);
+
+		session.removeAttribute("userinsert");
+
+		form.setUser_id(id);
+
+		return "27 userinsertResult";
+
+
+	}
 
 }

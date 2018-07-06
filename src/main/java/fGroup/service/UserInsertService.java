@@ -19,4 +19,8 @@ public class UserInsertService {
 		return userinsertDao.findLoginId(login_id);
 	}
 
+	public int insert (Users users) {
+		return userinsertDao.register(users);
+	}
+
 }
