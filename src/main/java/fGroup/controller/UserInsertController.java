@@ -32,7 +32,11 @@ public class UserInsertController {
 	}
 
 	@RequestMapping(value="/26userinsertConfirm", method = RequestMethod.POST)
-	public String userinsertconfirm(@Validated@ModelAttribute("form") UserInsertForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
+	public String userinsertconfirm(@Validated@ModelAttribute("form") UserInsertForm form,BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
+
+		if (bindingResult.hasErrors()) {
+			return "25 userinsert";
+		}
 
 		String logi = form.getLogin_id();
 		String nam = form.getName();
