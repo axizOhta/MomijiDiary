@@ -13,6 +13,7 @@
 	<form:form modelAttribute = "form" action="uploadResult" method="post" enctype="multipart/form-data">
 		<input type="text" name="test"><br>
 		<input type="file" name="file"><br>
+		<input type="file" name="file"><br>
 		<form:button>送信</form:button>
 	</form:form>
 </body>

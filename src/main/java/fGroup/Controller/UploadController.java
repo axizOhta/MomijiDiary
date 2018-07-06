@@ -36,19 +36,20 @@ public class UploadController {
 		return "uploadTest";
 	}
 
+	@SuppressWarnings("null")
 	@ModelAttribute("form")
 	@RequestMapping(value = "/uploadResult", method = RequestMethod.POST)
 	public String uploadRecv(@RequestParam String test,
-			@RequestParam MultipartFile file, Model model) throws IOException {
+			@RequestParam("file") MultipartFile[] file, Model model) throws IOException {
 		try {
 			model.addAttribute("test", test);
-			String uploadedImage = file.getOriginalFilename();
-			Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\images", uploadedImage);
-			file.transferTo(path.toFile());
-			model.addAttribute("fileName", path);
+			for(int i = 0;i < file.length;i++) {
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\images", file[i].getOriginalFilename());
+				file[i].transferTo(path.toFile());
+				//model.addAttribute("fileName", path);
+			}
 
-			model.addAttribute("uploadedImage", uploadedImage);
-
+			model.addAttribute("uploadedImage", file);
 			return "uploadResult";
 		}catch(Exception e) {
 			return "uploadTest";
