@@ -45,17 +45,81 @@
 		<p>【質問】</p><p>この日記を使いたいのですがどうしたらいいですか？</p>
 	</div>
 	<div class="a_A">
-		<p>【回答】</p><p>新規登録から会員登録をしていただけると日記の投稿が可能になります。</p>
+		<p>【回答】</p><p><Strong><font color="#0066CC">新規登録</font></Strong>から会員登録をしていただけると日記の投稿が可能です。</p>
 	</div>
 </div>
 <div class="a_QandA">
 	<div class="a_Q">
-		<p>【質問】</p><p>この日記を使いたいのですがどうしたらいいですか？</p>
+		<p>【質問】</p><p>自己紹介を編集したいのですがどうしたらいいですか？</p>
 	</div>
 	<div class="a_A">
-		<p>【回答】</p><p>新規登録から会員登録をしていただけると日記の投稿が可能になります。</p>
+		<p>【回答】</p><p>ログイン後、<Strong><font color="#00CCFF">自己紹介</font></Strong>をクリックし、<Strong><font color="#009933">自己紹介の編集</font></Strong>からできます。</p>
 	</div>
 </div>
+<div class="a_QandA">
+	<div class="a_Q">
+		<p>【質問】</p><p>自己紹介を閲覧したいのですがどうしたらいいですか？</p>
+	</div>
+	<div class="a_A">
+		<p>【回答】</p><p>ログイン後、<Strong><font color="#00CCFF">自己紹介</font></Strong>をクリックし、<Strong><font color="#009933">自己紹介を見る</font></Strong>からできます。</p>
+	</div>
+</div>
+<div class="a_QandA">
+	<div class="a_Q">
+		<p>【質問】</p><p>記事を投稿したいのですがどうしたらいいですか？</p>
+	</div>
+	<div class="a_A">
+		<p>【回答】</p><p>ログイン後、<Strong><font color="#009933">自分の記事</font></Strong>をクリックし、<Strong><font color="FF9933">新しく記事を書く</font></Strong>から投稿が可能です。</p>
+	</div>
+<div class="a_QandA">
+	<div class="a_Q">
+		<p>【質問】</p><p>記事を編集したいのですがどうしたらいいですか？</p>
+	</div>
+	<div class="a_A">
+		<p>【回答】</p><p>ログイン後、<Strong><font color="#009933">自分の記事</font></Strong>をクリックし、<Strong><font color="red">記事の編集・削除</font></Strong>をクリック、さらに編集したい記事の<Strong><font color="#009933">編集</font></Strong>のボタンから編集が可能です。</p>
+	</div>
+</div>
+<div class="a_QandA">
+	<div class="a_Q">
+		<p>【質問】</p><p>記事を削除したいのですがどうしたらいいですか？</p>
+	</div>
+	<div class="a_A">
+		<p>【回答】</p><p>ログイン後、<Strong><font color="#009933">自分の記事</font></Strong>をクリックし、<Strong><font color="red">記事の編集・削除</font></Strong>をクリック、さらに削除したい記事の<Strong><font color="red">削除</font></Strong>のボタンから削除が可能です。</p>
+	</div>
+</div>
+<div class="a_QandA">
+	<div class="a_Q">
+		<p>【質問】</p><p>パスワードを変更したいのですがどうしたらいいですか？</p>
+	</div>
+	<div class="a_A">
+		<p>【回答】</p><p>ログイン後、<Strong><font color="#0066CC">登録情報の更新</font></Strong>から変更が可能です。</p>
+	</div>
+</div>
+<div class="a_QandA">
+	<div class="a_Q">
+		<p>【質問】</p><p>Eメールアドレスを変更したいのですがどうしたらいいですか？</p>
+	</div>
+	<div class="a_A">
+		<p>【回答】</p><p>ログイン後、<Strong><font color="#0066CC">登録情報の更新</font></Strong>から変更が可能です。</p>
+	</div>
+</div>
+<div class="a_QandA">
+	<div class="a_Q">
+		<p>【質問】</p><p>自分がお問い合わせした履歴を見たいのですがどうしたらいいですか？</p>
+	</div>
+	<div class="a_A">
+		<p>【回答】</p><p>ログイン後、<Strong><font color="#0066CC">お問い合わせ履歴</font></Strong>から可能です。</p>
+	</div>
+</div>
+<div class="a_QandA">
+	<div class="a_Q">
+		<p>【質問】</p><p>退会したいのですがどうしたらいいですか？</p>
+	</div>
+	<div class="a_A">
+		<p>【回答】</p><p>ログイン後、<Strong><font color="red">退会</font></Strong>から可能です。ただし、削除されるデータは元に戻せませんのでお気をつけください。</p>
+	</div>
+</div>
+
 <br>
 <br>
 <p class="h3">このページで解決しない場合はお問い合わせへ</p>
