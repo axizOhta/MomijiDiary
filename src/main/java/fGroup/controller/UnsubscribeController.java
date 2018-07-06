@@ -67,14 +67,6 @@ public class UnsubscribeController {
 	}
 
 
-
-////退会確認画面:28unsubscribe
-//	@RequestMapping(value = "/unsub", method = RequestMethod.POST)//GET
-//	public String unsub(@ModelAttribute("form") UnsubscribeForm users, Model model) {
-//		return "28unsubscribe";
-//	}
-
-
 //退会確認画面:46unsubscribeResult
 	@RequestMapping("/unsubResult")//GET
 	public String unsubResult(@ModelAttribute("form") UnsubscribeForm users, Model model) {
