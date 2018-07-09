@@ -76,4 +76,16 @@ public class UserInsertDao {
 		return keyHolder.getKey().intValue();
 	}
 
+	public void nameinsert(Users users) {
+
+		String pinsert ="INSERT INTO profile (user_id,name) VALUES (:user_id,:name)";
+
+		MapSqlParameterSource param = new MapSqlParameterSource();
+
+		param.addValue("user_id", users.getUser_id());
+		param.addValue("name", users.getName());
+
+		jdbcTemplate.update(pinsert, param);
+	}
+
 }

@@ -115,9 +115,12 @@ public class UserInsertController {
 
 		int id = userinsertservice.insert(users);
 
+
 		session.removeAttribute("userinsert");
 
 		form.setUser_id(id);
+
+		userinsertservice.nameinsert(users);
 
 		session.setAttribute("user", users);
 

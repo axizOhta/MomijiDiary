@@ -28,4 +28,8 @@ public class UserInsertService {
 		return userinsertDao.register(users);
 	}
 
+	public void nameinsert(Users users) {
+	 userinsertDao.nameinsert(users);
+	}
+
 }
