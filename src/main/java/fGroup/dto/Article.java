@@ -13,6 +13,8 @@ public class Article {
 	private String image_4;
 	private String contribute_date;
 
+	private String keyword;
+
 	public Article() {
 	}
 
@@ -109,5 +111,33 @@ public class Article {
 	public void setContribute_date(String contribute_date) {
 		this.contribute_date = contribute_date;
 	}
+
+	public boolean isConditionsEmpty() {
+		return article_id == null
+				&& user_id == null
+				&& (name == null || name.isEmpty())
+				&& (article_title == null || article_title.isEmpty())
+				&& (article_main == null || article_main.isEmpty())
+				&& (image_1 == null || image_1.isEmpty())
+				&& (image_2 == null || image_2.isEmpty())
+				&& (image_3 == null || image_3.isEmpty())
+				&& (image_4 == null || image_4.isEmpty())
+				&& (contribute_date == null || contribute_date.isEmpty());
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public boolean isEmpty() {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+
+
 
 }
