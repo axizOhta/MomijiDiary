@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fGroup.dto.Article;
 import fGroup.dto.Users;
+import fGroup.form.SELECT_ART_M_model;
 import fGroup.form.UserUpForm;
+import fGroup.service.ArtService;
 import fGroup.service.UserUpService;
 
 
@@ -33,11 +35,14 @@ public class KanriController {
 	@Autowired
 	HttpSession session;
 
+	@Autowired
+	ArtService artS;
 
-	@RequestMapping(value = "/43managerMenu") //Getで直に管理メニューへ飛んだときに管理ログインへ遷移//あとでreturn先を35login_managerに変更すること
-	public String menu(@ModelAttribute("form") UserUpForm form,Model model) {
-		return "43managerMenu";
-	}
+
+//	@RequestMapping(value = "/43managerMenu") //Getで直に管理メニューへ飛んだときに管理ログインへ遷移//あとでreturn先を35login_managerに変更すること
+//	public String menu(@ModelAttribute("form") UserUpForm form,Model model) {
+//		return "43managerMenu";
+//	}
 
 	@RequestMapping(value = "/36userinfo") //Getで直にユーザー一覧へ飛んだときに管理ログインへ遷移//あとでreturn先を35login_managerに変更すること
 	public String useritiran(@ModelAttribute("form") UserUpForm form, Model model) {
@@ -56,50 +61,71 @@ public class KanriController {
 
 
 	@RequestMapping(value = "/39forced_deleteArt")//記事削除へ遷移（//Getで来たらログインへ遷移）//あとでreturn先を35login_managerに変更すること
-	public String artget(@ModelAttribute("form") Users form,
+	public String artget(@ModelAttribute("form") SELECT_ART_M_model form,
 			@RequestParam("user_id") Integer user_id ,
 			@RequestParam(value ="name" ,required = false) String user_name,Model model) {//ここまで強制退会と同じ
+
 		List<Article> resultList =userUpService.findByName(user_id);
 		model.addAttribute("name", user_name);
 		model.addAttribute("user_id", user_id);
 		model.addAttribute("userlist", resultList);
 
+
+//		SELECT_ART_M_model selectArtM = new SELECT_ART_M_model();
+//		selectArtM.setSelect_article_id(new String[] { "1111111111" });
+//		model.addAttribute("form", selectArtM);
+//
+//		List<DELETE_ART_M> list = new ArrayList<>();
+//
+//		for (Article art : resultList) {
+//			list.add(new DELETE_ART_M(art.getArticle_id(), art.getArticle_title()));
+//		}
+//		 model.addAttribute("art_id", list);
+
 		return "39forced_deleteArt";
 	}
 	//未完成ここから
-	@RequestMapping(value = "/40forced_deleteArtCon")//記事削除確認へ遷移
-	public String artdel1(@ModelAttribute("form") Article form,
+	@RequestMapping(value = "/40forced_deleteArtCon" ,method = RequestMethod.POST)//記事削除確認へ遷移
+	public String artdel1(@ModelAttribute("form") SELECT_ART_M_model form,
 			@RequestParam("user_id") Integer user_id ,
 			@RequestParam(value ="name" ,required = false) String user_name,
 			@RequestParam(value ="article_id",required = false) Integer article_id ,
 			@RequestParam(value ="article_title",required = false) String article_title ,
-			@RequestParam(value ="delete" ,required = false) Integer[] delete, Model model) {
+			@RequestParam(value ="check" ,required = false) String check[], Model model) {
 
 		model.addAttribute("user_id",user_id);
-		model.addAttribute("article_title",article_title);
-		model.addAttribute("article_id",article_id);
 		model.addAttribute("name",user_name);
 
 		List<Article> list = new ArrayList<Article>();
 
-		for(Integer art_id : delete) {
-
+		if(check == null) {
+			model.addAttribute("msg", "チェックされていません");
+			return "39forced_deleteArt";
 		}
-		model.addAttribute("list", list);
+
+		for(String art_id : check) {
+
+			Article art = artS.selectArt(Integer.parseInt(art_id));
+			list.add(art);
+		}
+		model.addAttribute("userlist", list);
+		session.setAttribute("delList", list);
 
 		return "40forced_deleteArtCon";
 	}
+
 	@RequestMapping(value = "/41forced_deleteArtOK")//記事削除完了へ遷移
 	public String artdel2(@ModelAttribute("form") Article form,
-			@RequestParam("user_id") Integer user_id ,
 			@RequestParam(value ="name" ,required = false) String user_name,
-			@RequestParam("article_id") Integer article_id ,
 			Model model) {
+		List<Article> list = (List<Article>) session.getAttribute("delList");
+		for (Article art : list) {
+			userUpService.artDelete(art.getArticle_id());
+		}
 
-		userUpService.artDelete(article_id);
-		model.addAttribute("article_id",form);
-		model.addAttribute("art_name",form);
-		model.addAttribute("name",form);
+		model.addAttribute("name",user_name);
+		model.addAttribute("userlist", list);
+
 		return "41forced_deleteArtOK";
 	}
 
