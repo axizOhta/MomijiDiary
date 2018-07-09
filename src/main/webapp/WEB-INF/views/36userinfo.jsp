@@ -29,8 +29,13 @@
 						<img src="image/image002.png" alt="" class="a_momiji"><a>もみじ日記</a>
 					</div>
 					<div class="a_menu">
+<<<<<<< HEAD
 						<ul>
 							<li><a href="43managerMenu" id="manager">管理者メニュー</a></li>
+=======
+						<ul>
+							<li><a href="43managerMenu.html" id="manager">管理者メニュー</a></li>
+>>>>>>> refs/remotes/origin/UserUpdate
 						</ul>
 					</div>
 				</div>
