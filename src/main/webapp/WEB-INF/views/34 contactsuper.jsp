@@ -32,8 +32,6 @@
 	</div>
 </header>
 <div class="o_">
-
-
 <div class = "o_wrapper">
 <div class="a_manager">
 <p class = "k_center k_bold">問い合わせ一覧</p>
@@ -66,6 +64,7 @@
 	<div class="a_btn">
 	<input type="submit" name="button" value="メニュー" onclick="location.href='43managerMenu'; return false;">
 	</div>
+</div>
 </div>
 </div>
 </div>
