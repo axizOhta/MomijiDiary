@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>管理者メニュー画面</title>
+<title>登録情報変更完了画面</title>
 <script src="js/jquery.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link href="css/f.css" rel="stylesheet">
@@ -26,37 +26,28 @@
          </div>
          <div class="a_menu">
          	<ul>
-         		<li><a href="43managerMenu" id="manager">管理者メニュー</a></li>
+         		<li class="a_select"><a href="17select">検索</a></li>
+         		<li><a href="05mypage">基本ページ</a></li>
+         		<li><a href="30 contact">お問い合わせ</a></li>
          	</ul>
         </div>
         </div>
 	</div>
 	</div>
 </header>
-<form:form action="post"  modelAttribute="form">
+<form:form action="select" modelAttribute="form">
+ </form:form>
 <div class="o_">
-<div class = "o_wrapper">
+
 <div class="a_">
-<div class="a_btn">
-<form action="34 contactsuper">
-	<input type="submit" value="問い合わせ確認" class="a_btn_manager">
-</form>
-</div>
-<br><br>
-<div id="a_btn">
-<form:form action="36userinfo"  method = "post" modelAttribute="form">
-	<input type="submit" value="ユーザー一覧" class="a_btn_manager">
-</form:form>
-</div>
-<br><br>
-<div id="a_btn">
-<form action="35login_manager">
-	<input type="submit" value="ログアウト" class="a_btn_manager">
-</form>
-</div>
-</div>
-</div>
-</div>
-</form:form>
+<div class="text-center">
+<p class="h2">登録しました。</p>
+<div class="a_return">
+	<input type="submit" class="btn btn-info btn-lg btn-block" name="button" value="基本ページに戻る" onclick="location.href='05mypage'; return false;">
+	</div>
+  </div>
+  </div>
+  </div>
+
 </body>
 </html>

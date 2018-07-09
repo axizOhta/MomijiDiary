@@ -48,7 +48,7 @@
 	border: 2px solid black;
 	text-align: center;
 	font-size: 15px;
-
+	
 }
 
 .a_user_photo {
@@ -95,22 +95,22 @@
 }
 
 html, body{
-    margin: 0;         /* ï¿½]ï¿½ï¿½ï¿½Ìíœ */
-    padding: 0;        /* ï¿½]ï¿½ï¿½ï¿½Ìíœ */
+    margin: 0;         /* —]”’‚Ìíœ */
+    padding: 0;        /* —]”’‚Ìíœ */
    width: 100%;
     height: 100%;
 }
 
-header {
-	width: auto; /* ï¿½ï¿½ï¿½Lï¿½bï¿½hï¿½fï¿½Uï¿½Cï¿½ï¿½ï¿½É‚ï¿½ï¿½é‚½ï¿½ï¿½*/
+header { 
+	width: auto; /* ƒŠƒLƒbƒhƒfƒUƒCƒ“‚É‚·‚é‚½‚ß*/
 	top: 0px;
-	left: 0px;
+	left: 0px; 
 	height: 80px;
 	padding:0 0 0;
-	height:97px;
-	width:100%;
+	height:97px;               
+	width:100%; 
 	background-color: #f0831e;
-	margin: 0;
+	margin: 0; 
 	color: white;
 	position: fixed;
 	z-index: 100;
@@ -119,7 +119,7 @@ header {
 .a_menu ul {
 	margin; 0;
 	padding: 0;
-	max-width: 800px; /*ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ÌÅï¿½ï¿½l */
+	max-width: 800px; /*@‰¡•‚ÌÅ¬’l */
 }
 
 .a_menu li {
@@ -257,41 +257,30 @@ a#manager {
 	margin-top: 20px;
 }
 
-li.select{
-	text-aling: left;
-}
 
-a.a_kensaku {
-	color: black;
-	font-size: 30px;
-	margin-left: 0;
-	text-aling: left;
-}
-
-
-/* ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ */
+/* ‚±‚±‚Ü‚Å */
 
 /* otsu */
 div#header-fixed
 {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
+    position: fixed;            
+    top: 0px;                   
+    left: 0px;                 
+    width: 100%;               
     height: 0;
-    z-index: 100;
+    z-index: 100;         
 }
-div#header-bk {
-	padding:0 0 0;
-	height:100px;
-	width:100%;
+div#header-bk { 
+	padding:0 0 0;   
+	height:100px;              
+	width:100%; 
 }
 .o_{
 	margin-top: 150px;
 }
 .o_wrapper {
 	text-align: center;
-
+	
 }
 .o_form_conf {
     text-align: center;
@@ -318,7 +307,7 @@ div#header-bk {
   height: 200px;
   overflow: hidden;
 }
-
+ 
 .o_pattern1 img {
 	max-height: 200px;
 	max-width: 80%;
@@ -328,7 +317,7 @@ div#header-bk {
 border: 2px #2b2b2b solid;
 padding: 10px;
 }
-/* ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ */
+/* ‚±‚±‚Ü‚Å */
 
 /* k.ohta */
 .k_center{
@@ -379,4 +368,4 @@ padding: 10px;
 .k_required{
 	color: red;
 }
-/* ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ */
+/* ‚±‚±‚Ü‚Å */
