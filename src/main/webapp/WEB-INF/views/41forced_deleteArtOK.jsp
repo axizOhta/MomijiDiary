@@ -27,6 +27,7 @@
          </div>
         <div class="a_menu">
          	<ul>
+<<<<<<< HEAD
          		<li><a href="43managerMenu" id="manager">管理者メニュー</a></li>
          	</ul>
         </div>
