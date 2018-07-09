@@ -1,7 +1,6 @@
 package fGroup.controller;
 
 import java.util.List;
-import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -35,8 +34,10 @@ public class SelectController {
 			Model model) {
 
 		if (bindingResult.hasErrors()) {
-			String errorMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
-			model.addAttribute("errmsg", errorMsg);
+//			String errorMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
+//			model.addAttribute("errmsg", errorMsg);
+			model.addAttribute("errmsg", "キーワードを入力してください");
+
 			return "17select";
 		}
 
@@ -44,8 +45,10 @@ public class SelectController {
 		model.addAttribute("keyword", Keyword);
 
 		if(form.keyword == null || form.isEmpty()) {
-			String errorMsg = messageSource.getMessage("select.null.error", null, Locale.getDefault());
-			model.addAttribute("errmsg", errorMsg);
+//			String errorMsg = messageSource.getMessage("select.null.error", null, Locale.getDefault());
+//			model.addAttribute("errmsg", errorMsg);
+			model.addAttribute("errmsg", "キーワードを入力してください");
+
 			return "17select";
 		}
 
@@ -55,8 +58,9 @@ public class SelectController {
 		List<Article> resultList = articleService.findByConditions(condition);
 
 		if(resultList.isEmpty()) {
-			String errorMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
-			model.addAttribute("errmsg", errorMsg);
+//			String errorMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
+//			model.addAttribute("errmsg", errorMsg);
+			model.addAttribute("errmsg", "入力したキーワードを含む記事は見つかりませんでした");
 			return "17select";
 		}else {
 			model.addAttribute("articlelist", resultList);
@@ -75,8 +79,9 @@ public class SelectController {
 			Model model) {
 
 		if (bindingResult.hasErrors()) {
-			String errorMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
-			model.addAttribute("errmsg", errorMsg);
+//			String errorMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
+//			model.addAttribute("errmsg", errorMsg);
+			model.addAttribute("errmsg", "キーワードを入力してください");
 			return "53selectUnlogin";
 		}
 
@@ -84,8 +89,9 @@ public class SelectController {
 		model.addAttribute("keyword", Keyword);
 
 		if(form.keyword == null || form.isEmpty()) {
-			String errorMsg = messageSource.getMessage("select.null.error", null, Locale.getDefault());
-			model.addAttribute("errmsg", errorMsg);
+//			String errorMsg = messageSource.getMessage("select.null.error", null, Locale.getDefault());
+//			model.addAttribute("errmsg", errorMsg);
+			model.addAttribute("errmsg", "キーワードを入力してください");
 			return "53selectUnlogin";
 		}
 
@@ -95,11 +101,13 @@ public class SelectController {
 		List<Article> resultList = articleService.findByConditions(condition);
 
 		if(resultList.isEmpty()) {
-			String errorMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
-			model.addAttribute("errmsg", errorMsg);
+//			String errorMsg = messageSource.getMessage("select.error", null, Locale.getDefault());
+//			model.addAttribute("errmsg", errorMsg);
+			model.addAttribute("errmsg", "入力したキーワードを含む記事は見つかりませんでした");
 			return "53selectUnlogin";
 		}else {
 			model.addAttribute("articlelist", resultList);
+
 			return "49selectResultUnlogin";
 		}
 	}

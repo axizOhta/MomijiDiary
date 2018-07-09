@@ -20,8 +20,8 @@ $(function() {
   var page = 0;
   function draw() {
     $('#page').html(page + 1);
-    $('tr').hide();
-    $('tr:first,tr:gt(' + page * 3 + '):lt(3)').show();
+    $('.select').hide();
+    $('.select:first,.select:gt(' + page * 3 + '):lt(3)').show();
   }
   $('#prev').click(function() {
     if (page > 0) {
@@ -30,7 +30,7 @@ $(function() {
     }
   });
   $('#next').click(function() {
-	  var size = tbl1.rows.length;
+	  var size = $('.select').length;
     if (page < (size - 1) / 3 - 1) {
       page++;
       draw();
@@ -69,22 +69,19 @@ $(function() {
 <div class="o_">
 <div class="a_">
 <div class = "o_wrapper">
-
-		<p class ="h2">${fn:escapeXml(keyword)}の検索結果</p>
-		<ul class = "h2">
-			<c:forEach items="${articlelist}" var="article">
-		<li>
-			<a href="15art?art_id=${article.article_id}" class ="h2">${fn:escapeXml(article.article_title)}</a></td>
-		</li>
-		<br>
+<p class ="h2"><span class="select"></span>${fn:escapeXml(keyword)}の検索結果</p>
+<ul id="tbl1">
+			<c:forEach items="${articlelist}" var="article" varStatus="status">
+			<li class = "select"><a href="15art?art_id=${article.article_id}" class ="a_kensaku">${fn:escapeXml(article.article_title)}</a></li>
 	</c:forEach>
-	</ul>
+</ul>
 	<br>
 	<br>
 <div id= "button">
-	<input type="submit" value="前へ" class="btn btn-success btn-lg btn-block">
-	<input type="submit" value="次へ" class="btn btn-primary btn-lg btn-block"><br>
+	<input type="button"  id="prev" value="前へ" class="btn btn-success btn-lg btn-block"><br>
+	<input type="button"  id="next" value="次へ" class="btn btn-primary btn-lg btn-block"><br>
 </div>
+<br>
 	<input type="submit" class="btn btn-info btn-lg  btn-block" name="button" value="検索画面に戻る" onclick="location.href='53selectUnlogin'; return false;">
 	<br>
 	<input type="submit" class="btn btn-primary btn-lg  btn-block" name="button" value="トップに戻る" onclick="location.href='47Top'; return false;">

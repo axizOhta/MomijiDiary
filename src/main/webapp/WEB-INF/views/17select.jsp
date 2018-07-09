@@ -48,7 +48,7 @@
 <p class="h2">検索したいキーワードを記入してください</p>
 <form action="18selectResult"  method="post">
 <c:if test="${not empty errmsg}">
-  <p class="error">${fn:escapeXml(errmsg)}</p>
+  <p class="a_denger">${fn:escapeXml(errmsg)}</p>
 </c:if>
     <div>
       <p><input type="text" class="form-control input-lg"  name="keyword"></p>

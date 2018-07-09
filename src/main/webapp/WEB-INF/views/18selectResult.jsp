@@ -19,8 +19,8 @@ $(function() {
   var page = 0;
   function draw() {
     $('#page').html(page + 1);
-    $('tr').hide();
-    $('tr:first,tr:gt(' + page * 3 + '):lt(3)').show();
+    $('.select').hide();
+    $('.select:first,.select:gt(' + page * 3 + '):lt(3)').show();
   }
   $('#prev').click(function() {
     if (page > 0) {
@@ -29,7 +29,7 @@ $(function() {
     }
   });
   $('#next').click(function() {
-	  var size = tbl1.rows.length;
+	  var size = $('.select').length;
     if (page < (size - 1) / 3 - 1) {
       page++;
       draw();
@@ -68,17 +68,12 @@ $(function() {
 <div class="o_">
 <div class="a_">
 <div class = "o_wrapper">
-<table id="tbl1">
-		<tr><th class ="h1">${fn:escapeXml(keyword)}の検索結果</tr>
+<p class ="h1"><span class="select"></span>${fn:escapeXml(keyword)}の検索結果</p>
+<ul id="tbl1">
 			<c:forEach items="${articlelist}" var="article" varStatus="status">
-
-		<tr>
-			<td class = "o_td"><a href="15art?art_id=${article.article_id}" class ="h2">${fn:escapeXml(article.article_title)}</a></td>
-		</tr>
-
-		<br>
+			<li class = "select"><a href="15art?art_id=${article.article_id}" class ="a_kensaku">${fn:escapeXml(article.article_title)}</a></li>
 	</c:forEach>
-</table>
+</ul>
 
 <br>
 <br>
