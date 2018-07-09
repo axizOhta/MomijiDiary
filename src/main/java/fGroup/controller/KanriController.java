@@ -1,5 +1,4 @@
 package fGroup.controller;
-<<<<<<< HEAD
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,100 +125,6 @@ public class KanriController {
 
 		model.addAttribute("name",user_name);
 		model.addAttribute("userlist", list);
-
-=======
-
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import fGroup.dto.Article;
-import fGroup.dto.Users;
-import fGroup.form.UserUpForm;
-import fGroup.service.UserUpService;
-
-
-
-@Controller
-public class KanriController {
-
-	@Autowired
-    MessageSource messageSource;
-
-	@Autowired
-	private UserUpService userUpService;
-
-	@Autowired
-	HttpSession session;
-
-
-	@RequestMapping(value = "/43managerMenu") //Getで直に管理メニューへ飛んだときに管理ログインへ遷移//あとでreturn先を35login_managerに変更すること
-	public String menu(@ModelAttribute("form") UserUpForm form,Model model) {
-		return "43managerMenu";
-	}
-
-	@RequestMapping(value = "/36userinfo") //Getで直にユーザー一覧へ飛んだときに管理ログインへ遷移//あとでreturn先を35login_managerに変更すること
-	public String useritiran(@ModelAttribute("form") UserUpForm form, Model model) {
-		return "43managerMenu";
-	}
-
-
-
-
-	@RequestMapping(value = "/36userinfo" ,method = RequestMethod.POST)//Postでユーザー一覧へ遷移
-	public String users(@ModelAttribute("form") Users form,   Model model) {
-		List<Users> resultList =userUpService.find(form);
-		model.addAttribute("userlist", resultList);
-		return "36userinfo";
-	}
-
-
-	@RequestMapping(value = "/39forced_deleteArt")//記事削除へ遷移（//Getで来たらログインへ遷移）//あとでreturn先を35login_managerに変更すること
-	public String artget(@ModelAttribute("form") Users form,
-			@RequestParam("user_id") Integer user_id ,
-			@RequestParam(value ="name" ,required = false) String user_name,Model model) {//ここまで強制退会と同じ
-		List<Article> resultList =userUpService.findByName(user_id);
-		model.addAttribute("name", user_name);
-		model.addAttribute("userlist", resultList);
-
-		return "39forced_deleteArt";
-	}
-	//未完成ここから
-	@RequestMapping(value = "/40forced_deleteArtCon")//記事削除確認へ遷移
-	public String artdel1(@ModelAttribute("form") Article form,
-			@RequestParam("user_id") Integer user_id ,
-			@RequestParam(value ="name" ,required = false) String user_name,
-			@RequestParam(value ="article_id",required = false) Integer article_id ,
-			@RequestParam(value ="article_title",required = false) String article_title ,Model model) {
-		//System.out.println(user_name);
-		model.addAttribute("user_id",user_id);
-		model.addAttribute("article_title",article_title);
-		model.addAttribute("article_id",article_id);
-		model.addAttribute("name",user_name);
-
-		return "40forced_deleteArtCon";
-	}
-	@RequestMapping(value = "/41forced_deleteArtOK")//記事削除完了へ遷移
-	public String artdel2(@ModelAttribute("form") Article form,
-			@RequestParam("user_id") Integer user_id ,
-			@RequestParam(value ="name" ,required = false) String user_name,
-			@RequestParam("article_id") Integer article_id ,
-			@RequestParam(value ="art_name" ,required = false) String art_name,Model model) {
-
-		userUpService.artDelete(article_id);
-		model.addAttribute("article_id",form);
-		model.addAttribute("art_name",form);
-		model.addAttribute("name",form);
->>>>>>> refs/remotes/origin/UserUpdate
 		return "41forced_deleteArtOK";
 	}
 

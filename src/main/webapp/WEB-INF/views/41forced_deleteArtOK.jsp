@@ -27,8 +27,6 @@
          </div>
         <div class="a_menu">
          	<ul>
-<<<<<<< HEAD
-<<<<<<< HEAD
          		<li><a href="43managerMenu" id="manager">管理者メニュー</a></li>
          	</ul>
         </div>
@@ -48,26 +46,6 @@
 			</ul>
 	<br>
 	<input type="submit" name="button" value="管理者メニューに戻る" onclick="location.href='43managerMenu'; return false;">
-=======
-         		<li><a href="43managerMenu.html" id="manager">管理者メニュー</a></li>
-         	</ul>
-        </div>
-        </div>
-	</div>
-	</div>
-</header>
-<div class="o_">
-<div class = "o_wrapper">
-<div class = "k_center">
-	<p>削除が完了しました</p>
-	<p>対象ユーザ：佐藤さん</p>
-	<ul>
-		<li>記事タイトル①</li>
-		<li>記事タイトル②</li>
-	</ul>
-	<br>
-	<input type="submit" name="button" value="管理者メニューに戻る" onclick="location.href='43managerMenu.html'; return false;">
->>>>>>> refs/remotes/origin/UserUpdate
 </div>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </div>
