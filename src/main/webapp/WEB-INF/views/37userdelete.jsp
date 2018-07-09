@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -7,14 +7,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>管理者メニュー画面</title>
+<title>削除確認画面</title>
 <script src="js/jquery.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<link href="css/f.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="css/f.css" rel="stylesheet">
 <script src="js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
 </head>
 <body>
 <header>
@@ -33,30 +34,35 @@
 	</div>
 	</div>
 </header>
-<form:form action="post"  modelAttribute="form">
 <div class="o_">
 <div class = "o_wrapper">
-<div class="a_">
-<div class="a_btn">
-<form action="34 contactsuper">
-	<input type="submit" value="問い合わせ確認" class="a_btn_manager">
+<p class = "k_required">このユーザーを削除します。よろしいですか?</p>
+<div class = "table-responsive">
+	<table border = "1" class = "k_table k_padding k_center">
+	    <tr>
+	      <th>ID</th>
+	      <th>ユーザー名</th>
+	    </tr>
+	  <tr>
+	      <td>${user_id}</td>
+	      <td>${user_name}</td>
+	  </tr>
+	</table>
+</div>
+<br>
+<div class = "k_center">
+<form:form action="38userdeleteResult" modelAttribute="form">
+<input type = "hidden" name = "user_id" value = "${user_id}"/>
+<input type = "hidden" name = "name" value = "${user_name}"/>
+<input type="submit" value="削除">
+</form:form>
+<br>
+<form action ="36userinfo" method ="post">
+<input type="submit" value="戻る">
 </form>
 </div>
-<br><br>
-<div id="a_btn">
-<form:form action="36userinfo"  method = "post" modelAttribute="form">
-	<input type="submit" value="ユーザー一覧" class="a_btn_manager">
-</form:form>
-</div>
-<br><br>
-<div id="a_btn">
-<form action="35login_manager">
-	<input type="submit" value="ログアウト" class="a_btn_manager">
-</form>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </div>
 </div>
-</div>
-</div>
-</form:form>
 </body>
 </html>
