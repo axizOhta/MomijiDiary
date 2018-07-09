@@ -78,12 +78,19 @@ public class UserInsertDao {
 
 	public void nameinsert(Users users) {
 
-		String pinsert ="INSERT INTO profile (user_id,name) VALUES (:user_id,:name)";
+		String pinsert ="INSERT INTO profile (user_id,profile_image,name,sex,birthyear,birthmonth,birthday,hobby,self_introduction) VALUES (:user_id,:profile_image,:name,:sex,:birthyear,:birthmonth,:birthday,:hobby,:self_introduction)";
 
 		MapSqlParameterSource param = new MapSqlParameterSource();
 
 		param.addValue("user_id", users.getUser_id());
+		param.addValue("profile_image", "");
 		param.addValue("name", users.getName());
+		param.addValue("sex", "");
+		param.addValue("birthyear", "");
+		param.addValue("birthmonth", "");
+		param.addValue("birthday", "");
+		param.addValue("hobby", "");
+		param.addValue("self_introduction", "");
 
 		jdbcTemplate.update(pinsert, param);
 	}
