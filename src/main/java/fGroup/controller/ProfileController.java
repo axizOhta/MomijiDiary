@@ -33,7 +33,7 @@ public class ProfileController {
 		return "45myPro";
 	}
 
-	@RequestMapping(value="/22profile", method=RequestMethod.GET)
+	@RequestMapping(value="/22profile", method=RequestMethod.POST)
 	public String profile(@ModelAttribute("form") ProfileForm form) {
 		Users user = (Users)session.getAttribute("user");
 		Integer user_id = user.getUser_id();
