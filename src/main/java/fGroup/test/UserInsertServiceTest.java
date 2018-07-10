@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -58,7 +58,7 @@ public class UserInsertServiceTest {
 				("SELECT user_id, login_id, name, email_address, password, entry_date, last_update_date, unsubscribe_flug"
 						+ " FROM users "
 						+ "WHERE login_id = ?" ,
-						new BeanPropertyRowMapper<Users>(Users.class), 10001);
+						new BeanPropertyRowMapper<Users>(Users.class), "はるぴっぴ");
 
     	Users user1 = list.get(0);
 
