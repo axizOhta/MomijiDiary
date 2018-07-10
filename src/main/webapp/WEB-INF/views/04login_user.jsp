@@ -29,8 +29,8 @@
          </div>
          <div class="a_menu">
          	<ul>
-         		<li class="a_select"><a href="53 selectUnlogin">検索</a></li>
-         		<li><a href="top">トップページ</a></li>
+         		<li class="a_select"><a href="53selectUnlogin">検索</a></li>
+         		<li><a href="47Top">トップページ</a></li>
          		<li><a href="54contactUnlogin">お問い合わせ</a></li>
          	</ul>
         </div>
@@ -43,20 +43,20 @@
 <div class="a_">
 <div class="text-center">
 	<form:form action="login" modelAttribute="form">
-  <fieldset>
+	<fieldset>
   		<c:if test="${not empty errmsg}">
   		<p class="a_denger">${errmsg}</p>
 		</c:if>
-    <div>
-      <label class="h2">IDを入力してください</label><br>
-      <form:input type="text" class="form-control input-lg" id="id" path="login_id"></form:input>
-    </div>
-    <div>
-      <label class="h2">パスワードを入力してください</label><br>
-      <form:input type="password" class="form-control input-lg" id="pass" path="password"/>
-    </div>
-  </fieldset>
-  <br>
+    	<div>
+			<label class="h2">IDを入力してください</label><br>
+			<form:input type="text" class="form-control input-lg" id="id" path="login_id"></form:input>
+    	</div>
+    	<div>
+      		<label class="h2">パスワードを入力してください</label><br>
+      		<form:input type="password" class="form-control input-lg" id="pass" path="password"/>
+    	</div>
+  	</fieldset>
+ 	 <br>
 <br>
 <br>
 <div class="a_btn">
@@ -65,11 +65,9 @@
  </form:form>
   <br>
 <br>
-<form action ="top">
 <div class="a_btn">
-<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="前のページに戻る">
+<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="前のページに戻る" onclick="location.href='47Top'; return false;">
 </div>
-</form>
 </div>
 </div>
 </div>

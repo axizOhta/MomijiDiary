@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<!DOCTYPE>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -33,28 +33,30 @@
 	</div>
 	</div>
 </header>
+<form:form action="post"  modelAttribute="form">
 <div class="o_">
 <div class = "o_wrapper">
 <div class="a_">
 <div class="a_btn">
-<form action="34contactsuper">
+<form action="34 contactsuper">
 	<input type="submit" value="問い合わせ確認" class="a_btn_manager">
 </form>
 </div>
 <br><br>
 <div id="a_btn">
-<form action="36userinfo">
+<form:form action="36userinfo"  method = "post" modelAttribute="form">
 	<input type="submit" value="ユーザー一覧" class="a_btn_manager">
-</form>
+</form:form>
 </div>
 <br><br>
 <div id="a_btn">
-<form:form action="Mlogout" modelAttribute="form">
+<form action="35login_manager">
 	<input type="submit" value="ログアウト" class="a_btn_manager">
+</form>
+</div>
+</div>
+</div>
+</div>
 </form:form>
-</div>
-</div>
-</div>
-</div>
 </body>
 </html>
