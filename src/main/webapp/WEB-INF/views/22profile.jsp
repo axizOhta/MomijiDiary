@@ -46,7 +46,7 @@
 		<div class="a_form">
 
 			<div class="o_pattern1">
-				<img src="${profile.profile_image}" alt="">
+				<img src="${Profile.profile_image}" alt="">
 			</div>
 			<div class="a_">
 				<form action="16all_postArt.html">
@@ -60,23 +60,23 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">名前</h3>
 						</div>
-						<div class="panel-body">${profile.name}</div>
+						<div class="panel-body">${Profile.name}</div>
 						<div class="panel-heading">
 							<h3 class="panel-title">性別</h3>
 						</div>
-						<div class="panel-body">${profile.sex}</div>
+						<div class="panel-body">${Profile.sex}</div>
 						<div class="panel-heading">
 							<h3 class="panel-title">誕生日</h3>
 						</div>
-						<div class="panel-body">${profile.birthyear}年${profile.birthmonth}月${profile.birthday}日</div>
+						<div class="panel-body">${Profile.birthyear}年${Profile.birthmonth}月${Profile.birthday}日</div>
 						<div class="panel-heading">
 							<h3 class="panel-title">趣味</h3>
 						</div>
-						<div class="panel-body">${profile.hobby}</div>
+						<div class="panel-body">${Profile.hobby}</div>
 						<div class="panel-heading">
 							<h3 class="panel-title">ひとこと</h3>
 						</div>
-						<div class="panel-body">${profile.self_introduction}</div>
+						<div class="panel-body">${Profile.self_introduction}</div>
 					</div>
 
 				</div>

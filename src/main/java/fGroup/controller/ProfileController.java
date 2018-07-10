@@ -37,9 +37,9 @@ public class ProfileController {
 		Integer user_id = user.getUser_id();
 		Profile profile = profileService.FindById(user_id);
 
-		session.setAttribute("beforeProfile", profile);
+		session.setAttribute("Profile", profile);
 
-		return "23profileEdit";
+		return "22profile";
 	}
 
 	@RequestMapping(value="/23profileEdit", method=RequestMethod.GET)
