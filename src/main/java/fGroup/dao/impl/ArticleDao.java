@@ -21,7 +21,6 @@ public class ArticleDao implements IArticleDao {
 
 	@Override
 	public List<Article> findByConditions(Article article) {
-		System.out.println("3");
 
 		List<String> condition = new ArrayList<String>();
 		MapSqlParameterSource param = new MapSqlParameterSource();
@@ -35,7 +34,6 @@ public class ArticleDao implements IArticleDao {
 
 		String sql = "SELECT * FROM article WHERE article_title LIKE :keyword OR article_main LIKE :keyword ORDER BY contribute_date";
 		List<Article> resultList = jdbcTemplate.query(sql, param, new BeanPropertyRowMapper<Article>(Article.class));
-		System.out.println("3");
 		return resultList;
 	}
 
