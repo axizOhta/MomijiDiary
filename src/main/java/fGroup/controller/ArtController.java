@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fGroup.dto.Article;
-import fGroup.dto.Users;
 import fGroup.form.Post;
 import fGroup.service.ArtService;
 
@@ -32,10 +31,10 @@ public class ArtController {
 	@RequestMapping(value="/44myArt")
 	public String myArt (@ModelAttribute("form") Post post, Model model) {
 		//テスト用　後で消す
-		Users user = new Users();
-		user.setUser_id(10001);
-		user.setName("OK");
-		session.setAttribute("user", user);
+//		Users user = new Users();
+//		user.setUser_id(10001);
+//		user.setName("OK");
+//		session.setAttribute("user", user);
 
 		return "44myArt";
 	}
