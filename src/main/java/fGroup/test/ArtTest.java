@@ -108,7 +108,7 @@ public class ArtTest {
 
     @Test
     public void 記事投稿() throws Exception {
-    	 artS.insert("titleT", "day", "mainT", 100, "佐藤");
+    	 artS.insert("titleT", "day", "mainT", 100, "佐藤", "", "", "", "");
     	 Article art = artS.selectArt(artS.lastId());
 
     	 assertThat(art.getArticle_title(), is("titleT"));
