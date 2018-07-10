@@ -63,7 +63,6 @@ public class UserSelectTest {
 		    	assertThat(user3.getLogin_id(), is("十六"));
 		    	assertThat(user4.getUser_id(), is(10004));
 		    	assertThat(user4.getLogin_id(), is("mamipippi"));
-
 	}
 
 

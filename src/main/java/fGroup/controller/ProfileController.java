@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import fGroup.dto.Users;
 import fGroup.form.ProfileForm;
 import fGroup.service.ProfileService;
 
+@Controller
 public class ProfileController {
 
 	@Autowired
@@ -31,7 +33,7 @@ public class ProfileController {
 		return "45myPro";
 	}
 
-	@RequestMapping(value="/22profile", method=RequestMethod.GET)
+	@RequestMapping(value="/22profile", method=RequestMethod.POST)
 	public String profile(@ModelAttribute("form") ProfileForm form) {
 		Users user = (Users)session.getAttribute("user");
 		Integer user_id = user.getUser_id();
