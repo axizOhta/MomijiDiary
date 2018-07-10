@@ -21,6 +21,7 @@ import fGroup.dto.Article;
 import fGroup.dto.Users;
 import fGroup.form.Post;
 import fGroup.service.ArtService;
+import fGroup.service.DateModifiedService;
 
 
 @Controller
@@ -238,6 +239,11 @@ public class ArtPostEditDeleteController {
 		}
 
 		model.addAttribute("delete", post);
+//更新日時
+		Integer user_id = (Integer)session.getAttribute("user");
+
+		Users user = DateModifiedService.dateModified(user_id);
+
 		return "13deleteCon";
 	}
 
