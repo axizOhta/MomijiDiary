@@ -49,7 +49,7 @@
 				<img src="${Profile.profile_image}" alt="">
 			</div>
 			<div class="a_">
-				<form action="16all_postArt.html">
+				<form action="16all_postArt">
 					<input type="submit" class="btn btn-warning btn-lg btn-block"
 						value="記事を見る">
 				</form>
