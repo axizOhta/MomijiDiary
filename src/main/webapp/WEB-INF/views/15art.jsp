@@ -52,10 +52,11 @@
 						<p class="h2">${ art.name }さんの日記</p>
 					</div>
 					<div class="a_">
-						<form action="22 profile">
+						<form:form action="22profile" modelAttribute="form">
+							<form:hidden path="user_id" />
 							<input type="submit" value="自己紹介"
 								class="btn btn-primary btn-lg btn-block">
-						</form>
+						</form:form>
 						<br> <br>
 						<div>
 							<div class="a_article">

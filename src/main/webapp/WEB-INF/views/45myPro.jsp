@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,10 +44,11 @@
 		<div class="o_wrapper">
 			<div class="a_">
 				<div class="a_btn">
-					<form method="post" action="22profile">
+					<form:form method="post" action="22profile" modelAttribute="form">
+						<form:hidden path="user_id" />
 						<input type="submit" value="自己紹介を見る"
 							class="btn btn-success btn-lg btn-block">
-					</form>
+					</form:form>
 				</div>
 				<div class="a_btn">
 					<form action="23profileEdit">

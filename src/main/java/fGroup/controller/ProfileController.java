@@ -29,14 +29,16 @@ public class ProfileController {
 
 	@RequestMapping(value="/45myPro")
 	public String myPro(Model model) {
-
+		Users user = (Users)session.getAttribute("user");
+		Profile profile = new Profile();
+		profile.setUser_id(user.getUser_id());
+		model.addAttribute("form", profile);
 		return "45myPro";
 	}
 
 	@RequestMapping(value="/22profile", method=RequestMethod.POST)
 	public String profile(@ModelAttribute("form") ProfileForm form) {
-		Users user = (Users)session.getAttribute("user");
-		Integer user_id = user.getUser_id();
+		Integer user_id = form.getUser_id();
 		Profile profile = profileService.FindById(user_id);
 
 		session.setAttribute("Profile", profile);

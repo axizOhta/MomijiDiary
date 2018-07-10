@@ -86,9 +86,9 @@ public class UserInsertDao {
 		param.addValue("profile_image", "");
 		param.addValue("name", users.getName());
 		param.addValue("sex", "");
-		param.addValue("birthyear", "");
-		param.addValue("birthmonth", "");
-		param.addValue("birthday", "");
+		param.addValue("birthyear", null);
+		param.addValue("birthmonth", null);
+		param.addValue("birthday", null);
 		param.addValue("hobby", "");
 		param.addValue("self_introduction", "");
 

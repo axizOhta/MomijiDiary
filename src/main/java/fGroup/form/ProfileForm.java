@@ -12,6 +12,7 @@ public class ProfileForm {
 	private Integer birthday;
 	private String hobby;
 	private String self_introduction;
+	private Integer user_id;
 
 	public MultipartFile getProfile_image() {
 		return profile_image;
@@ -60,6 +61,12 @@ public class ProfileForm {
 	}
 	public void setSelf_introduction(String self_introduction) {
 		this.self_introduction = self_introduction;
+	}
+	public Integer getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
 	}
 
 }
