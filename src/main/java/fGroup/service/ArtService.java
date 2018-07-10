@@ -26,8 +26,8 @@ public class ArtService {
 		return artDao.lastId();
 	}
 
-	public void insert(String title, String date, String content, Integer user_id, String name) {
-		artDao.insert(title, date, content, user_id, name);
+	public void insert(String title, String date, String content, Integer user_id, String name, String image01, String image02, String image03, String image04) {
+		artDao.insert(title, date, content, user_id, name,image01,image02,image03,image04);
 	}
 
 	public void update(Integer article_id, String article_title, String article_main) {
@@ -46,6 +46,23 @@ public class ArtService {
 	public boolean existUser(Integer user_id) {
 		return artDao.existUser(user_id);
 	}
+
+	//画像パスをデータベースに突っ込む
+//	public void updateImages(String image01path, String image02path, String image03path, String image04path) {
+//
+//		if(!((image01path).equals("")){
+//			artDao.insertImage01(image01path);
+//		}
+//		if(!((image02path).equals("")){
+//			artDao.insertImage02(image02path);
+//		}
+//		if(!((image03path).equals("")){
+//			artDao.insertImage03(image03path);
+//		}
+//		if(!((image04path).equals("")){
+//			artDao.insertImage04(image04path);
+//		}
+//	}
 
 
 }

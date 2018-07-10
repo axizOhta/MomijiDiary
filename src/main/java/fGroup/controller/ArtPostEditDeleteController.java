@@ -1,5 +1,7 @@
 package fGroup.controller;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import fGroup.dto.Article;
 import fGroup.dto.Users;
@@ -65,6 +68,52 @@ public class ArtPostEditDeleteController {
 			return "06post";
 		}
 
+		try {
+			MultipartFile image01 = post.getImage1();
+			MultipartFile image02 = post.getImage2();
+			MultipartFile image03 = post.getImage3();
+			MultipartFile image04 = post.getImage4();
+
+			String file01 = image01.getOriginalFilename();
+			String file02 = image02.getOriginalFilename();
+			String file03 = image03.getOriginalFilename();
+			String file04 = image04.getOriginalFilename();
+
+			if(!(file01.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file01);
+				image01.transferTo(path.toFile());
+			}else {
+			}
+			if(!(file02.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file02);
+				image02.transferTo(path.toFile());
+			}else {
+			}
+			if(!(file03.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file03);
+				image03.transferTo(path.toFile());
+			}else {
+			}
+			if(!(file04.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file04);
+				image04.transferTo(path.toFile());
+			}else {
+			}
+
+			String image01path = "/article/images/"+file01;
+			String image02path = "/article/images/"+file02;
+			String image03path = "/article/images/"+file03;
+			String image04path = "/article/images/"+file04;
+
+			session.setAttribute("upload01", image01path);
+			session.setAttribute("upload02", image02path);
+			session.setAttribute("upload03", image03path);
+			session.setAttribute("upload04", image04path);
+
+		}catch(Exception e) {
+			return "upload";
+		}
+
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd (E) HH時mm分");
 		date = sdf.format(cal.getTime());
@@ -81,8 +130,13 @@ public class ArtPostEditDeleteController {
 
 		Users user = (Users) session.getAttribute("user");
 
+		String image01 = (String)session.getAttribute("upload01");
+		String image02 = (String)session.getAttribute("upload02");
+		String image03 = (String)session.getAttribute("upload03");
+		String image04 = (String)session.getAttribute("upload04");
+
 		//記事投稿処理（DB）insert
-		artS.insert(post.getArticle_title(), post.getContribute_date(), post.getArticle_main(), user.getUser_id(), user.getName());
+		artS.insert(post.getArticle_title(), post.getContribute_date(), post.getArticle_main(), user.getUser_id(), user.getName(),image01, image02, image03, image04);
 
 		//投稿した記事のidセット
 		model.addAttribute("art_id", artS.lastId());

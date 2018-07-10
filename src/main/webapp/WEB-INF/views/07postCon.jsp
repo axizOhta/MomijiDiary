@@ -61,7 +61,16 @@
 						<p class="a_kiji">${ post.article_main }</p>
 					</div>
 					<div class="o_pattern1">
-						<img src="image/maguro.jpg" alt="">
+						<img src="${upload01}" alt="">
+					</div>
+					<div class="o_pattern1">
+						<img src="${upload02}" alt="">
+					</div>
+					<div class="o_pattern1">
+						<img src="${upload03}" alt="">
+					</div>
+					<div class="o_pattern1">
+						<img src="${upload04}" alt="">
 					</div>
 				</div>
 				<div class="a_form">
