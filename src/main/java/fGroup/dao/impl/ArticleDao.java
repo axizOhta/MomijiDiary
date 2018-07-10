@@ -34,7 +34,6 @@ public class ArticleDao implements IArticleDao {
 
 		String sql = "SELECT * FROM article WHERE article_title LIKE :keyword OR article_main LIKE :keyword ORDER BY contribute_date";
 		List<Article> resultList = jdbcTemplate.query(sql, param, new BeanPropertyRowMapper<Article>(Article.class));
-
 		return resultList;
 	}
 

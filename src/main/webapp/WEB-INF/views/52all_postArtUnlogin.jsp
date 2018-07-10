@@ -57,8 +57,8 @@ $(function() {
          <div class="a_menu">
          	<ul>
          		<li class="a_select"><a href="53selectUnlogin">検索</a></li>
-         		<li><a href="47 Top">トップページ</a></li>
-         		<li><a href="54 contactUnlogin">お問い合わせ</a></li>
+         		<li><a href="47Top">トップページ</a></li>
+         		<li><a href="54contactUnlogin">お問い合わせ</a></li>
          	</ul>
         </div>
         </div>
@@ -85,13 +85,13 @@ $(function() {
 	<table>
 		<tr><th class ="h1">投稿した記事一覧</th></tr>
 		<tr>
-			<td class = "o_td"><a href="50 artUnlogin.html" class ="h2" >記事タイトル①</a></td>
+			<td class = "o_td"><a href="50 artUnlogin" class ="h2" >記事タイトル①</a></td>
 		</tr>
 		<tr>
-			<td class = "o_td"><a href="50 artUnlogin.html"  class ="h2">記事タイトル②</a></td>
+			<td class = "o_td"><a href="50 artUnlogin"  class ="h2">記事タイトル②</a></td>
 		</tr>
 		<tr>
-			<td class = "o_td"><a href="50 artUnlogin.html"  class ="h2">記事タイトル③</a></td>
+			<td class = "o_td"><a href="50 artUnlogin"  class ="h2">記事タイトル③</a></td>
 		</tr>
 	</table>
 

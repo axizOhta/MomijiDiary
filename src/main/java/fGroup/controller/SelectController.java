@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -16,6 +17,7 @@ import fGroup.form.SelectForm;
 import fGroup.service.impl.ArticleService;
 
 @Controller
+@ContextConfiguration
 public class SelectController {
 
 	@Autowired
