@@ -23,7 +23,7 @@ import fGroup.service.ArtService;
 
 
 @Controller
-public class ArtController {
+public class ArtPostEditDeleteController {
 
 	@Autowired
 	HttpSession session;
