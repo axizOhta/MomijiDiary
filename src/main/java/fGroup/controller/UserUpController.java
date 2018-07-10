@@ -138,9 +138,9 @@ public class UserUpController {
 		}
 
 		//テスト用
-		Users test = new Users();
-		test.setUser_id(88);
-		session.setAttribute("user", test);
+		//Users test = new Users();
+		//test.setUser_id(88);
+		//session.setAttribute("user", test);
 		//
 
 		Users beforeUser = (Users) session.getAttribute("user");
@@ -150,7 +150,7 @@ public class UserUpController {
 		afterUser.setEmail_address(form.getNewEmail());
 		afterUser.setPassword(form.getNewPassword());
 
-		System.out.println(afterUser.getName());
+		//System.out.println(afterUser.getName());
 		userUpService.userUpdate(afterUser);
 		userUpService.proUpdate(afterUser);
 
