@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import fGroup.dto.Contact;
+import fGroup.dto.Users;
 import fGroup.form.ContactForm;
 import fGroup.service.ContactService;
 
@@ -52,12 +53,17 @@ public class ContactController {
 		if (bindingResult.hasErrors()) {
 			return "30 contact";
 		}
+
+		HttpSession session = request.getSession();
+
+		Users users = (Users) session.getAttribute("user");
+
 		Contact contact = new Contact();
 		contact.setEmail_address(form.getEmail_address());
+		contact.setUser_id(users.getUser_id());
 		contact.setContact_title(form.getContact_title());
 		contact.setContact_message(form.getContact_message());
 
-		HttpSession session = request.getSession();
 		session.setAttribute("contact", contact);
 
 		return "31 contactConfirm";
@@ -113,7 +119,7 @@ public class ContactController {
 		HttpSession session = request.getSession();
 		Contact contact = (Contact)session.getAttribute("contact");
 
-		int id= contactService.coninsert(contact);
+		int id= contactService.coninsertUser(contact);
 
 		form.setContact_id(id);
 
@@ -157,9 +163,12 @@ public class ContactController {
 	public String contacthis(@ModelAttribute("form") ContactForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
 
 		HttpSession session = request.getSession();
+
+		Users users = (Users) session.getAttribute("user");
+
 		Contact contact = new Contact();
 
-		List<Contact> contactList = contactService.contactall(contact);
+		List<Contact> contactList = contactService.contactallUser(users.getUser_id());
 
 		model.addAttribute("contactlist",contactList);
 
