@@ -10,8 +10,9 @@ import fGroup.dao.impl.ArticleDao;
 import fGroup.dto.Article;
 import fGroup.service.IArticleService;
 
-@Service
+
 @Transactional
+@Service
 public class ArticleService implements IArticleService {
 
 	@Autowired
