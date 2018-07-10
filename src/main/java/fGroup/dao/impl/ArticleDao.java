@@ -33,7 +33,7 @@ public class ArticleDao implements IArticleDao {
 			param.addValue("keyword", "%" + keyword + "%");
 		}
 
-		String sql = "SELECT * FROM article WHERE article_title LIKE :keyword OR article_main LIKE :keyword ORDER BY contribute_date";
+		String sql = "SELECT * FROM article WHERE article_title LIKE :keyword OR article_main LIKE :keyword ORDER BY article_id DESC";
 		List<Article> resultList = jdbcTemplate.query(sql, param, new BeanPropertyRowMapper<Article>(Article.class));
 		System.out.println("3");
 		return resultList;
