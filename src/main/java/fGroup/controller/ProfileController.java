@@ -31,6 +31,17 @@ public class ProfileController {
 		return "45myPro";
 	}
 
+	@RequestMapping(value="/22profile", method=RequestMethod.GET)
+	public String profile(@ModelAttribute("form") ProfileForm form) {
+		Users user = (Users)session.getAttribute("user");
+		Integer user_id = user.getUser_id();
+		Profile profile = profileService.FindById(user_id);
+
+		session.setAttribute("beforeProfile", profile);
+
+		return "23profileEdit";
+	}
+
 	@RequestMapping(value="/23profileEdit", method=RequestMethod.GET)
 	public String profileEdit(@ModelAttribute("form") ProfileForm form) {
 		Users user = (Users)session.getAttribute("user");
