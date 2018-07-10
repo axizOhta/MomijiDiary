@@ -1,11 +1,16 @@
 package fGroup.form;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Post {
 
 	private Integer article_id;
 	private String article_title;
 	private String contribute_date;
 	private String article_main;
+
+	//画像投稿用フォーム
+	private MultipartFile[] file;
 
 	public Integer getArticle_id() {
 		return article_id;
@@ -30,6 +35,12 @@ public class Post {
 	}
 	public void setContribute_date(String contribute_date) {
 		this.contribute_date = contribute_date;
+	}
+	public MultipartFile[] getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile[] file) {
+		this.file = file;
 	}
 
 }

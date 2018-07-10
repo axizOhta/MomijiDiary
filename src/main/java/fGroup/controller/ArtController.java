@@ -1,5 +1,7 @@
 package fGroup.controller;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import fGroup.dto.Article;
 import fGroup.dto.Users;
@@ -99,6 +102,47 @@ public class ArtController {
 		} else if (post.getArticle_main().length() > 3000) {
 			model.addAttribute("msg", "本文の文字数が多すぎます。<br>3000字以内で入力してください。");
 			return "06post";
+		}
+
+		try {
+			MultipartFile[] file = post.getFile();
+
+			String file01 = file[0].getOriginalFilename();
+			String file02 = file[1].getOriginalFilename();
+			String file03 = file[2].getOriginalFilename();
+			String file04 = file[3].getOriginalFilename();
+
+			if(!(file01.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\images", file01);
+				file[0].transferTo(path.toFile());
+
+				session.setAttribute("upload01", file01);
+			}else {
+			}
+			if(!(file02.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\images", file02);
+				file[1].transferTo(path.toFile());
+
+				session.setAttribute("upload02", file02);
+			}else {
+			}
+			if(!(file03.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\images", file03);
+				file[2].transferTo(path.toFile());
+
+				session.setAttribute("upload03", file03);
+			}else {
+			}
+			if(!(file04.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\images", file04);
+				file[3].transferTo(path.toFile());
+
+				session.setAttribute("upload04", file04);
+			}else {
+			}
+
+		}catch(Exception e) {
+			return "upload";
 		}
 
 		Calendar cal = Calendar.getInstance();

@@ -42,7 +42,7 @@
 		</div>
 	</header>
 	<div class="o_">
-		<form:form action="07postCon" modelAttribute="form">
+		<form:form action="07postCon" modelAttribute="form" enctype="multipart/form-data">
 			<div class="a_form">
 				<div class="a_info">
 					<p>記事の投稿</p>
@@ -66,7 +66,7 @@
 						<div class="col-xs-12 col-md-6">
 							<div class="a_photos">
 								<label class="btn btn-default btn-lg btn-block" id="a_line">
-									写真を追加①<input type="file" style="display: none" id="photo1">
+									写真を追加①<form:input type="file" path="file" style="display: none" id="photo1" />
 								</label>
 								<p>ここに写真が表示されます</p>
 								<img id="img1" class="a_user_photo" /> <input type="hidden"
@@ -78,8 +78,8 @@
 						<div class="col-xs-12 col-md-6">
 
 							<div class="a_photos">
-								<label class="btn btn-default btn-lg btn-block"> 写真を追加②<input
-									type="file" style="display: none" id="photo2">
+								<label class="btn btn-default btn-lg btn-block">
+								写真を追加②<form:input type="file" path="file" style="display: none" id="photo2" />
 								</label>
 								<p>ここに写真が表示されます</p>
 								<img id="img2" class="a_user_photo" /> <input type="hidden"
@@ -92,8 +92,8 @@
 						<div class="col-xs-12 col-md-6">
 
 							<div class="a_photos">
-								<label class="btn btn-default btn-lg btn-block"> 写真を追加③<input
-									type="file" style="display: none" id="photo3">
+								<label class="btn btn-default btn-lg btn-block">
+								写真を追加③<form:input type="file" path="file" style="display: none" id="photo3" />
 								</label>
 								<p>ここに写真が表示されます</p>
 								<img id="img3" class="a_user_photo" /> <input type="hidden"
@@ -106,8 +106,8 @@
 						<div class="col-xs-12 col-md-6">
 
 							<div class="a_photos">
-								<label class="btn btn-default btn-lg btn-block"> 写真を追加④<input
-									type="file" style="display: none" id="photo4">
+								<label class="btn btn-default btn-lg btn-block">
+								写真を追加④<form:input type="file" path="file" style="display: none" id="photo4" />
 								</label>
 								<p>ここに写真が表示されます</p>
 								<img id="img4" class="a_user_photo" /> <input type="hidden"

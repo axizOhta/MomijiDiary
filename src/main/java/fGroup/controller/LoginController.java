@@ -13,7 +13,7 @@ import fGroup.dao.AdminDao;
 import fGroup.dao.UsersDao;
 import fGroup.dto.Admin;
 import fGroup.dto.Users;
-import fGroup.form.AdminForm;
+import fGroup.form.Adminform;
 
 @Controller
 public class LoginController {
@@ -76,7 +76,7 @@ public class LoginController {
 		}
 
 		@RequestMapping(value="/Mlogin", method = RequestMethod.POST)
-		public String getM(@ModelAttribute("form") AdminForm admin, Model model) {
+		public String getM(@ModelAttribute("form") Adminform admin, Model model) {
 
 
 		String id = admin.getAdmin_id();
