@@ -15,7 +15,6 @@ public class Post {
 	private MultipartFile image3;
 	private MultipartFile image4;
 
-
 	public Integer getArticle_id() {
 		return article_id;
 	}
@@ -40,6 +39,7 @@ public class Post {
 	public void setContribute_date(String contribute_date) {
 		this.contribute_date = contribute_date;
 	}
+
 	public Integer getUser_id() {
 		return user_id;
 	}

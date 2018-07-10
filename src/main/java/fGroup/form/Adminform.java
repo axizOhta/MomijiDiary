@@ -1,6 +1,6 @@
 package fGroup.form;
 
-public class AdminForm {
+public class Adminform {
 
 	private String admin_id;
 	private String password;
