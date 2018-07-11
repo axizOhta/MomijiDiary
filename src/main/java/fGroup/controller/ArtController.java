@@ -80,6 +80,8 @@ public class ArtController {
     	List <Article> list = artS.getAllArt(user_id);
     	model.addAttribute("list", list);
     	model.addAttribute("name", user_name);
+    	post.setUser_id(user_id);
+    	model.addAttribute("form", post);
 
         return "16all_postArt";
     }
@@ -92,6 +94,8 @@ public class ArtController {
     	List <Article> list = artS.getAllArt(user_id);
     	model.addAttribute("list", list);
     	model.addAttribute("name", user_name);
+    	post.setUser_id(user_id);
+    	model.addAttribute("form", post);
 
         return "16all_postArt";
     }
