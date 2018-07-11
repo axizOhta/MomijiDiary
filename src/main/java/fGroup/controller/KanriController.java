@@ -53,7 +53,7 @@ public class KanriController {
 
 
 	@RequestMapping(value = "/36userinfo" ,method = RequestMethod.POST)//Postでユーザー一覧へ遷移
-	public String users(@ModelAttribute("form") Users form,   Model model) {
+	public String users(@ModelAttribute("form") Users form, Model model) {
 		List<Users> resultList =userUpService.find(form);
 		model.addAttribute("userlist", resultList);
 		return "36userinfo";

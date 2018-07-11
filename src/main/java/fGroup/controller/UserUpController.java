@@ -34,30 +34,6 @@ public class UserUpController {
 		return "19userinfoUpdate";
 	}
 
-//	@RequestMapping(value = "/20userinfoUpdateConfirm" , method = RequestMethod.POST)//Idが見つからないとき
-//	public String update(@ModelAttribute("form") UserUpForm form, BindingResult result,Model model) {
-//		if (result.hasFieldErrors("id")) {
-//			String errorMsg = messageSource.getMessage("required.error", null, Locale.getDefault());
-//			model.addAttribute("msg", errorMsg);
-//			return "19userinfoUpdate";
-//		}
-
-//
-//		Users user = UserUpService.findById(form.getId());
-//		if(user == null) {
-//			String errorMsg = messageSource.getMessage("id.not.found.error", null, Locale.getDefault());
-////			model.addAttribute("msg", errorMsg);
-//			return "19userinfoUpdate";
-//		}
-
-//
-//		form.setNewName(user.getName());
-//		form.setNewEmail(user.getEmail_address());
-//		form.setNewPassword(user.getPassword());
-//
-//		return "19userinfoUpdate";
-//
-//	}
 
 
 	@RequestMapping(value = "/20userinfoUpdateConfirm" ,method = RequestMethod.POST)
@@ -68,6 +44,15 @@ public class UserUpController {
 		if (form.hasRequiredError()) {//空チェック;
 			String errorMsg = messageSource.getMessage("required.error", null, Locale.getDefault());
 			model.addAttribute("msg", errorMsg);
+			return "19userinfoUpdate";
+		}
+
+		Users users = new Users();
+		String loginId = users.getLogin_id();
+
+		if (form.getNewName().equals(loginId)) {//ログインIDと名前が同じ場合
+			//String errorMsg = messageSource.getMessage("equalsId.error", null, Locale.getDefault());
+			model.addAttribute("msg", "名前と同じログインIDは登録できません。別のログインIDを入力してください。");
 			return "19userinfoUpdate";
 		}
 
@@ -89,11 +74,6 @@ public class UserUpController {
 			return "19userinfoUpdate";
 		}
 
-		if (form.getNewName().equals(form.getId())) {//ログインIDと名前が同じ場合
-			String errorMsg = messageSource.getMessage("equalsId.error", null, Locale.getDefault());
-			model.addAttribute("msg", errorMsg);
-			return "19userinfoUpdate";
-		}
 
 
 //		Users afterUser = new Users();

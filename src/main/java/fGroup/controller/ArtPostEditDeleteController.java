@@ -115,8 +115,8 @@ public class ArtPostEditDeleteController {
 			session.setAttribute("upload04", image04path);
 
 		}catch(Exception e) {
-			System.out.println(e);
-			return "upload";
+			return "06post";
+
 		}
 
 		Calendar cal = Calendar.getInstance();
@@ -181,6 +181,12 @@ public class ArtPostEditDeleteController {
 			post.setContribute_date(date);
 		}
 
+		Article art = artS.selectArt(art_id);
+		session.setAttribute("image01", art.getImage_1());
+		session.setAttribute("image02", art.getImage_2());
+		session.setAttribute("image03", art.getImage_3());
+		session.setAttribute("image04", art.getImage_4());
+
 		return "10edit";
 	}
 
@@ -211,6 +217,56 @@ public class ArtPostEditDeleteController {
 			return "10edit";
 		}
 
+		try {
+			MultipartFile image01 = post.getImage1();
+			MultipartFile image02 = post.getImage2();
+			MultipartFile image03 = post.getImage3();
+			MultipartFile image04 = post.getImage4();
+
+			String image01path = "";
+			String image02path = "";
+			String image03path = "";
+			String image04path = "";
+
+			String file01 = image01.getOriginalFilename();
+			String file02 = image02.getOriginalFilename();
+			String file03 = image03.getOriginalFilename();
+			String file04 = image04.getOriginalFilename();
+
+			if(!(file01.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file01);
+				image01.transferTo(path.toFile());
+				image01path = "/article/images/"+file01;
+			}else {
+			}
+			if(!(file02.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file02);
+				image02.transferTo(path.toFile());
+				image02path = "/article/images/"+file02;
+			}else {
+			}
+			if(!(file03.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file03);
+				image03.transferTo(path.toFile());
+				image03path = "/article/images/"+file03;
+			}else {
+			}
+			if(!(file04.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file04);
+				image04.transferTo(path.toFile());
+				image04path = "/article/images/"+file04;
+			}else {
+			}
+
+			session.setAttribute("updateImage01", image01path);
+			session.setAttribute("updateImage02", image02path);
+			session.setAttribute("updateImage03", image03path);
+			session.setAttribute("updateImage04", image04path);
+
+		}catch(Exception e) {
+			return "06post";
+		}
+
 		model.addAttribute("edit", post);
 		return "11editCon";
 	}
@@ -218,8 +274,20 @@ public class ArtPostEditDeleteController {
 	@RequestMapping(value="/12editOK", method=RequestMethod.POST)
 	public String editOK (@ModelAttribute("form") Post post, Model model) {
 
+		String beforeImage01 = (String)session.getAttribute("image01");
+		String beforeImage02 = (String)session.getAttribute("image02");
+		String beforeImage03 = (String)session.getAttribute("image03");
+		String beforeImage04 = (String)session.getAttribute("image04");
+
+		String newImage01 = (String)session.getAttribute("updateImage01");
+		String newImage02 = (String)session.getAttribute("updateImage02");
+		String newImage03 = (String)session.getAttribute("updateImage03");
+		String newImage04 = (String)session.getAttribute("updateImage04");
+
 		//記事更新処理
 		artS.update(post.getArticle_id(), post.getArticle_title(), post.getArticle_main());
+
+		artS.updateImage(post.getArticle_id(),beforeImage01,beforeImage02,beforeImage03,beforeImage04,newImage01,newImage02,newImage03,newImage04);
 
 		//更新した記事のidセット
 		model.addAttribute("art_id", post.getArticle_id());
@@ -244,7 +312,8 @@ public class ArtPostEditDeleteController {
 
 		model.addAttribute("delete", post);
 //更新日時
-		Integer user_id = (Integer)session.getAttribute("user");
+		Users user = (Users)session.getAttribute("user");
+		Integer user_id = user.getUser_id();
 
 		DateModifiedService.dateModified(user_id);
 

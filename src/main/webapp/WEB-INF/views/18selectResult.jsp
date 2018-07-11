@@ -79,20 +79,17 @@
 							href="15art?art_id=${article.article_id}" class="a_kensaku">${fn:escapeXml(article.article_title)}</a></li>
 					</c:forEach>
 				</ul>
-
-
-<br>
-<br>
-<div id= "button">
-	<input type="button"  id="prev" value="前へ" class="btn btn-success btn-lg btn-block"><br>
-	<input type="button"  id="next" value="次へ" class="btn btn-primary btn-lg btn-block"><br>
-</div>
-<br>
-<br>
-<input type="submit" class="btn btn-info btn-lg btn-success btn-block"
+				<br> <br>
+				<div id="button">
+					<input type="button" id="prev" value="前へ"
+						class="btn btn-success btn-lg btn-block"><br> <input
+						type="button" id="next" value="次へ"
+						class="btn btn-primary btn-lg btn-block"><br>
+				</div>
+				<br> <br>
+				<input type="submit" class="btn btn-info btn-lg btn-success btn-block"
 					name="button" value="検索画面に戻る"
 					onclick="location.href='17select'; return false;">
-
 			</div>
 		</div>
 	</div>
