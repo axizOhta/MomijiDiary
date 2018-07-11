@@ -60,18 +60,26 @@
 					<div>
 						<p class="a_kiji">${ post.article_main }</p>
 					</div>
-					<div class="o_pattern1">
-						<img src="${upload01}" alt="">
-					</div>
-					<div class="o_pattern1">
-						<img src="${upload02}" alt="">
-					</div>
-					<div class="o_pattern1">
-						<img src="${upload03}" alt="">
-					</div>
-					<div class="o_pattern1">
-						<img src="${upload04}" alt="">
-					</div>
+					<c:if test="${not empty upload01}">
+						<div class="o_pattern1">
+							<img src="${upload01}" alt="">
+						</div>
+					</c:if>
+					<c:if test="${not empty upload02}">
+						<div class="o_pattern1">
+							<img src="${upload02}" alt="">
+						</div>
+					</c:if>
+					<c:if test="${not empty upload03}">
+						<div class="o_pattern1">
+							<img src="${upload03}" alt="">
+						</div>
+					</c:if>
+					<c:if test="${not empty upload04}">
+						<div class="o_pattern1">
+							<img src="${upload04}" alt="">
+						</div>
+					</c:if>
 				</div>
 				<div class="a_form">
 					<div class="a_btn">
