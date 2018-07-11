@@ -181,10 +181,10 @@ public class ArtPostEditDeleteController {
 		}
 
 		Article art = artS.selectArt(art_id);
-		model.addAttribute("image01", art.getImage_1());
-		model.addAttribute("image02", art.getImage_2());
-		model.addAttribute("image03", art.getImage_3());
-		model.addAttribute("image04", art.getImage_4());
+		session.setAttribute("image01", art.getImage_1());
+		session.setAttribute("image02", art.getImage_2());
+		session.setAttribute("image03", art.getImage_3());
+		session.setAttribute("image04", art.getImage_4());
 
 		return "10edit";
 	}
@@ -273,8 +273,20 @@ public class ArtPostEditDeleteController {
 	@RequestMapping(value="/12editOK", method=RequestMethod.POST)
 	public String editOK (@ModelAttribute("form") Post post, Model model) {
 
+		String beforeImage01 = (String)session.getAttribute("image01");
+		String beforeImage02 = (String)session.getAttribute("image02");
+		String beforeImage03 = (String)session.getAttribute("image03");
+		String beforeImage04 = (String)session.getAttribute("image04");
+
+		String newImage01 = (String)session.getAttribute("updateImage01");
+		String newImage02 = (String)session.getAttribute("updateImage02");
+		String newImage03 = (String)session.getAttribute("updateImage03");
+		String newImage04 = (String)session.getAttribute("updateImage04");
+
 		//記事更新処理
 		artS.update(post.getArticle_id(), post.getArticle_title(), post.getArticle_main());
+
+		artS.updateImage(post.getArticle_id(),beforeImage01,beforeImage02,beforeImage03,beforeImage04,newImage01,newImage02,newImage03,newImage04);
 
 		//更新した記事のidセット
 		model.addAttribute("art_id", post.getArticle_id());
