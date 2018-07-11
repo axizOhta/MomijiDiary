@@ -84,7 +84,6 @@ public class LoginController {
 		String id = admin.getAdmin_id();
 		String pass = admin.getPassword();
 
-		System.out.println(id);
 		if(id==null && pass ==null || id.equals("") && pass.equals("")) {
 			model.addAttribute("errmsg", "IDとパスワード を入力してください。");
 			return "35login_manager";

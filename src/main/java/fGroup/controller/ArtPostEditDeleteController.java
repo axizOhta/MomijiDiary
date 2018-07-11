@@ -84,22 +84,22 @@ public class ArtPostEditDeleteController {
 			String file04 = image04.getOriginalFilename();
 
 			if(!(file01.equals(""))){
-				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file01);
+				Path path = Paths.get("C:\\pleiades\\workspace\\MomijiDiary\\src\\main\\resources\\static\\article\\images", file01);
 				image01.transferTo(path.toFile());
 			}else {
 			}
 			if(!(file02.equals(""))){
-				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file02);
+				Path path = Paths.get("C:\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file02);
 				image02.transferTo(path.toFile());
 			}else {
 			}
 			if(!(file03.equals(""))){
-				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file03);
+				Path path = Paths.get("C:\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file03);
 				image03.transferTo(path.toFile());
 			}else {
 			}
 			if(!(file04.equals(""))){
-				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file04);
+				Path path = Paths.get("C:\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file04);
 				image04.transferTo(path.toFile());
 			}else {
 			}
@@ -116,6 +116,7 @@ public class ArtPostEditDeleteController {
 
 		}catch(Exception e) {
 			return "06post";
+
 		}
 
 		Calendar cal = Calendar.getInstance();

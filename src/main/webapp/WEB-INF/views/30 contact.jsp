@@ -49,19 +49,21 @@
 						<fieldset>
 							<div>
 								<label class="h2">連絡用メールアドレス</label><br>
-								<form:input class="form-control input-lg" path="email_address" />
-								<form:errors path="email_address" cssStyle="color: red"/>
+								<form:input class="form-control input-lg" path="email_address" readonly="true" />
+								<form:errors path="email_address" cssStyle="color: red; font-size: 20px"/>
 							</div>
 							<div>
 								<label class="h3">件名</label><br>
-								<form:input class="form-control input-lg" path="contact_title" />
-								<form:errors path="contact_title" cssStyle="color: red"/>
+								<form:errors path="contact_title" cssStyle="color: red; font-size: 18px"/>
+								<form:input class="form-control input-lg" path="contact_title" /><br>
+
 							</div>
 							<div class="form-group">
 								<label class="h2">本文(お問い合わせ内容)</label><br>
+								<form:errors path="contact_message" cssStyle="color: red; font-size: 18px"/><br>
 								<form:textarea rows="4" class="form-control input-lg"
 									path="contact_message" />
-									<form:errors path="contact_message" cssStyle="color: red"/>
+
 							</div>
 						</fieldset>
 						<br>

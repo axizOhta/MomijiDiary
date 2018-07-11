@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +70,17 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">誕生日</h3>
 						</div>
-						<div class="panel-body">${Profile.birthyear}年${Profile.birthmonth}月${Profile.birthday}日</div>
+						<div class="panel-body">
+							<c:if test="${not empty newProfile.birthyear}">
+										${newProfile.birthyear}年
+									</c:if>
+							<c:if test="${not empty newProfile.birthmonth}">
+										${newProfile.birthmonth}月
+									</c:if>
+							<c:if test="${not empty newProfile.birthday}">
+										${newProfile.birthday}日
+									</c:if>
+						</div>
 						<div class="panel-heading">
 							<h3 class="panel-title">趣味</h3>
 						</div>
@@ -90,6 +102,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 		<script
 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
