@@ -72,7 +72,7 @@ $(function() {
 <p class ="h2"><span class="select"></span>${fn:escapeXml(keyword)}の検索結果</p>
 <ul id="tbl1">
 			<c:forEach items="${articlelist}" var="article" varStatus="status">
-			<li class = "select"><a href="15art?art_id=${article.article_id}" class ="a_kensaku">${fn:escapeXml(article.article_title)}</a></li>
+			<li class = "select"><a href="50artUnlogin?art_id=${article.article_id}" class ="a_kensaku">${fn:escapeXml(article.article_title)}</a></li>
 	</c:forEach>
 </ul>
 	<br>
