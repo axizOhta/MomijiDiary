@@ -121,6 +121,8 @@ public class UserInsertController {
 
 		session.setAttribute("user", users);
 
+
+
 		return "27 userinsertResult";
 
 

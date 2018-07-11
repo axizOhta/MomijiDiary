@@ -75,8 +75,7 @@
 			<br> <br>
 			<div class="a_btn">
 				<input type="submit" class="btn btn-primary btn-lg btn-block"
-					name="button" value="登録完了"
-					onclick="location.href='05mypage'; return false;">
+					name="button" value="登録完了">
 				</form:form>
 				<br> <br> <input type="submit"
 					class="btn btn-primary btn-lg btn-block" name="button" value="戻る"
