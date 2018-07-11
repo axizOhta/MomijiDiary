@@ -155,7 +155,6 @@ public class ContactController {
 
 	@RequestMapping("/34contactsuper")
 	public String contactsuper(@ModelAttribute("form") ContactForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
-
 		HttpSession session = request.getSession();
 		Contact contact = new Contact();
 
