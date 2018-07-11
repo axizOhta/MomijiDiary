@@ -28,7 +28,7 @@
          	<ul>
          		<li class="a_select"><a href="17select">検索</a></li>
          		<li><a href="05mypage">基本ページ</a></li>
-         		<li><a href="30 contact">お問い合わせ</a></li>
+         		<li><a href="30contact">お問い合わせ</a></li>
          	</ul>
         </div>
         </div>
