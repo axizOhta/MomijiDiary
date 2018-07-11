@@ -48,7 +48,7 @@
 				<table border="1" class="k_table">
 					<c:forEach items="${userlist}" var="users">
 						<tr>
-							<td class="k_padding"><a href="15art?art_id = "
+							<td class="k_padding"><a href="50artUnlogin?art_id = ${users.article_id}"
 								target="newtab">${fn:escapeXml(users. article_title)}</a></td>
 							<td><input type="checkbox" id="select_article_id" name="check" value="${users.article_id}" /></td>
 						</tr>
