@@ -79,7 +79,6 @@
 							href="15art?art_id=${article.article_id}" class="a_kensaku">${fn:escapeXml(article.article_title)}</a></li>
 					</c:forEach>
 				</ul>
-
 				<br> <br>
 				<div id="button">
 					<input type="button" id="prev" value="前へ"
