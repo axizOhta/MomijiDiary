@@ -24,6 +24,9 @@ import fGroup.service.UserInsertService;
 public class UserInsertController {
 
 	@Autowired
+	HttpSession session;
+
+	@Autowired
 	private UserInsertService userinsertservice;
 
 	@RequestMapping("/25userinsert")
@@ -89,7 +92,6 @@ public class UserInsertController {
 		users.setEmail_address(mail);
 		users.setPassword(pass);
 
-		HttpSession session = request.getSession();
 		session.setAttribute("userinsert", users);
 
 		return "26 userinsertConfirm";
@@ -98,27 +100,22 @@ public class UserInsertController {
 	@RequestMapping("/27userinsertResult")
 	public String userinsertresult(@ModelAttribute("form") UserInsertForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
 
-		HttpSession session = request.getSession();
-
 		Users users = (Users) session.getAttribute("userinsert");
 
-		if(!users.getPassword().equals(form.getRepassword())) {
+		if(!(users.getPassword().equals(form.getRepassword()))) {
 
 			model.addAttribute("errmsg", "前画面で入力したパスワードと一致しません。");
 
-			form.setRepassword("");
+			//form.setRepassword("");
 
 			return "26 userinsertConfirm";
 		}
 
-
-
 		int id = userinsertservice.insert(users);
-
 
 		session.removeAttribute("userinsert");
 
-		form.setUser_id(id);
+		users.setUser_id(id);
 
 		userinsertservice.nameinsert(users);
 

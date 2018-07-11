@@ -2,8 +2,6 @@ package fGroup.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +20,9 @@ import fGroup.service.ContactService;
 
 @Controller
 public class ContactController {
+
+	@Autowired
+	HttpSession session;
 
 	@Autowired
 	private ContactService contactService;
@@ -55,13 +56,11 @@ public class ContactController {
 	}
 
 	@RequestMapping(value = "/31contactConfirm", method = RequestMethod.POST)
-	public String contactconfirm(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
+	public String contactconfirm(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
 			return "30 contact";
 		}
-
-		HttpSession session = request.getSession();
 
 		Users users = (Users) session.getAttribute("user");
 
@@ -77,7 +76,7 @@ public class ContactController {
 	}
 
 	@RequestMapping(value = "/55contactConfirmUnlogin", method = RequestMethod.POST)
-	public String contactconfirmUnlogin(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
+	public String contactconfirmUnlogin(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
 			return "54 contactUnlogin";
@@ -87,16 +86,14 @@ public class ContactController {
 		contact.setContact_title(form.getContact_title());
 		contact.setContact_message(form.getContact_message());
 
-		HttpSession session = request.getSession();
 		session.setAttribute("contact", contact);
 
 		return "55 contactConfirmUnlogin";
 	}
 
 	@RequestMapping(value = "/30contactBack")
-	public String contactback(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
+	public String contactback(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model) {
 
-		HttpSession session = request.getSession();
 		Contact contact = (Contact)session.getAttribute("contact");
 
 		form.setEmail_address(contact.getEmail_address());
@@ -107,9 +104,8 @@ public class ContactController {
 	}
 
 	@RequestMapping(value = "/54contactUnloginBack")
-	public String contactunloginback(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model,HttpServletRequest request, HttpServletResponse response) {
+	public String contactunloginback(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model) {
 
-		HttpSession session = request.getSession();
 		Contact contact = (Contact)session.getAttribute("contact");
 
 		form.setEmail_address(contact.getEmail_address());
@@ -120,10 +116,8 @@ public class ContactController {
 	}
 
 	@RequestMapping(value = "/32contactResult")
-	public String contactresult(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult,HttpServletRequest request, HttpServletResponse response,
-			Model model) {
+	public String contactresult(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model) {
 
-		HttpSession session = request.getSession();
 		Contact contact = (Contact)session.getAttribute("contact");
 
 		int id= contactService.coninsertUser(contact);
@@ -137,10 +131,8 @@ public class ContactController {
 	}
 
 	@RequestMapping(value = "/56contactResultUnlogin")
-	public String contactresultunlogin(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult,HttpServletRequest request, HttpServletResponse response,
-			Model model) {
+	public String contactresultunlogin(@Validated @ModelAttribute("form") ContactForm form, BindingResult bindingResult, Model model) {
 
-		HttpSession session = request.getSession();
 		Contact contact = (Contact)session.getAttribute("contact");
 
 		int id= contactService.coninsert(contact);
@@ -155,8 +147,8 @@ public class ContactController {
 
 	@RequestMapping("/34contactsuper")
 	public String contactsuper(@ModelAttribute("form") ContactForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
-
 		HttpSession session = request.getSession();
+  
 		Contact contact = new Contact();
 
 		List<Contact> contactList = contactService.contactall(contact);
@@ -167,9 +159,8 @@ public class ContactController {
 	}
 
 	@RequestMapping("/33contactHis")
-	public String contacthis(@ModelAttribute("form") ContactForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
+	public String contacthis(@ModelAttribute("form") ContactForm form, Model model) {
 
-		HttpSession session = request.getSession();
 
 		Users users = (Users) session.getAttribute("user");
 

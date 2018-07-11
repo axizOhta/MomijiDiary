@@ -33,7 +33,7 @@
 						<ul>
 							<li class="a_select"><a href="17select">検索</a></li>
 							<li><a href="05mypage">基本ページ</a></li>
-							<li><a href="30 contact">お問い合わせ</a></li>
+							<li><a href="30contact">お問い合わせ</a></li>
 						</ul>
 					</div>
 				</div>
@@ -67,10 +67,10 @@
 						<div class="col-xs-12 col-md-6">
 							<div class="a_photos">
 								<label class="btn btn-default btn-lg btn-block" id="a_line">
-									写真を追加①<input type="file" style="display: none" id="photo1">
+									写真を追加①<form:input type="file" path="image1" style="display: none" id="photo1" />
 								</label>
 								<p>ここに写真が表示されます</p>
-								<img id="img1" class="a_user_photo" /> <input type="hidden"
+								<img id="img1" class="a_user_photo" src="${image01}"/> <input type="hidden"
 									class="btn btn-danger btn-lg btn-block" value="写真①の削除"
 									onclick="clearValue1();" id="delete1">
 							</div>
@@ -79,11 +79,11 @@
 						<div class="col-xs-12 col-md-6">
 
 							<div class="a_photos">
-								<label class="btn btn-default btn-lg btn-block"> 写真を追加②<input
-									type="file" style="display: none" id="photo2">
+								<label class="btn btn-default btn-lg btn-block">
+									写真を追加②<form:input type="file" path="image2" style="display: none" id="photo2" />
 								</label>
 								<p>ここに写真が表示されます</p>
-								<img id="img2" class="a_user_photo" /> <input type="hidden"
+								<img id="img2" class="a_user_photo" src="${image02}"/> <input type="hidden"
 									class="btn btn-danger btn-lg btn-block" value="写真②の削除"
 									onclick="clearValue2();" id="delete2">
 
@@ -93,11 +93,11 @@
 						<div class="col-xs-12 col-md-6">
 
 							<div class="a_photos">
-								<label class="btn btn-default btn-lg btn-block"> 写真を追加③<input
-									type="file" style="display: none" id="photo3">
+								<label class="btn btn-default btn-lg btn-block">
+									写真を追加③<form:input type="file" path="image3" style="display: none" id="photo3" />
 								</label>
 								<p>ここに写真が表示されます</p>
-								<img id="img3" class="a_user_photo" /> <input type="hidden"
+								<img id="img3" class="a_user_photo" src="${image03}"/> <input type="hidden"
 									class="btn btn-danger btn-lg btn-block" value="写真③の削除"
 									onclick="clearValue3();" id="delete3">
 
@@ -107,11 +107,11 @@
 						<div class="col-xs-12 col-md-6">
 
 							<div class="a_photos">
-								<label class="btn btn-default btn-lg btn-block"> 写真を追加④<input
-									type="file" style="display: none" id="photo4">
+								<label class="btn btn-default btn-lg btn-block">
+									写真を追加④<form:input type="file" path="image4" style="display: none" id="photo4" />
 								</label>
 								<p>ここに写真が表示されます</p>
-								<img id="img4" class="a_user_photo" /> <input type="hidden"
+								<img id="img4" class="a_user_photo" src="${image04}"/> <input type="hidden"
 									class="btn btn-danger btn-lg btn-block" value="写真④の削除"
 									onclick="clearValue4();" id="delete4">
 
@@ -128,7 +128,7 @@
 				<div class="a_return">
 					<input type="submit" class="btn btn-info btn-lg btn-block"
 						name="button" value="基本ページに戻る"
-						onclick="location.href='05mypage.html'; return false;">
+						onclick="location.href='05mypage'; return false;">
 				</div>
 			</div>
 		</form:form>
