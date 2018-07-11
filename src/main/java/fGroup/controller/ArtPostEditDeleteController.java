@@ -115,8 +115,7 @@ public class ArtPostEditDeleteController {
 			session.setAttribute("upload04", image04path);
 
 		}catch(Exception e) {
-			System.out.println(e);
-			return "upload";
+			return "06post";
 		}
 
 		Calendar cal = Calendar.getInstance();
@@ -181,6 +180,12 @@ public class ArtPostEditDeleteController {
 			post.setContribute_date(date);
 		}
 
+		Article art = artS.selectArt(art_id);
+		model.addAttribute("image01", art.getImage_1());
+		model.addAttribute("image02", art.getImage_2());
+		model.addAttribute("image03", art.getImage_3());
+		model.addAttribute("image04", art.getImage_4());
+
 		return "10edit";
 	}
 
@@ -209,6 +214,56 @@ public class ArtPostEditDeleteController {
 		} else if (post.getArticle_main().length() > 3000) {
 			model.addAttribute("msg", "本文の文字数が多すぎます。<br>3000字以内で入力してください。");
 			return "10edit";
+		}
+
+		try {
+			MultipartFile image01 = post.getImage1();
+			MultipartFile image02 = post.getImage2();
+			MultipartFile image03 = post.getImage3();
+			MultipartFile image04 = post.getImage4();
+
+			String image01path = "";
+			String image02path = "";
+			String image03path = "";
+			String image04path = "";
+
+			String file01 = image01.getOriginalFilename();
+			String file02 = image02.getOriginalFilename();
+			String file03 = image03.getOriginalFilename();
+			String file04 = image04.getOriginalFilename();
+
+			if(!(file01.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file01);
+				image01.transferTo(path.toFile());
+				image01path = "/article/images/"+file01;
+			}else {
+			}
+			if(!(file02.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file02);
+				image02.transferTo(path.toFile());
+				image02path = "/article/images/"+file02;
+			}else {
+			}
+			if(!(file03.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file03);
+				image03.transferTo(path.toFile());
+				image03path = "/article/images/"+file03;
+			}else {
+			}
+			if(!(file04.equals(""))){
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file04);
+				image04.transferTo(path.toFile());
+				image04path = "/article/images/"+file04;
+			}else {
+			}
+
+			session.setAttribute("updateImage01", image01path);
+			session.setAttribute("updateImage02", image02path);
+			session.setAttribute("updateImage03", image03path);
+			session.setAttribute("updateImage04", image04path);
+
+		}catch(Exception e) {
+			return "06post";
 		}
 
 		model.addAttribute("edit", post);

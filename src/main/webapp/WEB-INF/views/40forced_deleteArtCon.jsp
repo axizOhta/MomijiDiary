@@ -55,12 +55,12 @@
 				modelAttribute="form">
 				<input type="hidden" name="name" value="${name}" />
 				<input type="submit" value="削除完了">
+				</form:form>
 				<br>
 				<br>
 				<form action="39forced_deleteArt">
 					<input type="submit" name="button" value="ユーザ記事一覧に戻る">
 				</form>
-			</form:form>
 			<script
 				src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 				integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"

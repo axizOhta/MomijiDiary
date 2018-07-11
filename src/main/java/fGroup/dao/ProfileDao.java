@@ -35,7 +35,7 @@ public class ProfileDao {
 	public void updateImage(Profile profile){
 
 		 Integer id = profile.getUser_id();
-		 String image = profile.getProfile_image();
+		 String image = "/profile/images/"+profile.getProfile_image();
 
 		 SqlParameterSource param = new MapSqlParameterSource().addValue("id", id).addValue("image", image);
 

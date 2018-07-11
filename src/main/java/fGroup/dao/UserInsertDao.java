@@ -83,7 +83,7 @@ public class UserInsertDao {
 		MapSqlParameterSource param = new MapSqlParameterSource();
 
 		param.addValue("user_id", users.getUser_id());
-		param.addValue("profile_image", "");
+		param.addValue("profile_image", "/profile/images/default.jpg");
 		param.addValue("name", users.getName());
 		param.addValue("sex", "");
 		param.addValue("birthyear", null);
