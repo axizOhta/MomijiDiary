@@ -145,9 +145,10 @@ public class ContactController {
 		return "56 contactResultUnlogin";
 	}
 
-	@RequestMapping(value="/34contactsuper", method=RequestMethod.POST)
-	public String contactsuper(@ModelAttribute("form") ContactForm form, Model model) {
-
+	@RequestMapping("/34contactsuper")
+	public String contactsuper(@ModelAttribute("form") ContactForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+  
 		Contact contact = new Contact();
 
 		List<Contact> contactList = contactService.contactall(contact);
