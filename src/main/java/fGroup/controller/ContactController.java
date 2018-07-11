@@ -26,8 +26,15 @@ public class ContactController {
 	@Autowired
 	private ContactService contactService;
 
+	@Autowired
+	HttpSession session;
+
 	@RequestMapping("/30contact")
 	public String contact(@ModelAttribute("form") ContactForm form, Model model) {
+		Users user = (Users) session.getAttribute("user");
+		form.setEmail_address(user.getEmail_address());
+
+		model.addAttribute("form", form);
 		return "30 contact";
 	}
 
