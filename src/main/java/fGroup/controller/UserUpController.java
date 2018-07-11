@@ -77,8 +77,20 @@ public class UserUpController {
 			return "19userinfoUpdate";
 		}
 
+//		if (form.getNewEmail().hasEmailError()) {//Eメール形式じゃないとき
+//			String errorMsg = messageSource.getMessage("email.error", null, Locale.getDefault());
+//			model.addAttribute("msg", errorMsg);
+//			return "19userinfoUpdate";
+//		}
+
 		if ((4 > form.getNewPassword().length())||( form.getNewPassword().length() > 10)) {//パスワードの文字数制限
 			String errorMsg = messageSource.getMessage("pass.error", null, Locale.getDefault());
+			model.addAttribute("msg", errorMsg);
+			return "19userinfoUpdate";
+		}
+
+		if (form.getNewName().equals(form.getId())) {//ログインIDと名前が同じ場合
+			String errorMsg = messageSource.getMessage("equalsId.error", null, Locale.getDefault());
 			model.addAttribute("msg", errorMsg);
 			return "19userinfoUpdate";
 		}

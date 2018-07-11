@@ -136,7 +136,7 @@
 		}
 		function clearValue1() {
 			$("#photo1").val("");
-			$("#img1").attr("src", "plofile/images/default.jpg");
+			$("#img1").attr("src", "profile/images/default.jpg");
 			$("#img1").attr("title", "default");
 			$("#delete1").attr("type", "hidden");
 		}
