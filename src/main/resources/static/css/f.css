@@ -94,6 +94,10 @@
 	margin-right: 10px;
 }
 
+.a_form_conf {
+	font-weight: bold;
+}
+
 html, body{
     margin: 0;         /* �]���̍폜 */
     padding: 0;        /* �]���̍폜 */
