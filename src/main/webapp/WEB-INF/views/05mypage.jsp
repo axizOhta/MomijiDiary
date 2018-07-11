@@ -20,6 +20,10 @@
 
 </head>
 <body>
+<c:if test="${empty user}">
+		<c:redirect url="47Top" />
+</c:if>
+
 <header>
 <div id="header-fixed">
      <div id="a_header-bk">

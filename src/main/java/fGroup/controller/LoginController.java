@@ -106,7 +106,7 @@ public class LoginController {
 
 		Admin ad = adminDao.findByIdAndPassword(adminId,pass);
 			if (ad != null) {//ログイン
-				session.setAttribute("user", ad);
+				session.setAttribute("userM", ad);
 				return "43managerMenu";
 			} else {//id、passの一致するアカウントが無い
 				model.addAttribute("errmsg", "IDまたはパスワードが違います。");
