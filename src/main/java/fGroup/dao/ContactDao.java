@@ -27,7 +27,7 @@ public class ContactDao {
 		MapSqlParameterSource param = new MapSqlParameterSource();
 
 		param.addValue("email_address",contact.getEmail_address());
-		param.addValue("user_id", "");
+		param.addValue("user_id", null);
 		param.addValue("contact_title",contact.getContact_title() );
 		param.addValue("contact_message",contact.getContact_message() );
 		String date;
