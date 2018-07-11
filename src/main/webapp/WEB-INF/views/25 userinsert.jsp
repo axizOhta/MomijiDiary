@@ -92,7 +92,7 @@
   <br>
 <br>
 <div class="a_btn">
-<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="前のページに戻る" onclick="location.href='47 Top.html'; return false;">
+<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="前のページに戻る" onclick="location.href='47Top'; return false;">
 </div>
 </div>
 </div>
