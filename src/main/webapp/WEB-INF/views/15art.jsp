@@ -49,7 +49,7 @@
 				</c:when>
 				<c:otherwise>
 					<div>
-						<p class="h2">${ art.name }さんの日記</p>
+						<p class="h2">${art.name}さんの日記</p>
 					</div>
 					<div class="a_">
 						<form:form action="22profile" modelAttribute="form">
