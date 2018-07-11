@@ -20,7 +20,14 @@ public class ContactService {
 		return contactDao.coninsert(contact);
 	}
 
+	public int coninsertUser(Contact contact) {
+		return contactDao.coninsertUser(contact);
+	}
 	public List<Contact> contactall(Contact contact){
 		return contactDao.contactall();
+	}
+
+	public List<Contact> contactallUser(Integer user_id){
+		return contactDao.contactallUser(user_id);
 	}
 }
