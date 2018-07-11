@@ -47,6 +47,23 @@ public class ArtService {
 		return artDao.existUser(user_id);
 	}
 
+	public void updateImage(Integer art_id,String beforeImage01, String beforeImage02, String beforeImage03, String beforeImage04,
+			String newImage01, String newImage02, String newImage03, String newImage04) {
+
+		if(!(newImage01.equals(beforeImage01)) && !(newImage01.equals(""))) {
+			artDao.updateImage01(art_id,newImage01);
+		}
+		if(!(newImage02.equals(beforeImage02)) && !(newImage02.equals(""))) {
+			artDao.updateImage02(art_id,newImage02);
+		}
+		if(!(newImage01.equals(beforeImage03)) && !(newImage03.equals(""))) {
+			artDao.updateImage03(art_id,newImage03);
+		}
+		if(!(newImage01.equals(beforeImage04)) && !(newImage04.equals(""))) {
+			artDao.updateImage04(art_id,newImage04);
+		}
+	}
+
 	//画像パスをデータベースに突っ込む
 //	public void updateImages(String image01path, String image02path, String image03path, String image04path) {
 //
