@@ -30,11 +30,11 @@
 						<img src="image/image002.png" alt="" class="a_momiji"><a>もみじ日記</a>
 					</div>
 					<div class="a_menu">
-						<ul>
-							<li class="a_select"><a href="17select">検索</a></li>
-							<li><a href="05mypage">基本ページ</a></li>
-							<li><a href="30contact">お問い合わせ</a></li>
-						</ul>
+         	<ul>
+         		<li class="a_select"><a href="53selectUnlogin">検索</a></li>
+         		<li><a href="47Top">トップページ</a></li>
+         		<li><a href="54contactUnlogin">お問い合わせ</a></li>
+         	</ul>
 					</div>
 				</div>
 			</div>
@@ -52,10 +52,11 @@
 						<p class="h2">${ art.name }さんの日記</p>
 					</div>
 					<div class="a_">
-						<form action="22profile">
+						<form:form action="51profileUnlogin" modelAttribute="form">
+							<form:hidden path="user_id" />
 							<input type="submit" value="自己紹介"
 								class="btn btn-primary btn-lg btn-block">
-						</form>
+						</form:form>
 						<br> <br>
 						<div>
 							<div class="a_article">

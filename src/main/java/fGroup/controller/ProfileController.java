@@ -46,6 +46,16 @@ public class ProfileController {
 		return "22profile";
 	}
 
+	@RequestMapping(value="/51profileUnlogin", method=RequestMethod.POST)
+	public String profileU(@ModelAttribute("form") ProfileForm form) {
+		Integer user_id = form.getUser_id();
+		Profile profile = profileService.FindById(user_id);
+
+		session.setAttribute("Profile", profile);
+
+		return "51profileUnlogin";
+	}
+
 	@RequestMapping(value="/23profileEdit", method=RequestMethod.GET)
 	public String profileEdit(@ModelAttribute("form") ProfileForm form) {
 		Users user = (Users)session.getAttribute("user");
