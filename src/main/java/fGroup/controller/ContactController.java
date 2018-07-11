@@ -27,8 +27,6 @@ public class ContactController {
 	@Autowired
 	private ContactService contactService;
 
-	@Autowired
-	HttpSession session;
 
 	@RequestMapping("/30contact")
 	public String contact(@ModelAttribute("form") ContactForm form, Model model) {
