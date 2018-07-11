@@ -90,7 +90,6 @@
 				<input type="submit" class="btn btn-info btn-lg btn-success btn-block"
 					name="button" value="検索画面に戻る"
 					onclick="location.href='17select'; return false;">
-
 			</div>
 		</div>
 	</div>

@@ -49,7 +49,7 @@
 <p class ="h2">検索したいキーワードを記入してください</p>
 <form action="49selectResultUnlogin"  method="post">
     <div>
-      <p><input type="text" class="form-control input-lg"  name="select"></p>
+      <p><input type="text" class="form-control input-lg"  name="keyword"></p>
       <input type="submit" value="検索" class="btn btn-success btn-lg btn-block">
     </div>
  </form>
