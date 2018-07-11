@@ -51,6 +51,7 @@
 			<div class="a_return">
 				<form:form action="16all_postArt" modelAttribute="form">
 				<input type="hidden" name="user_id" value="${ user.user_id }">
+				<input type="hidden" name="user_name" value="${ user.name }">
 					<input type="submit" class="btn btn-info btn-lg btn-block"
 						name="button" value="自分の投稿した記事一覧">
 				</form:form>

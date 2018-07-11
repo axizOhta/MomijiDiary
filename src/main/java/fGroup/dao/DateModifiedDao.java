@@ -23,7 +23,7 @@ public class DateModifiedDao {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd (E) HH時mm分");
 		date = sdf.format(cal.getTime());
 
-		String sql = "UPDATE users SET last_update_date =" + date + " WHERE user_id=?";
+		String sql = "UPDATE users SET last_update_date ='" + date + "' WHERE user_id=?";
 		jdbcTemplate.update(sql, user_id);
 	}
 
