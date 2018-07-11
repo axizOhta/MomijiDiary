@@ -2,6 +2,8 @@ package fGroup.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,6 @@ public class ContactController {
 	@Autowired
 	private ContactService contactService;
 
-	@Autowired
-	HttpSession session;
 
 	@RequestMapping("/30contact")
 	public String contact(@ModelAttribute("form") ContactForm form, Model model) {
@@ -148,7 +148,7 @@ public class ContactController {
 	@RequestMapping("/34contactsuper")
 	public String contactsuper(@ModelAttribute("form") ContactForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-  
+
 		Contact contact = new Contact();
 
 		List<Contact> contactList = contactService.contactall(contact);
