@@ -34,7 +34,7 @@
 						<ul>
 							<li class="a_select"><a href="17select">検索</a></li>
 							<li><a href="05mypage">基本ページ</a></li>
-							<li><a href="30 contact">お問い合わせ</a></li>
+							<li><a href="30contact">お問い合わせ</a></li>
 						</ul>
 					</div>
 				</div>
@@ -89,7 +89,7 @@
 				<div class="a_btn">
 					<input type="submit" class="btn btn-primary btn-lg btn-block"
 						name="button" value="戻る"
-						onclick="location.href='19 userinfoUpdate'; return false;">
+						onclick="location.href='19userinfoUpdate'; return false;">
 				</div>
 			</div>
 		</div>
