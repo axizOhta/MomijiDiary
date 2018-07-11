@@ -6,14 +6,12 @@ import java.util.Calendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import fGroup.dto.Users;
-
 public class DateModifiedDao {
 
 	@Autowired
     private JdbcTemplate jdbcTemplate;
 
-	public Users dateModified(Integer user_id) {
+	public void dateModified(Integer user_id) {
 
 		String date;
 

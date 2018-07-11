@@ -33,6 +33,9 @@ public class ArtPostEditDeleteController {
 	@Autowired
 	ArtService artS;
 
+	@Autowired
+	DateModifiedService DateModifiedService;
+
 	String date;
 
 	//投稿
@@ -242,7 +245,7 @@ public class ArtPostEditDeleteController {
 //更新日時
 		Integer user_id = (Integer)session.getAttribute("user");
 
-		Users user = DateModifiedService.dateModified(user_id);
+		DateModifiedService.dateModified(user_id);
 
 		return "13deleteCon";
 	}
