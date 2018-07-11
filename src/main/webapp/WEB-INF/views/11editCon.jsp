@@ -59,8 +59,19 @@
 					<div>
 						<p class="a_kiji">${ edit.article_main }</p>
 					</div>
+					<c:if test="${not empty updateImage01}">
+						<div class="o_pattern1">
+							<img src="${updateImage01}" alt="">
+						</div>
+					</c:if>
 					<div class="o_pattern1">
-						<img src="image/maguro.jpg" alt="">
+						<img src="${updateImage02}" alt="">
+					</div>
+					<div class="o_pattern1">
+						<img src="${updateImage03}" alt="">
+					</div>
+					<div class="o_pattern1">
+						<img src="${updateImage04}" alt="">
 					</div>
 				</div>
 				<div class="a_form">

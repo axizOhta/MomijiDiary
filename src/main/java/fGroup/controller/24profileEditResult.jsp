@@ -49,7 +49,7 @@
 								<div id="a_photo">
 									<div class="a_pro_photo">
 										<div class="a_photos">
-											<img src="profile/images/${newProfile.profile_image}" title="写真①" class="a_user_photo">
+											<img src="${newProfile.profile_image}" title="写真①" class="a_user_photo">
 										</div>
 									</div>
 								</div>
