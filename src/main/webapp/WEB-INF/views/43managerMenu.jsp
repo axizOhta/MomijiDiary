@@ -33,12 +33,11 @@
 	</div>
 	</div>
 </header>
-<form:form action="post"  modelAttribute="form">
 <div class="o_">
 <div class = "o_wrapper">
 <div class="a_">
 <div class="a_btn">
-<form action="34 contactsuper">
+<form action="34contactsuper">
 	<input type="submit" value="問い合わせ確認" class="a_btn_manager">
 </form>
 </div>
@@ -57,6 +56,5 @@
 </div>
 </div>
 </div>
-</form:form>
 </body>
 </html>
