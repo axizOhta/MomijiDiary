@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fGroup.dto.Article;
+import fGroup.dto.Users;
 import fGroup.form.Post;
 import fGroup.service.ArtService;
 
@@ -72,7 +73,23 @@ public class ArtController {
 		return "50artUnlogin";
 	}
 
-    @RequestMapping(value="/16all_postArt", method = RequestMethod.POST)
+
+	@RequestMapping(value="/16all_postArt", method = RequestMethod.GET)
+    public String showPostArt(@ModelAttribute("form") Post post, Model model) {
+
+    	Users user = (Users)session.getAttribute("user");
+    	Integer user_id = user.getUser_id();
+    	String user_name = user.getName();
+
+		List <Article> list = artS.getAllArt(user_id);
+    	model.addAttribute("list", list);
+    	model.addAttribute("name", user_name);
+    	post.setUser_id(user_id);
+    	model.addAttribute("form", post);
+
+        return "16all_postArt";
+    }
+	@RequestMapping(value="/16all_postArt", method = RequestMethod.POST)
     public String postArtLogin(@ModelAttribute("form") Post post,
     		@RequestParam("user_id") Integer user_id,
     		@RequestParam("user_name") String user_name, Model model) {
