@@ -1,13 +1,14 @@
 package fGroup.form;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class UserUpForm {
 	@NotNull
 	private Integer id;
 	private String newName;
-	@NotNull
+	@NotBlank
 	@Email(message="Eメール形式で入力してください。")
 	private String newEmail;
 	@NotNull
