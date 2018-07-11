@@ -71,10 +71,12 @@ $(function() {
 <div>
 	<p class = "h2">${name}さんの日記</p>
 </div>
-<form action ="22profile">
-<input type="submit" value="自己紹介" class="btn btn-primary btn-lg btn-block">
-</form>
-<br>
+				<form:form action="22profile" modelAttribute="form">
+					<form:hidden path="user_id" />
+					<input type="submit" value="自己紹介"
+						class="btn btn-primary btn-lg btn-block">
+				</form:form>
+				<br>
 
 <br>
 <div class="a_">
