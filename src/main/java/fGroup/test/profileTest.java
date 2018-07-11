@@ -43,8 +43,8 @@ public class profileTest {
 				  ,100 , "", "佐藤", "男",1940, 7, 9,"ゲーム");
 		  jT.update("INSERT INTO profile (user_id,profile_image,name,sex,birthyear,birthmonth,birthday,hobby) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
 				  ,200 , "", "田中", "",1900, 11, 6, "旅行");
-		  jT.update("INSERT INTO profile (user_id,profile_image,name) VALUES (?, ?, ?)"
-				  ,300 ,"", "十六");
+		  jT.update("INSERT INTO profile (user_id,profile_image,name,sex,birthyear,birthmonth,birthday,hobby) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+				  ,300 ,"", "十六", "", null, null,null, "");
 	}
 
     @Test
@@ -64,12 +64,19 @@ public class profileTest {
     	assertNull(profile.getBirthday());
 
     	Profile beforeProfile = profileService.FindById(300);
+    	beforeProfile.getSex();
     	Profile afterProfile = new Profile();
+    	afterProfile.setUser_id(300);
+    	afterProfile.setProfile_image("");
+    	afterProfile.setName("");
+    	afterProfile.setSex("");
     	afterProfile.setBirthyear(1940);
     	afterProfile.setBirthmonth(5);
     	afterProfile.setBirthday(12);
+    	afterProfile.setHobby("");
+    	afterProfile.setSelf_introduction("");
 
-    	profileService.update(beforeProfile, afterProfile);
+    	profileService.update(afterProfile, beforeProfile);
     	profile = profileService.FindById(300);
 
     	assertThat(profile.getBirthyear(), is(1940));
@@ -79,15 +86,12 @@ public class profileTest {
 
     @Test
     public void プロフィール() throws Exception {
-    	List<Profile> list = jT.query("SELECT * FROM profile WHERE user_id = ?", new BeanPropertyRowMapper<Profile>(Profile.class), 100);
-
-    	assertThat(list.get(0).getName(), is("佐藤"));
-
     	Users users = new Users();
-    	users.setUser_id(100);
+    	users.setUser_id(400);
     	users.setName("後藤");
 
     	userinsertservice.nameinsert(users);
+    	List<Profile> list = jT.query("SELECT * FROM profile WHERE user_id = ?", new BeanPropertyRowMapper<Profile>(Profile.class), 400);
 
     	assertThat(list.get(0).getName(), is("後藤"));
 
