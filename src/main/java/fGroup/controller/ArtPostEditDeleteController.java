@@ -312,7 +312,8 @@ public class ArtPostEditDeleteController {
 
 		model.addAttribute("delete", post);
 //更新日時
-		Integer user_id = (Integer)session.getAttribute("user");
+		Users user = (Users)session.getAttribute("user");
+		Integer user_id = user.getUser_id();
 
 		DateModifiedService.dateModified(user_id);
 
