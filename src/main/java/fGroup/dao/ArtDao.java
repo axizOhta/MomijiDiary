@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import fGroup.dto.Article;
@@ -15,6 +18,9 @@ public class ArtDao {
 
 	@Autowired
     private JdbcTemplate jT;
+
+	@Autowired
+	private NamedParameterJdbcTemplate nPJT;
 
 	String SELECT_WHERE_ArtId = "SELECT article_id, user_id, name, article_title, article_main, image_1, image_2, image_3, image_4, contribute_date FROM article WHERE article_id = ?";
 	String SELECT_LAST_ARTID = "SELECT MAX(article_id) FROM article";
@@ -61,9 +67,39 @@ public class ArtDao {
 		return true;
 	}
 
-//	public void insertImage01(String image01path) {
-//		String image 01
-//
-//	}
+	public void updateImage01(Integer art_id, String newImage01) {
+		Integer id = art_id;
+		String image = newImage01;
 
+		 SqlParameterSource param = new MapSqlParameterSource().addValue("id", id).addValue("image", image);
+
+		 nPJT.update("UPDATE article SET image_1 = :image WHERE article_id= :id", param);
+	}
+
+	public void updateImage02(Integer art_id, String newImage02) {
+		Integer id = art_id;
+		String image = newImage02;
+
+		 SqlParameterSource param = new MapSqlParameterSource().addValue("id", id).addValue("image", image);
+
+		 nPJT.update("UPDATE article SET image_2 = :image WHERE article_id= :id", param);
+	}
+
+	public void updateImage03(Integer art_id, String newImage03) {
+		Integer id = art_id;
+		String image = newImage03;
+
+		 SqlParameterSource param = new MapSqlParameterSource().addValue("id", id).addValue("image", image);
+
+		 nPJT.update("UPDATE article SET image_3 = :image WHERE article_id= :id", param);
+	}
+
+	public void updateImage04(Integer art_id, String newImage04) {
+		Integer id = art_id;
+		String image = newImage04;
+
+		 SqlParameterSource param = new MapSqlParameterSource().addValue("id", id).addValue("image", image);
+
+		 nPJT.update("UPDATE article SET image_4 = :image WHERE article_id= :id", param);
+	}
 }

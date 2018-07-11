@@ -2,6 +2,8 @@ package fGroup.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -143,8 +145,9 @@ public class ContactController {
 		return "56 contactResultUnlogin";
 	}
 
-	@RequestMapping(value="/34contactsuper", method=RequestMethod.POST)
-	public String contactsuper(@ModelAttribute("form") ContactForm form, Model model) {
+	@RequestMapping("/34contactsuper")
+	public String contactsuper(@ModelAttribute("form") ContactForm form, Model model,HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
 
 		Contact contact = new Contact();
 

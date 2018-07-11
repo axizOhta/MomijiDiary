@@ -41,7 +41,7 @@
 		</div>
 	</header>
 	<div class="o_">
-		<form:form action="11editCon" modelAttribute="form">
+		<form:form action="11editCon" modelAttribute="form" enctype="multipart/form-data">
 			<div class="a_form">
 				<div class="a_info">
 					<p>記事の編集</p>

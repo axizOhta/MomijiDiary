@@ -64,15 +64,50 @@
 							<img src="${updateImage01}" alt="">
 						</div>
 					</c:if>
-					<div class="o_pattern1">
-						<img src="${updateImage02}" alt="">
-					</div>
-					<div class="o_pattern1">
-						<img src="${updateImage03}" alt="">
-					</div>
-					<div class="o_pattern1">
-						<img src="${updateImage04}" alt="">
-					</div>
+					<c:if test="${empty updateImage01}">
+						<c:if test="${not empty image01}">
+							<div class="o_pattern1">
+								<img src="${image01}" alt="">
+							</div>
+						</c:if>
+					</c:if>
+					<c:if test="${not empty updateImage02}">
+						<div class="o_pattern1">
+							<img src="${updateImage02}" alt="">
+						</div>
+					</c:if>
+					<c:if test="${empty updateImage02}">
+						<c:if test="${not empty image02}">
+							<div class="o_pattern1">
+								<img src="${image02}" alt="">
+							</div>
+						</c:if>
+					</c:if>
+					<c:if test="${not empty updateImage03}">
+						<div class="o_pattern1">
+							<img src="${updateImage03}" alt="">
+						</div>
+					</c:if>
+					<c:if test="${empty updateImage03}">
+						<c:if test="${not empty image03}">
+							<div class="o_pattern1">
+								<img src="${image03}" alt="">
+							</div>
+						</c:if>
+					</c:if>
+					<c:if test="${not empty updateImage04}">
+						<div class="o_pattern1">
+							<img src="${updateImage04}" alt="">
+						</div>
+					</c:if>
+					<c:if test="${empty updateImage41}">
+						<c:if test="${not empty image04}">
+							<div class="o_pattern1">
+								<img src="${image04}" alt="">
+							</div>
+						</c:if>
+					</c:if>
+
 				</div>
 				<div class="a_form">
 					<div class="a_btn">

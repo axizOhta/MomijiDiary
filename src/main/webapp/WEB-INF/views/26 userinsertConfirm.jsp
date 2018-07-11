@@ -41,51 +41,49 @@
 	</header>
 	<div class="o_">
 		<div class="a_">
-			<c:if test="${not empty errmsg}">
-				<p class="a_denger">${fn:escapeXml(errmsg)}</p>
-			</c:if>
 			<div class="a_info">
 				<p>新規登録情報の確認</p>
 				<p>これでよろしいですか</p>
 			</div>
+			<form:form action="27userinsertResult" method="post"
+					modelAttribute="form">
 			<div class="text-center">
-				<form:form action="27userinsertResult" method="post" modelAttribute="form">
-					<fieldset>
-						<div class="a_cc">
-							<label class="h2">名前</label><br>
-							<p class="h3">${fn:escapeXml(userinsert.name)}</p>
-						</div>
-						<div class="a_cc">
-							<label class="h2">ログインID</label><br>
-							<p class="h3">
-								<br>
-							<p class="h3">${fn:escapeXml(userinsert.login_id)}</p>
-						</div>
-						<div class="a_cc">
-							<label class="h2">メールアドレス</label> <br>
-							<p class="h3">${fn:escapeXml(userinsert.email_address)}</p>
-						</div>
-						<div class="a_cc">
-							<label class="h2">パスワード</label><br>
-							<form:password class="form-control input-lg" path="password"
-								readonly="true" showPassword="true" />
-						</div>
-						<div class="a_cc">
-							<label class="h2">パスワード(再入力)</label><br>
-							<form:password class="form-control input-lg" path="repassword" />
-						</div>
-					</fieldset>
-					<br> <br>
-					<div class="a_btn">
-						<input type="submit" class="btn btn-primary btn-lg btn-block" name="button" value="登録完了">
+					<div class="a_cc">
+						<label class="h2">名前</label><br>
+						<p class="h3">${fn:escapeXml(userinsert.name)}</p>
 					</div>
+					<div class="a_cc">
+						<label class="h2">ログインID</label><br>
+						<p class="h3">
+							<br>
+						<p class="h3">${fn:escapeXml(userinsert.login_id)}</p>
+					</div>
+					<div class="a_cc">
+						<label class="h2">メールアドレス</label> <br>
+						<p class="h3">${fn:escapeXml(userinsert.email_address)}</p>
+					</div>
+					<div class="a_cc">
+						<label class="h2">パスワード</label><br>
+						<form:password class="form-control input-lg" path="password"
+							readonly="true" showPassword="true" />
+					</div>
+					<div class="a_cc">
+						<label class="h2">パスワード(再入力)</label><br>
+						<form:password class="form-control input-lg" path="repassword" />
+					</div>
+			</div>
+			<br> <br>
+			<div class="a_btn">
+				<input type="submit" class="btn btn-primary btn-lg btn-block"
+					name="button" value="登録完了"
+					onclick="location.href='05mypage'; return false;">
 				</form:form>
-				<br> <br>
-				<input type="submit"
+				<br> <br> <input type="submit"
 					class="btn btn-primary btn-lg btn-block" name="button" value="戻る"
 					onclick="location.href='25userinsert'; return false;">
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>
