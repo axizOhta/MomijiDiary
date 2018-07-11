@@ -116,6 +116,7 @@ public class ArtPostEditDeleteController {
 
 		}catch(Exception e) {
 			return "06post";
+
 		}
 
 		Calendar cal = Calendar.getInstance();
