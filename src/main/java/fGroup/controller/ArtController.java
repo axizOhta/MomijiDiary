@@ -73,7 +73,7 @@ public class ArtController {
 
 		//Integer tempId = art.getUser_id();
 
-		session.setAttribute("tempId", tempId);
+		//session.setAttribute("tempId", tempId);
 		//退会情報の確認
 		if(art ==null || !artS.existUser(art.getUser_id())) {
 			model.addAttribute("noArt", "指定された記事は存在しません");
@@ -126,8 +126,8 @@ public class ArtController {
 
     	//Integer userTemp = (Integer)session.getAttribute("tempId");
 
-    	List <Article> list = artS.getAllArt(userTemp);
-    	String user_name = list.get(0).getName();
+    	List <Article> list = artS.getAllArt(user_id);
+    	//String user_name = list.get(0).getName();
     	model.addAttribute("list", list);
     	model.addAttribute("name", user_name);
     	post.setUser_id(user_id);
