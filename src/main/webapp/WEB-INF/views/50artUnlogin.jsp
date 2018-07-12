@@ -69,29 +69,28 @@
 								<div>
 									<p class="a_kiji">${ art.article_main }</p>
 								</div>
-								<c:if test="${not empty art.image_1 }">
+								<c:if test="${not empty art.image_1}">
 									<div class="o_pattern1">
-										<img src="${art.image_1}" alt="">
+										<img src="${ art.image_1 }" alt="">
 									</div>
 								</c:if>
-								<c:if test="${not empty art.image_2 }">
+								<c:if test="${not empty art.image_2}">
 									<div class="o_pattern1">
-										<img src="${art.image_2}" alt="">
+										<img src="${ art.image_2 }" alt="">
 									</div>
 								</c:if>
-								<c:if test="${not empty art.image_3 }">
+								<c:if test="${not empty art.image_3}">
 									<div class="o_pattern1">
-										<img src="${art.image_3}" alt="">
+										<img src="${ art.image_3 }" alt="">
 									</div>
 								</c:if>
-								<c:if test="${not empty art.image_4 }">
+								<c:if test="${not empty art.image_4}">
 									<div class="o_pattern1">
-										<img src="${art.image_4}" alt="">
+										<img src="${ art.image_4 }" alt="">
 									</div>
 								</c:if>
 							</div>
 						</div>
-					</div>
 				</c:otherwise>
 			</c:choose>
 			<div class="a_">
