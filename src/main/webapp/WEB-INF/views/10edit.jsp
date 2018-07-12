@@ -68,6 +68,7 @@
 							<div class="a_photos">
 								<label class="btn btn-default btn-lg btn-block" id="a_line">
 									写真を追加①<form:input type="file" path="image1" style="display: none" id="photo1" />
+												<input type = "hidden" id="image1" name="image1" value=1>
 								</label>
 								<p>ここに写真が表示されます</p>
 								<img id="img1" class="a_user_photo" src="${image01}"/> <input type="hidden"
@@ -143,11 +144,24 @@
 			var value = $("#" + id).val();
 			window.alert(value);
 		}
+		if($("#img1").attr('src') !== undefined){
+			$("#delete1").attr("type", "button");
+		}
+		if($("#img2").attr('src') !== undefined){
+			$("#delete2").attr("type", "button");
+		}
+		if($("#img3").attr('src') !== undefined){
+			$("#delete3").attr("type", "button");
+		}
+		if($("#img4").attr('src') !== undefined){
+			$("#delete4").attr("type", "button");
+		}
 		function clearValue1() {
 			$("#photo1").val("");
 			$("#img1").attr("src", "");
 			$("#img1").attr("title", "");
 			$("#delete1").attr("type", "hidden");
+			$("#image1").val("delete");
 		}
 		function clearValue2() {
 			$("#photo2").val("");

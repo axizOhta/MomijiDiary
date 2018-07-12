@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +52,9 @@
 				<img src="${Profile.profile_image}" alt="">
 			</div>
 			<div class="a_">
-				<form action="16all_postArt">
+				<form action="16all_postArt"method="post">
+					<input type="hidden"name="user_id" value="${user_id}" />
+					<input type="hidden"name="user_name" value="${user_name}" />
 					<input type="submit" class="btn btn-warning btn-lg btn-block"
 						value="記事を見る">
 				</form>

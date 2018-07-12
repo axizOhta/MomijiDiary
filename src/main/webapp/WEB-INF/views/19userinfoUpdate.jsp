@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
@@ -43,9 +43,6 @@
 <div class="text-center">
 <div class="a_info">
 <p>登録情報の更新</p>
-	<c:if test="${not empty msg}">
-		<span class="require">${msg}</span>
-		</c:if>
 </div>
 <form:form action="20userinfoUpdateConfirm" method="post" modelAttribute="form">
 <fieldset>
@@ -53,6 +50,10 @@
 <label class="h2">名前</label>
 <br>
 <br><form:input path="newName" class="form-control input-lg"  value="${name}"/>
+<form:errors path="newName" cssStyle="color: red; font-size: 20px"/>
+<c:if test="${not empty sameerr}">
+  <p class="a_denger">${fn:escapeXml(sameerr)}</p>
+</c:if>
 </div>
 </fieldset>
 <br>
@@ -60,6 +61,7 @@
 <label class="h2">Eメール</label>
 
 <form:input type="text" path="newEmail" class="form-control input-lg"  value="${email_address}"/>
+<form:errors path="newEmail" cssStyle="color: red; font-size: 20px"/>
 </div>
 <br>
 <div>
@@ -67,6 +69,7 @@
 <p><span class="a_denger">※半角英数字4文字以上10文字以下</span></p>
 <br>
 <form:input type="password" path="newPassword" class="form-control input-lg"  value="${password}"/>
+<form:errors path="newPassword" cssStyle="color: red; font-size: 20px"/>
 </div>
 <br>
 <br>

@@ -115,6 +115,7 @@
 								<form:button class="btn btn-warning btn-lg btn-block">変更</form:button>
 							</div>
 						</div>
+						</div>
 				</form:form>
 				<div class="a_return">
 					<input type="submit" class="btn btn-info btn-lg btn-block"
