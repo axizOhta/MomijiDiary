@@ -36,29 +36,31 @@
 	</div>
 </header>
 <div class="o_">
+
+
 <div class = "o_wrapper">
 <div class="a_">
-<p class = "k_center k_bold">問い合わせ一覧</p>
 <div class = "table-responsive">
 <div class="a_table">
+
 	<table class = "k_table" border="1">
-		<thead>
-	    <tr>
-	     <th class = "a_content">問い合わせ日時</th>
-	      <th class = "k_padding">件名</th>
-	      <th class = "a_content">問い合わせ内容</th>
-	    </tr>
-	  </thead>
-	  <tbody>
+	<tbody>
 	   <c:forEach items="${contactlist}" var="contact">
 	  <tr>
-	  	<td>${fn:escapeXml(contact.contact_date)}</td>
-        <td>${fn:escapeXml(contact.contact_title)}</td>
-        <td>${fn:escapeXml(contact.contact_message)}</td>
+		<th class="k_title">お問い合わせ履歴</th>
+		</tr>
+	  <tr>
+	  	<td class="a_date">${fn:escapeXml(contact.contact_date)}</td>
+	  	</tr>
+        <td class="k_bold">${fn:escapeXml(contact.contact_title)}</td>
+       <tr>
+        <td class="a_contact">${fn:escapeXml(contact.contact_message)}</td>
       </tr>
     </c:forEach>
   </tbody>
+
 	</table>
+
 </div>
 </div>
 <br>

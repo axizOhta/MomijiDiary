@@ -4,6 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+
 public class UserUpForm {
 	private Integer id;
 	@NotBlank(message="入力されていない項目があります。")

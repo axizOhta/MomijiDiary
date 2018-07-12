@@ -15,11 +15,13 @@ public class ProfileForm {
 	private Integer birthday;
 
 	private String hobby;
-
+  
 	@Size(max = 300,message="自己紹介の文字数が多すぎます。300文字以内で入力してください。")
 	private String self_introduction;
 
 	private Integer user_id;
+	@Size(max = 300,message="自己紹介の文字数が多すぎます。300文字以内で入力してください。")
+	private String self_introduction;
 
 	public MultipartFile getProfile_image() {
 		return profile_image;
