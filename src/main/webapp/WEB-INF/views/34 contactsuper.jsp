@@ -41,7 +41,7 @@
 	<thead>
 	    <tr>
 	     <th class = "a_content">問い合わせ日時</th>
-	      <th class = "k_padding">ユーザー名</th>
+	      <th class = "k_padding">ユーザーID</th>
 	      <th class = "k_padding">連絡先</th>
 	      <th class = "k_padding">件名</th>
 	      <th class = "a_content">問い合わせ内容</th>
@@ -51,7 +51,7 @@
 	   <c:forEach items="${contactlist}" var="contact">
 	  <tr>
 	  	<td>${fn:escapeXml(contact.contact_date)}</td>
-        <td>${fn:escapeXml(contact.user_id)}</td>
+        <td> <a href="52all_postArtUnlogin?user_id=${contact.user_id}" target="newtab">${contact.user_id}</a></td>
         <td>${fn:escapeXml(contact.email_address)}</td>
         <td>${fn:escapeXml(contact.contact_title)}</td>
         <td>${fn:escapeXml(contact.contact_message)}</td>
