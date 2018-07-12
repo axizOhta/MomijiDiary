@@ -67,6 +67,10 @@ public class ArtController {
 		//art_idを元に記事情報検索
 		Article art = artS.selectArt(art_id);
 
+		Integer tempId = art.getUser_id();
+
+		session.setAttribute("tempId", tempId);
+
 		//記事ページに情報渡す
 		model.addAttribute("art", art);
 
@@ -105,16 +109,20 @@ public class ArtController {
 
     @RequestMapping(value="/52all_postArtUnlogin", method = RequestMethod.POST)
     public String postArtUnlogin(@ModelAttribute("form") Post post,
-    		@RequestParam("user_id") Integer user_id,
-    		@RequestParam("user_name") String user_name, Model model) {
+    		/*@RequestParam("user_id") Integer user_id,
+    		@RequestParam("user_name") String user_name,*/ Model model) {
 
-    	List <Article> list = artS.getAllArt(user_id);
+    	Integer userTemp = (Integer)session.getAttribute("tempId");
+
+    	List <Article> list = artS.getAllArt(userTemp);
+    	String user_name = list.get(0).getName();
     	model.addAttribute("list", list);
     	model.addAttribute("name", user_name);
-    	post.setUser_id(user_id);
+    	//post.setUser_id(user_id);
+    	post.setUser_id(userTemp);
     	model.addAttribute("form", post);
 
-        return "16all_postArt";
+        return "52all_postArtUnlogin";
     }
 
 

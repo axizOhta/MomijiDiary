@@ -85,7 +85,7 @@ $(function() {
 		<tr><th class ="h1">投稿した記事一覧</th></tr>
 		<c:forEach var="list" items="${list}"  varStatus="status">
 			<tr>
-				<td class = "o_td"><a href="15art?art_id=${list.article_id}" class ="h2">${list.article_title}</a></td>
+				<td class = "o_td"><a href="50artUnlogin?art_id=${list.article_id}" class ="h2">${list.article_title}</a></td>
 			</tr>
 		</c:forEach>
 	</table>

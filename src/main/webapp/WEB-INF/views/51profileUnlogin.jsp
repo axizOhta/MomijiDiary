@@ -30,11 +30,11 @@
 						<img src="image/image002.png" alt="" class="a_momiji"><a>もみじ日記</a>
 					</div>
 					<div class="a_menu">
-         	<ul>
-         		<li class="a_select"><a href="53selectUnlogin">検索</a></li>
-         		<li><a href="47Top">トップページ</a></li>
-         		<li><a href="54contactUnlogin">お問い合わせ</a></li>
-         	</ul>
+						<ul>
+							<li class="a_select"><a href="53selectUnlogin">検索</a></li>
+							<li><a href="47Top">トップページ</a></li>
+							<li><a href="54contactUnlogin">お問い合わせ</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 				<img src="${Profile.profile_image}" alt="">
 			</div>
 			<div class="a_">
-				<form action="16all_postArt">
+				<form action="52all_postArtUnlogin" method="post">
 					<input type="submit" class="btn btn-warning btn-lg btn-block"
 						value="記事を見る">
 				</form>
@@ -71,14 +71,14 @@
 							<h3 class="panel-title">誕生日</h3>
 						</div>
 						<div class="panel-body">
-							<c:if test="${not empty newProfile.birthyear}">
-										${newProfile.birthyear}年
+							<c:if test="${not empty Profile.birthyear}">
+										${Profile.birthyear}年
 									</c:if>
-							<c:if test="${not empty newProfile.birthmonth}">
-										${newProfile.birthmonth}月
+							<c:if test="${not empty Profile.birthmonth}">
+										${Profile.birthmonth}月
 									</c:if>
-							<c:if test="${not empty newProfile.birthday}">
-										${newProfile.birthday}日
+							<c:if test="${not empty Profile.birthday}">
+										${Profile.birthday}日
 									</c:if>
 						</div>
 						<div class="panel-heading">
@@ -97,16 +97,21 @@
 
 					<div class="a_return">
 						<input type="submit" class="btn btn-info btn-lg btn-block"
-							name="button" value="基本ページに戻る"
+							name="button" value="TOPページに戻る"
 							onclick="location.href='05mypage'; return false;">
+					</div>
+					<div class="a_return">
+						<input type="submit" class="btn btn-info btn-lg  btn-block"
+							name="button" value="新規登録"
+							onclick="location.href='25userinsert'; return false;">
 					</div>
 				</div>
 			</div>
 		</div>
-		</div>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-			integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-			crossorigin="anonymous"></script>
+	</div>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
 </body>
 </html>
