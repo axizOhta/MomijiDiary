@@ -107,7 +107,7 @@ $(function() {
 	<input type="button"  id="next" value="次へ" class="btn btn-primary btn-lg btn-block"><br>
 </div>
 <br>
-	<input type="submit" class="btn btn-info btn-lg btn-block" name="button" value="基本ページに戻る" onclick="location.href='05mypage.html'; return false;">
+	<input type="submit" class="btn btn-info btn-lg btn-block" name="button" value="基本ページに戻る" onclick="location.href='05mypage'; return false;">
 </div>
 </div>
 </div>

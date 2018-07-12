@@ -103,7 +103,7 @@ public class ArtPostEditDeleteController {
 			String file04 = image04.getOriginalFilename();
 
 			if(!(file01.equals(""))){
-				Path path = Paths.get("C:\\pleiades\\workspace\\MomijiDiary\\src\\main\\resources\\static\\article\\images", file01);
+				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file01);
 				image01.transferTo(path.toFile());
 				image01path = "/article/images/"+file01;
 			}else {
@@ -198,7 +198,6 @@ public class ArtPostEditDeleteController {
 			post.setArticle_main(main);
 			post.setContribute_date(date);
 		}
-
 		Article art = artS.selectArt(art_id);
 		session.setAttribute("image01", art.getImage_1());
 		session.setAttribute("image02", art.getImage_2());

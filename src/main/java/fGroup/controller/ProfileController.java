@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import fGroup.dao.UsersDao;
 import fGroup.dto.Profile;
 import fGroup.dto.Users;
 import fGroup.form.ProfileForm;
+import fGroup.service.DateModifiedService;
 import fGroup.form.ProfileFormConfirm;
 import fGroup.service.ProfileService;
 
@@ -31,6 +33,12 @@ public class ProfileController {
 
 	@Autowired
 	ProfileService profileService;
+
+	@Autowired
+	DateModifiedService DMS;
+
+	@Autowired
+	UsersDao uDao;
 
 	@RequestMapping(value="/45myPro")
 	public String myPro(Model model) {
@@ -55,6 +63,8 @@ public class ProfileController {
 	}
 
 	@RequestMapping(value="/51profileUnlogin", method=RequestMethod.POST)
+	public String profileU(@ModelAttribute("form") ProfileForm form) {
+		//Integer user_id = (Integer)session.getAttribute("tempId");
 	public String profileU(@ModelAttribute("form") ProfileForm form,
 			@RequestParam("user_id") Integer user_id,Model model) {
 //		Integer user_id = form.getUser_id();
@@ -151,6 +161,12 @@ public class ProfileController {
 		profileService.update(updateProfile, beforeProfile);
 
 		Profile newProfile = profileService.FindById(user_id);
+
+		DMS.dateModified(user_id);
+
+		Users newUser = uDao.findById(user_id);
+
+		session.setAttribute("user", newUser);
 
 		session.setAttribute("newProfile", newProfile);
 
