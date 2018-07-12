@@ -290,6 +290,10 @@ div#header-bk {
 	height:100px;
 	width:100%;
 }
+.o_a {
+	margin: auto;
+	max-width: 330px;
+}
 .o_{
 	margin-top: 150px;
 }
@@ -331,6 +335,21 @@ div#header-bk {
 .o_td{
 border: 2px #2b2b2b solid;
 padding: 10px;
+}
+.o_table{
+	max-width:100%;
+	min-width:100%;
+	margin: auto;
+}
+.o_content {
+	padding :5px;
+	max-width: 100%;
+	text-align: auto;
+}
+.o_contact {
+	font-size: 20px;
+	text-align: left;
+	padding: 15px;
 }
 /* �����܂� */
 
