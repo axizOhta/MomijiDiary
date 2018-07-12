@@ -98,12 +98,20 @@ $(function() {
 </div>
 <br>
 <br>
-<input type="submit" class="btn btn-info  btn-lg btn-block" name="button" value="基本ページに戻る" onclick="location.href='05mypage'; return false;">
-
+			<div class="a_">
+				<br> <br> <input type="submit" class="btn btn-primary btn-lg  btn-block" name="button" value="トップページに戻る" onclick="location.href='47Top'; return false;">
+				<br> <input type="submit"
+					class="btn btn-info btn-lg  btn-block" name="button" value="新規登録"
+					onclick="location.href='25userinsert'; return false;">
+			</div>
 </div>
 </div>
 </div>
 </div>
 </div>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+			integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+			crossorigin="anonymous"></script>
 </body>
 </html>
