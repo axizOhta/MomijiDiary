@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import fGroup.dao.UsersDao;
 import fGroup.dto.Profile;
 import fGroup.dto.Users;
 import fGroup.form.ProfileForm;
@@ -30,6 +31,9 @@ public class ProfileController {
 
 	@Autowired
 	DateModifiedService DMS;
+
+	@Autowired
+	UsersDao uDao;
 
 	@RequestMapping(value="/45myPro")
 	public String myPro(Model model) {
@@ -111,6 +115,10 @@ public class ProfileController {
 		Profile newProfile = profileService.FindById(user_id);
 
 		DMS.dateModified(user_id);
+
+		Users newUser = uDao.findById(user_id);
+
+		session.setAttribute("user", newUser);
 
 		session.setAttribute("newProfile", newProfile);
 
