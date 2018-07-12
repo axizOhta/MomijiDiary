@@ -9,10 +9,12 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fGroup.dao.UsersDao;
 import fGroup.dto.Users;
 import fGroup.form.UserUpForm;
 import fGroup.service.UserUpService;
@@ -28,6 +30,9 @@ public class UserUpController {
 	@Autowired
 	HttpSession session;
 
+	@Autowired
+	UsersDao usersDao;
+
 
 	@RequestMapping(value = "/19userinfoUpdate")
 	public String update(@ModelAttribute("form") UserUpForm form, Model model) {
@@ -41,42 +46,47 @@ public class UserUpController {
 
 
 	@RequestMapping(value = "/20userinfoUpdateConfirm" ,method = RequestMethod.POST)
-	public String updateConfirm(@ModelAttribute("form") UserUpForm form,  Model model) {
+	public String updateConfirm(@Validated@ModelAttribute("form") UserUpForm form,BindingResult bindingResult,  Model model) {
 
-		//Users beforeUser = (Users) session.getAttribute("user");
+		Users user = (Users) session.getAttribute("user");
 
-		if (form.hasRequiredError()) {//空チェック;
-			String errorMsg = messageSource.getMessage("required.error", null, Locale.getDefault());
-			model.addAttribute("msg", errorMsg);
+		if (bindingResult.hasErrors()) {
 			return "19userinfoUpdate";
 		}
 
-		Users users = new Users();
-		String loginId = users.getLogin_id();
+//		if (form.hasRequiredError()) {//空チェック;
+//			String errorMsg = messageSource.getMessage("required.error", null, Locale.getDefault());
+//			model.addAttribute("msg", errorMsg);
+//			return "19userinfoUpdate";
+//		}
 
-		if (form.getNewName().equals(loginId)) {//ログインIDと名前が同じ場合
+		//Users users = usersDao.findById(user.getUser_id());
+//		String loginId = users.getLogin_id();
+
+		if (user.getLogin_id().equals(form.getNewName())) {//ログインIDと名前が同じ場合
 			//String errorMsg = messageSource.getMessage("equalsId.error", null, Locale.getDefault());
-			model.addAttribute("msg", "名前と同じログインIDは登録できません。別のログインIDを入力してください。");
+			model.addAttribute("sameerr", "名前と同じログインIDは登録できません。別のログインIDを入力してください。");
+			System.out.println("aaa");
 			return "19userinfoUpdate";
 		}
 
-		if (form.getNewName().length() > 20) {//名前の文字数が20字より多いとき
-			String errorMsg = messageSource.getMessage("namelong.error", null, Locale.getDefault());
-			model.addAttribute("msg", errorMsg);
-			return "19userinfoUpdate";
-		}
+//		if (form.getNewName().length() > 20) {//名前の文字数が20字より多いとき
+//			String errorMsg = messageSource.getMessage("namelong.error", null, Locale.getDefault());
+//			model.addAttribute("msg", errorMsg);
+//			return "19userinfoUpdate";
+//		}
 
 //		if (form.getNewEmail().hasEmailError()) {//Eメール形式じゃないとき
 //			String errorMsg = messageSource.getMessage("email.error", null, Locale.getDefault());
 //			model.addAttribute("msg", errorMsg);
 //			return "19userinfoUpdate";
 //		}
-
-		if ((4 > form.getNewPassword().length())||( form.getNewPassword().length() > 10)) {//パスワードの文字数制限
-			String errorMsg = messageSource.getMessage("pass.error", null, Locale.getDefault());
-			model.addAttribute("msg", errorMsg);
-			return "19userinfoUpdate";
-		}
+//
+//		if ((4 > form.getNewPassword().length())||( form.getNewPassword().length() > 10)) {//パスワードの文字数制限
+//			String errorMsg = messageSource.getMessage("pass.error", null, Locale.getDefault());
+//			model.addAttribute("msg", errorMsg);
+//			return "19userinfoUpdate";
+//		}
 
 
 

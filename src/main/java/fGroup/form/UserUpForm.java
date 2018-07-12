@@ -1,16 +1,19 @@
 package fGroup.form;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class UserUpForm {
-	@NotNull
 	private Integer id;
+	@NotBlank(message="入力されていない項目があります。")
+	@Size(max =20, message="名前の文字数が多すぎます。20文字以下で入力してください。")
 	private String newName;
-	@NotNull
+	@NotBlank(message="入力されていない項目があります。")
 	@Email(message="Eメール形式で入力してください。")
 	private String newEmail;
-	@NotNull
+	@NotBlank(message="入力されていない項目があります。")
+	@Size(min =4, max =10, message="パスワードは4文字以上10文字以下の半角英数字で入力してください。")
 	private String newPassword;
 
 	private String confirmNewPassword;
