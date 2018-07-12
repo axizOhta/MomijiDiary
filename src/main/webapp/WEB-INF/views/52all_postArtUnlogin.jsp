@@ -71,7 +71,7 @@ $(function() {
 <div>
 	<p class = "h2">${name}さんの日記</p>
 </div>
-				<form:form action="22profile" modelAttribute="form">
+				<form:form action="51profileUnlogin" modelAttribute="form">
 					<form:hidden path="user_id" />
 					<input type="submit" value="自己紹介"
 						class="btn btn-primary btn-lg btn-block">
