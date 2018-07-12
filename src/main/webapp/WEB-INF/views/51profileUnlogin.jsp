@@ -31,11 +31,11 @@
 						<img src="image/image002.png" alt="" class="a_momiji"><a>もみじ日記</a>
 					</div>
 					<div class="a_menu">
-         	<ul>
-         		<li class="a_select"><a href="53selectUnlogin">検索</a></li>
-         		<li><a href="47Top">トップページ</a></li>
-         		<li><a href="54contactUnlogin">お問い合わせ</a></li>
-         	</ul>
+						<ul>
+							<li class="a_select"><a href="53selectUnlogin">検索</a></li>
+							<li><a href="47Top">トップページ</a></li>
+							<li><a href="54contactUnlogin">お問い合わせ</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -74,14 +74,14 @@
 							<h3 class="panel-title">誕生日</h3>
 						</div>
 						<div class="panel-body">
-							<c:if test="${not empty newProfile.birthyear}">
-										${newProfile.birthyear}年
+							<c:if test="${not empty Profile.birthyear}">
+										${Profile.birthyear}年
 									</c:if>
-							<c:if test="${not empty newProfile.birthmonth}">
-										${newProfile.birthmonth}月
+							<c:if test="${not empty Profile.birthmonth}">
+										${Profile.birthmonth}月
 									</c:if>
-							<c:if test="${not empty newProfile.birthday}">
-										${newProfile.birthday}日
+							<c:if test="${not empty Profile.birthday}">
+										${Profile.birthday}日
 									</c:if>
 						</div>
 						<div class="panel-heading">
@@ -97,7 +97,6 @@
 				</div>
 
 				<div>
-
 			<div class="a_">
 				<br> <br> <input type="submit" class="btn btn-primary btn-lg  btn-block" name="button" value="トップページに戻る" onclick="location.href='47Top'; return false;">
 				<br> <input type="submit"
@@ -107,10 +106,10 @@
 				</div>
 			</div>
 		</div>
-		</div>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-			integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-			crossorigin="anonymous"></script>
+	</div>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
 </body>
 </html>

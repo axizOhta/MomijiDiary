@@ -94,19 +94,19 @@
 						<br>
 						<c:if test="${user.user_id == art.user_id}">
 							<form:form action="10edit" modelAttribute="form">
-								<form:hidden path="article_id" />
-								<form:hidden path="article_title" />
-								<form:hidden path="article_main" />
-								<form:hidden path="contribute_date" />
+								<input type="hidden" name="art_id" value="${form.article_id}">
+								<input type="hidden" name="title" value="${form.article_title}">
+								<input type="hidden" name="main" value="${form.article_main}">
+								<input type="hidden" name="date" value="${form.contribute_date}">
 								<input type="submit" value="編集"
 									class="btn btn-success btn-lg btn-block">
 							</form:form>
 							<br>
 							<form:form action="13deleteCon" modelAttribute="form">
-								<form:hidden path="article_id" />
-								<form:hidden path="article_title" />
-								<form:hidden path="article_main" />
-								<form:hidden path="contribute_date" />
+								<input type="hidden" name="art_id" value="${form.article_id}">
+								<input type="hidden" name="title" value="${form.article_title}">
+								<input type="hidden" name="main" value="${formt.article_main}">
+								<input type="hidden" name="date" value="${form.contribute_date}">
 								<input type="submit" value="削除"
 									class="btn btn-danger btn-lg btn-block">
 							</form:form>

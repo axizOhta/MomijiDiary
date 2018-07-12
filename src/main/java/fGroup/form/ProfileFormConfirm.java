@@ -4,24 +4,22 @@ import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class ProfileForm {
+public class ProfileFormConfirm {
 
 	private MultipartFile profile_image;
 	private String name;
 	private String sex;
 
-	private Integer birthyear;
-	private Integer birthmonth;
-	private Integer birthday;
+	private String birthyear;
+	private String birthmonth;
+	private String birthday;
 
 	private String hobby;
-  
+
 	@Size(max = 300,message="自己紹介の文字数が多すぎます。300文字以内で入力してください。")
 	private String self_introduction;
 
 	private Integer user_id;
-	@Size(max = 300,message="自己紹介の文字数が多すぎます。300文字以内で入力してください。")
-	private String self_introduction;
 
 	public MultipartFile getProfile_image() {
 		return profile_image;
@@ -41,24 +39,7 @@ public class ProfileForm {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public Integer getBirthyear() {
-		return birthyear;
-	}
-	public void setBirthyear(Integer birthyear) {
-		this.birthyear = birthyear;
-	}
-	public Integer getBirthmonth() {
-		return birthmonth;
-	}
-	public void setBirthmonth(Integer birthmonth) {
-		this.birthmonth = birthmonth;
-	}
-	public Integer getBirthday() {
-		return birthday;
-	}
-	public void setBirthday(Integer birthday) {
-		this.birthday = birthday;
-	}
+
 	public String getHobby() {
 		return hobby;
 	}
@@ -76,6 +57,24 @@ public class ProfileForm {
 	}
 	public void setUser_id(Integer user_id) {
 		this.user_id = user_id;
+	}
+	public String getBirthyear() {
+		return birthyear;
+	}
+	public void setBirthyear(String birthyear) {
+		this.birthyear = birthyear;
+	}
+	public String getBirthmonth() {
+		return birthmonth;
+	}
+	public void setBirthmonth(String birthmonth) {
+		this.birthmonth = birthmonth;
+	}
+	public String getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
 }
