@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fGroup.dao.UsersDao;
 import fGroup.dto.Article;
 import fGroup.dto.Users;
 import fGroup.form.Post;
@@ -28,6 +29,9 @@ public class ArtController {
 	ArtService artS;
 
 	String date;
+
+	@Autowired
+	UsersDao usersDao;
 
 	@RequestMapping(value="/44myArt")
 	public String myArt (@ModelAttribute("form") Post post, Model model) {
@@ -67,8 +71,15 @@ public class ArtController {
 		//art_idを元に記事情報検索
 		Article art = artS.selectArt(art_id);
 
+		//退会情報の確認
+		if(art ==null || !artS.existUser(art.getUser_id())) {
+			model.addAttribute("noArt", "指定された記事は存在しません");
+			return "15art";
+		}
+
 		//記事ページに情報渡す
 		model.addAttribute("art", art);
+		model.addAttribute("form", art);
 
 		return "50artUnlogin";
 	}
@@ -89,10 +100,11 @@ public class ArtController {
 
         return "16all_postArt";
     }
+
 	@RequestMapping(value="/16all_postArt", method = RequestMethod.POST)
     public String postArtLogin(@ModelAttribute("form") Post post,
     		@RequestParam("user_id") Integer user_id,
-    		@RequestParam("user_name") String user_name, Model model) {
+    		@RequestParam(value ="user_name" ,required = false) String user_name, Model model) {
 
     	List <Article> list = artS.getAllArt(user_id);
     	model.addAttribute("list", list);
@@ -106,7 +118,8 @@ public class ArtController {
     @RequestMapping(value="/52all_postArtUnlogin", method = RequestMethod.POST)
     public String postArtUnlogin(@ModelAttribute("form") Post post,
     		@RequestParam("user_id") Integer user_id,
-    		@RequestParam("user_name") String user_name, Model model) {
+    		@RequestParam(value ="user_name" ,required = false) String user_name,
+    		Model model) {
 
     	List <Article> list = artS.getAllArt(user_id);
     	model.addAttribute("list", list);
@@ -116,6 +129,23 @@ public class ArtController {
 
         return "16all_postArt";
     }
+
+    @RequestMapping(value="/52all_postArtUnlogin", method = RequestMethod.GET)
+    public String postArtUnloginG(@ModelAttribute("form") Post post,
+    		@RequestParam("user_id") Integer user_id,
+    		Model model) {
+
+    	List <Article> list = artS.getAllArt(user_id);
+
+    	model.addAttribute("list", list);
+    	Users users = usersDao.findById(user_id);
+    	model.addAttribute("name", users.getName());
+    	post.setUser_id(user_id);
+    	model.addAttribute("form", post);
+
+        return "52all_postArtUnlogin";
+    }
+
 
 
 }

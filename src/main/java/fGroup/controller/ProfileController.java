@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import fGroup.dto.Profile;
@@ -37,21 +38,27 @@ public class ProfileController {
 	}
 
 	@RequestMapping(value="/22profile", method=RequestMethod.POST)
-	public String profile(@ModelAttribute("form") ProfileForm form) {
-		Integer user_id = form.getUser_id();
+	public String profile(@ModelAttribute("form") ProfileForm form,
+			@RequestParam("user_id") Integer user_id, Model model) {
+//		Integer user_id = form.getUser_id();
 		Profile profile = profileService.FindById(user_id);
 
 		session.setAttribute("Profile", profile);
+		model.addAttribute("user_id", profile.getUser_id());
+		model.addAttribute("user_name", profile.getName());
 
 		return "22profile";
 	}
 
 	@RequestMapping(value="/51profileUnlogin", method=RequestMethod.POST)
-	public String profileU(@ModelAttribute("form") ProfileForm form) {
-		Integer user_id = form.getUser_id();
+	public String profileU(@ModelAttribute("form") ProfileForm form,
+			@RequestParam("user_id") Integer user_id,Model model) {
+//		Integer user_id = form.getUser_id();
 		Profile profile = profileService.FindById(user_id);
 
 		session.setAttribute("Profile", profile);
+		model.addAttribute("user_id", profile.getUser_id());
+		model.addAttribute("user_name", profile.getName());
 
 		return "51profileUnlogin";
 	}
