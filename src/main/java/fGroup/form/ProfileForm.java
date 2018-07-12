@@ -1,5 +1,7 @@
 package fGroup.form;
 
+import javax.validation.constraints.Size;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProfileForm {
@@ -11,6 +13,7 @@ public class ProfileForm {
 	private Integer birthmonth;
 	private Integer birthday;
 	private String hobby;
+	@Size(max = 300,message="自己紹介の文字数が多すぎます。300文字以内で入力してください。")
 	private String self_introduction;
 	private Integer user_id;
 
