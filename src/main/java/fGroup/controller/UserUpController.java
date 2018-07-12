@@ -31,6 +31,10 @@ public class UserUpController {
 
 	@RequestMapping(value = "/19userinfoUpdate")
 	public String update(@ModelAttribute("form") UserUpForm form, Model model) {
+		Users user = (Users)session.getAttribute("user");
+		form.setNewName(user.getName());
+		form.setNewEmail(user.getEmail_address());
+		model.addAttribute("form", form);
 		return "19userinfoUpdate";
 	}
 

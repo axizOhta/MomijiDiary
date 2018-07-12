@@ -67,13 +67,21 @@
 					<br>
 					<div class="a_">
 						<div class="a_sukima">
-							<label for="title" class="a_midashi">名前</label><br>
+							<label for="title" class="a_midashi">名前</label>
+							<c:if test="${not empty errmsg}">
+								<p class="a_denger">${fn:escapeXml(errmsg)}</p>
+							</c:if>
+							<form:errors path="name" cssStyle="color: red"/><br>
 							<form:input class="form-control input-lg" id="name" path="name"
 								placeholder="${beforeProfile.name}" />
 							<br> <label for="title" class="a_midashi">誕生日<span
 								class="a_denger">※半角数字</span></label><br>
 							<div class="row">
+							<c:if test="${not empty errBirth}">
+								<p class="a_denger">  ${fn:escapeXml(errBirth)}</p>
+							</c:if>
 								<div class="col-lg-6">
+
 									<form:input path="birthyear" class="form-control input-lg"
 										min="0" max="4" placeholder="${beforeProfile.birthyear}" />
 									<label class="h4">年</label>
@@ -106,6 +114,7 @@
 							<br>
 							<div class="a_sukima">
 								<label for="title" class="a_midashi">自己紹介(300字)</label><br>
+								<form:errors path="self_introduction" cssStyle="color: red"/><br>
 								<form:textarea class="form-control input-lg" id="name"
 									path="self_introduction"
 									placeholder="${beforeProfile.self_introduction}" />
