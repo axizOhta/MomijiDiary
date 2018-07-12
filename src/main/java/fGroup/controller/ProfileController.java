@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import fGroup.dto.Profile;
 import fGroup.dto.Users;
 import fGroup.form.ProfileForm;
+import fGroup.service.DateModifiedService;
 import fGroup.service.ProfileService;
 
 @Controller
@@ -26,6 +27,9 @@ public class ProfileController {
 
 	@Autowired
 	ProfileService profileService;
+
+	@Autowired
+	DateModifiedService DMS;
 
 	@RequestMapping(value="/45myPro")
 	public String myPro(Model model) {
@@ -105,6 +109,8 @@ public class ProfileController {
 		profileService.update(updateProfile, beforeProfile);
 
 		Profile newProfile = profileService.FindById(user_id);
+
+		DMS.dateModified(user_id);
 
 		session.setAttribute("newProfile", newProfile);
 
