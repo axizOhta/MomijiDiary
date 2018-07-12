@@ -78,6 +78,25 @@ public class ArtPostEditDeleteController {
 			MultipartFile image03 = post.getImage3();
 			MultipartFile image04 = post.getImage4();
 
+			String image01path = "";
+			String image02path = "";
+			String image03path = "";
+			String image04path = "";
+
+			if(image01.getSize() >= 5242880) {
+				model.addAttribute("msg", "画像①のファイルサイズが大きすぎます。");
+				return "06post";
+			}else if(image02.getSize() >= 5242880) {
+				model.addAttribute("msg", "画像②のファイルサイズが大きすぎます。");
+				return "06post";
+			}else if(image03.getSize() >= 5242880) {
+				model.addAttribute("msg", "画像③のファイルサイズが大きすぎます。");
+				return "06post";
+			}else if(image04.getSize() >= 5242880) {
+				model.addAttribute("msg", "画像④のファイルサイズが大きすぎます。");
+				return "06post";
+			}
+
 			String file01 = image01.getOriginalFilename();
 			String file02 = image02.getOriginalFilename();
 			String file03 = image03.getOriginalFilename();
@@ -86,28 +105,27 @@ public class ArtPostEditDeleteController {
 			if(!(file01.equals(""))){
 				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file01);
 				image01.transferTo(path.toFile());
+				image01path = "/article/images/"+file01;
 			}else {
 			}
 			if(!(file02.equals(""))){
 				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file02);
 				image02.transferTo(path.toFile());
+				image02path = "/article/images/"+file02;
 			}else {
 			}
 			if(!(file03.equals(""))){
 				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file03);
 				image03.transferTo(path.toFile());
+				image03path = "/article/images/"+file03;
 			}else {
 			}
 			if(!(file04.equals(""))){
 				Path path = Paths.get("C:\\pleiades\\pleiades\\workspace\\MapleDiary\\src\\main\\resources\\static\\article\\images", file04);
 				image04.transferTo(path.toFile());
+				image04path = "/article/images/"+file04;
 			}else {
 			}
-
-			String image01path = "/article/images/"+file01;
-			String image02path = "/article/images/"+file02;
-			String image03path = "/article/images/"+file03;
-			String image04path = "/article/images/"+file04;
 
 			session.setAttribute("upload01", image01path);
 			session.setAttribute("upload02", image02path);
@@ -221,6 +239,20 @@ public class ArtPostEditDeleteController {
 			MultipartFile image02 = post.getImage2();
 			MultipartFile image03 = post.getImage3();
 			MultipartFile image04 = post.getImage4();
+
+			if(image01.getSize() >= 5242880) {
+				model.addAttribute("msg", "画像①のファイルサイズが大きすぎます。");
+				return "10edit";
+			}else if(image02.getSize() >= 5242880) {
+				model.addAttribute("msg", "画像②のファイルサイズが大きすぎます。");
+				return "10edit";
+			}else if(image03.getSize() >= 5242880) {
+				model.addAttribute("msg", "画像③のファイルサイズが大きすぎます。");
+				return "10edit";
+			}else if(image04.getSize() >= 5242880) {
+				model.addAttribute("msg", "画像④のファイルサイズが大きすぎます。");
+				return "10edit";
+			}
 
 			String image01path = "";
 			String image02path = "";
