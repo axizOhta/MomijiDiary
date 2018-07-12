@@ -21,8 +21,8 @@ import fGroup.dao.UsersDao;
 import fGroup.dto.Profile;
 import fGroup.dto.Users;
 import fGroup.form.ProfileForm;
-import fGroup.service.DateModifiedService;
 import fGroup.form.ProfileFormConfirm;
+import fGroup.service.DateModifiedService;
 import fGroup.service.ProfileService;
 
 @Controller
@@ -63,9 +63,8 @@ public class ProfileController {
 	}
 
 	@RequestMapping(value="/51profileUnlogin", method=RequestMethod.POST)
-	public String profileU(@ModelAttribute("form") ProfileForm form) {
-		//Integer user_id = (Integer)session.getAttribute("tempId");
 	public String profileU(@ModelAttribute("form") ProfileForm form,
+		//Integer user_id = (Integer)session.getAttribute("tempId");
 			@RequestParam("user_id") Integer user_id,Model model) {
 //		Integer user_id = form.getUser_id();
 		Profile profile = profileService.FindById(user_id);
