@@ -127,7 +127,7 @@ public class ArtController {
     	post.setUser_id(user_id);
     	model.addAttribute("form", post);
 
-        return "16all_postArt";
+        return "52all_postArtUnlogin";
     }
 
     @RequestMapping(value="/52all_postArtUnlogin", method = RequestMethod.GET)

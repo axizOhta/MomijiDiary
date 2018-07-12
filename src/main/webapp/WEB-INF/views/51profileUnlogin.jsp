@@ -98,11 +98,12 @@
 
 				<div>
 
-					<div class="a_return">
-						<input type="submit" class="btn btn-info btn-lg btn-block"
-							name="button" value="基本ページに戻る"
-							onclick="location.href='05mypage'; return false;">
-					</div>
+			<div class="a_">
+				<br> <br> <input type="submit" class="btn btn-primary btn-lg  btn-block" name="button" value="トップページに戻る" onclick="location.href='47Top'; return false;">
+				<br> <input type="submit"
+					class="btn btn-info btn-lg  btn-block" name="button" value="新規登録"
+					onclick="location.href='25userinsert'; return false;">
+			</div>
 				</div>
 			</div>
 		</div>
