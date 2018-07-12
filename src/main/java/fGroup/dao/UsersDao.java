@@ -28,6 +28,19 @@ public class UsersDao {
 		return (Users) list.get(0);
 	}
 
+	public Users findById(Integer id) {
+
+		List<Users> list = jdbcTemplate.query
+				("SELECT user_id, login_id, name, email_address, password, entry_date, last_update_date, unsubscribe_flug"
+						+ " FROM users "
+						+ "WHERE user_id = ? AND unsubscribe_flug = false" ,
+						new BeanPropertyRowMapper<Users>(Users.class), id);
+		if(list.size()==0) {
+			return null;
+		}
+		return (Users) list.get(0);
+	}
+
 	public Users findByPass(String newpassword) {
 		List<Users> list = jdbcTemplate.query
 				("SELECT user_id, login_id, name, email_address, password, entry_date, last_update_date, unsubscribe_flug"

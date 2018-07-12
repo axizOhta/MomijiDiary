@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +52,9 @@
 				<img src="${Profile.profile_image}" alt="">
 			</div>
 			<div class="a_">
-				<form action="16all_postArt">
+				<form action="52all_postArtUnlogin" method="post">
+					<input type="hidden"name="user_id" value="${user_id}" />
+					<input type="hidden"name="user_name" value="${user_name}" />
 					<input type="submit" class="btn btn-warning btn-lg btn-block"
 						value="記事を見る">
 				</form>
@@ -95,11 +98,12 @@
 
 				<div>
 
-					<div class="a_return">
-						<input type="submit" class="btn btn-info btn-lg btn-block"
-							name="button" value="基本ページに戻る"
-							onclick="location.href='05mypage'; return false;">
-					</div>
+			<div class="a_">
+				<br> <br> <input type="submit" class="btn btn-primary btn-lg  btn-block" name="button" value="トップページに戻る" onclick="location.href='47Top'; return false;">
+				<br> <input type="submit"
+					class="btn btn-info btn-lg  btn-block" name="button" value="新規登録"
+					onclick="location.href='25userinsert'; return false;">
+			</div>
 				</div>
 			</div>
 		</div>

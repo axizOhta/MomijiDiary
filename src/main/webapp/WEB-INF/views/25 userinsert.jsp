@@ -52,10 +52,10 @@
 <p><span class="a_denger">※ひらがな、カタカナ、漢字、英数字で4文字以上10文字以内</span></p>
 <p><span class="a_denger">※名前と同じにはできません</span></p>
 <c:if test="${not empty sameerr}">
-  <p class="error">${fn:escapeXml(sameerr)}</p>
+  <p class="a_denger">${fn:escapeXml(sameerr)}</p>
 </c:if>
 <c:if test="${not empty alrderr}">
-  <p class="error">${fn:escapeXml(alrderr)}</p>
+  <p class="a_denger">${fn:escapeXml(alrderr)}</p>
 </c:if>
 <br>
 <form:input class="form-control input-lg" path="login_id"/>
@@ -66,7 +66,7 @@
 <label class="h2">メールアドレス</label>
 <br>
 <c:if test="${not empty alryerr}">
-  <p class="error">${fn:escapeXml(alryerr)}</p>
+  <p class="a_denger">${fn:escapeXml(alryerr)}</p>
 </c:if>
 <form:input class="form-control input-lg" path="email_address"/>
 <form:errors path="email_address" cssStyle="color: red"/>
@@ -77,7 +77,7 @@
 <p><span class="a_denger">※半角英数字4文字以上10文字以下</span></p>
 <br>
 <c:if test="${not empty nhlferr}">
-  <p class="error">${fn:escapeXml(nhlferr)}</p>
+  <p class="a_denger">${fn:escapeXml(nhlferr)}</p>
 </c:if>
 <form:password class="form-control input-lg" path="password"/>
 <form:errors path="password" cssStyle="color: red"/>
